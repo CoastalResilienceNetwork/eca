@@ -2,8 +2,8 @@
 define(["dojo/_base/declare", "framework/PluginBase"],
     function (declare, PluginBase) {
         return declare(PluginBase, {
-            toolbarName: "Identify Point",
-            fullName: "Identify point sample plugin",
+            toolbarName: "ECA Tool",
+            fullName: "Dev ECA Tool",
             infoGraphic: "sample_plugins/identify_point/splash.png",
             allowIdentifyWhenActive: true,
             resizable: false,
