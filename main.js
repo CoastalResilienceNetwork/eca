@@ -54,68 +54,41 @@ define([
         "dojo/_base/lang",
         "dojo/query",
         "use!underscore", 
-        "./app",
-        "dojo/text!plugins/coastal_defense/cd_region.json",
-        "dojo/text!plugins/coastal_defense/cd_interface.json"
+        "./app"
        ],
-       function (declare, PluginBase, $, parser, registry, domClass, domStyle, lang, query, _, cd, configFile, interfaceConfigFile) {
+       function (declare, PluginBase, $, parser, registry, domClass, domStyle, lang, query, _, eca) {
            return declare(PluginBase, {
-               toolbarName: "Coastal Defense",
+               toolbarName: "ECA Tool",
                toolbarType: "sidebar",
                resizable: false,
                showServiceLayersInLegend: true,
                allowIdentifyWhenActive: false,
-               infoGraphic: "plugins/coastal_defense/CoastalDefense_c.jpg",
-               pluginDirectory: "plugins/coastal_defense",
-               width: 835,
+               infoGraphic: "",
+               pluginDirectory: "plugins/eca",
+               width: 625,
                height: 625,
                
                
                activate: function () {
-                    /*if(this.cdTool.parameters.windowOpen == true){
-                        if (registry.byId('cd_profileLocationsCheckbox')) {
-                        console.log(registry.byId('cd_profileLocationsCheckbox'));
-                        registry.byId("cd_profileLocationsCheckbox").checked ? this.cdTool.profileLandPoints.show() : this.cdTool.profileLandPoints.hide() ;    
-                        registry.byId("cd_marshExtentCheckbox").checked ? this.cdTool.marshLayer.show() : this.cdTool.marshLayer.hide() ;   
-                        registry.byId("cd_dikeCheckbox").checked ? this.cdTool.dikeLayer.show() : this.cdTool.dikeLayer.hide() ;        
-                        registry.byId("cd_elevationCheckbox").checked ? this.cdTool.contours.show() : this.cdTool.contours.hide() ;
-                        }                       
-                    }*/
                     self = this;
                     var showInfoGraphic = localStorage.getItem(this.toolbarName + " showinfographic");
                     if (( showInfoGraphic === "true") || (showInfoGraphic == null)) {
                        var pluginId = this.container.parentNode.parentNode.id;
                        var introPanelButton = dojo.query("#" + pluginId + " .plugin-infographic  [widgetid*='Button']")[0];
                        dojo.connect(introPanelButton, "onclick", function() {
-                            self.cdTool.showTool(self.cdTool);
+                            self.ecaTool.showTool(self.ecaTool);
                        });
                     } else {
-                        this.cdTool.showTool(this.cdTool);
+                        this.ecaTool.showTool(this.ecaTool);
                     }
-                    //t = this.cdTool
+                    //t = this.ecaTool
                },
                
                deactivate: function () { 
                
                },
                
-               hibernate: function () { 
-
-                    /* if (this.cdTool.mangroveLayer) {
-                        this.cdTool.mangroveLayer.hide();
-                    }
-                    if (this.cdTool.reefLayer) {
-                        this.cdTool.reefLayer.hide();
-                    } */
-                    if (this.cdTool.profileTransect){
-                        this.cdTool.profileTransect.hide();
-                    }
-                    if (this.cdTool.profilePolygon){
-                        this.cdTool.profilePolygon.hide();
-                    }
-                    if (this.cdTool.habitatLayer){
-                        this.cdTool.habitatLayer.hide();
-                    }
+               hibernate: function () {
                          
                },
                
@@ -126,8 +99,8 @@ define([
                    };
                    self = this;
                    domClass.add(this.container, "claro");
-                   this.cdTool = new cd(this, configFile, interfaceConfigFile);
-                   this.cdTool.initialize(this.cdTool);
+                   this.ecaTool = new eca(this);
+                   this.ecaTool.initialize(this.ecaTool);
                },
                    
                getState: function () {
@@ -138,7 +111,7 @@ define([
                 
                setState: function (state) { 
                     
-                    //this.cdTool.parameters = state;
+                    //this.ecaTool.parameters = state;
                     
                },
                
