@@ -71,16 +71,16 @@ define([
                
                activate: function () {
                     self = this;
-                    var showInfoGraphic = localStorage.getItem(this.toolbarName + " showinfographic");
+/*                    var showInfoGraphic = localStorage.getItem(this.toolbarName + " showinfographic");
                     if (( showInfoGraphic === "true") || (showInfoGraphic == null)) {
                        var pluginId = this.container.parentNode.parentNode.id;
                        var introPanelButton = dojo.query("#" + pluginId + " .plugin-infographic  [widgetid*='Button']")[0];
                        dojo.connect(introPanelButton, "onclick", function() {
                             self.ecaTool.showTool(self.ecaTool);
                        });
-                    } else {
+                    } else {*/
                         this.ecaTool.showTool(this.ecaTool);
-                    }
+                    //}
                     //t = this.ecaTool
                },
                
@@ -100,6 +100,7 @@ define([
                    self = this;
                    domClass.add(this.container, "claro");
                    this.ecaTool = new eca(this);
+                   ecaTool = this.ecaTool;
                    this.ecaTool.initialize(this.ecaTool);
                },
                    

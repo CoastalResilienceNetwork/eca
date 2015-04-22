@@ -59,9 +59,7 @@ define([
 		"dojo/fx/easing",
 		"dojo/number",
 		"dijit/ProgressBar",
-		
-
-		//"esri/request",
+		"esri/request",
 		"esri/layers/FeatureLayer",
 		"esri/layers/ArcGISDynamicMapServiceLayer"
 		], 
@@ -115,6 +113,7 @@ define([
 			Chart,
 			Default,
 			Lines,
+			Columns,
 			StackedLines,
 			StackedAreas,
 			Areas,
@@ -125,10 +124,9 @@ define([
 			easing,
 			number,
 			ProgressBar,
-			
-			//ESRIRequest,
+			ESRIRequest,
 			FeatureLayer,
-			ArcGISDynamicMapServiceLayer
+			DynamicMapServiceLayer
 		  ) 
 		
 		{
@@ -168,34 +166,11 @@ define([
 				//this.parameters.debug = this._interface.debug;				
 				this.parameters.layersLoaded = false;
 				this.loadInterface(this);
-
-				dojo.connect(dojo.query('#' + this._container.parentNode.parentNode.id + ' .plugin-container-header')[0], 'onmousedown', function() {
-					popup.close(self.chooseRegionButtonTooltip);
-					popup.close(self.chooseProfileButtonTooltip);
-					popup.close(self.chooseHabitatButtonTooltip);
-				});
 				
 			}
 
 			this.showTool = function(){
-
-				if (!this.profileChart) {
-					//this.addInterfaceTooltips();
-
-					var blankData = []
-					var range = 2000 
-					for (var i = 0; i <= range; i++) {
-						blankData.push ({ "x": i-(range/2), "y": -100 });
-					}
-					/*this.createProfileChart(blankData, this);
-					this.createProfileChartSlider(blankData,this);
-					
-					this.createResultsChart(blankData, this);*/
-					
-					this.parameters.windowOpen = true;
-					
-				}
-				this.initialize();
+				//this.initialize();
 
 			} //end this.showTool
 			
@@ -347,14 +322,13 @@ define([
 			    //add container to DOM
 			    dom.byId(this._container).appendChild(this.tc.domNode);
 
-			    this.exposureInputsDiv = this.createExposureInputs(this);
-			    this.chartsDiv = this.createCharts(this);
+			    this.createExposureInputs();
+			    this.createCharts();
 				
 				domStyle.set(this.tc, "width", "100%");
 			}
 			
 			this.createExposureInputs = function(){
-				var self = this;
 				var regionUnitsPanel = new TitlePane({
 			    	title: 'Parameters',
 			    	toggleable: false,
@@ -387,8 +361,6 @@ define([
 
 				yearSliderLabel = domConstruct.create("div", {innerHTML: "<p><br><br><b>Choose a year</b></p>"});
 				this.cpTop.domNode.appendChild(yearSliderLabel);
-				self.chart = this.chart;
-				self.chartData = this.chartData;
 				var yearSlider = new HorizontalSlider({
 			        name: "yearSlider",
 			        value: 2010,
@@ -401,28 +373,37 @@ define([
 			           this.value = value;
 			           //log the value for debugging purposes
 			           console.log(this.value);
+			           var chartData = [];
+			           var visibleLayers = [];
 
 			           //replace with api call
 			           switch(value){
 			           		case 2010:
-			           			self.chartData = [6540,9200,13000,11000,6000,12000,11245,12222,12500,10300,11600,14000];
-			           			//console.log(self.chartData);
+			           			chartData = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:10009},{x:6, y:11288},{x:7, y:12099}, {x:8, y:11000}];
+			           			visibleLayers = [7];
 			           			break;
 			           		case 2030:
-			           			self.chartData = [6540,9200,13000,11000,6000,12000,11245];
-			           			//console.log(self.chartData); 
+			           			chartData = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:10009},{x:6, y:11288},{x:7, y:11000}, {x:8, y:25000}];
+			           			visibleLayers = [8];
 			           			break;
 			           		case 2050:
-			           			self.chartData = [6540,9200,13000,11000,6000];
-			           			//console.log(self.chartData);
+			           			chartData = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:10009},{x:6, y:11288},{x:7, y:12099}, {x:8, y:25000}, {x:9, y:2300}];
+			           			visibleLayers = [9];
 			           			break;
 			           		default:
-			           			self.chartData = [6540,9200,13000,11000,6000,12000,11245,12222,12500,10300,11600,14000];
-			           			//console.log(self.chartData);
+			           			chartData = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:11000},{x:6, y:11288},{x:7, y:12099}, {x:8, y:25000}];
+			           			visibleLayers = [-1];
 			           			break;
 			           }
 
-			          self.updateChart(self);
+			          //self.updateChart();
+       				  console.log(self.chart1);
+			          self.updateChart(chartData);
+
+			          self.chartLayer.setVisibleLayers(visibleLayers);
+			          console.log(self.chartLayer);
+			          self.chartLayer.show();
+			          
 			        }
 			    });
 			    this.cpTop.addChild(yearSlider);
@@ -437,30 +418,32 @@ define([
 			}
 
 			this.createCharts = function(){
-				var self = this;
+				//var self = this;
+				console.log('create chart');
 				chartLabelNode = domConstruct.create("div", {innerHTML: "<p><br><br><b>Results/Data</b></p>"});
 				this.cpTop.domNode.appendChild(chartLabelNode);
-				chartNode1 = domConstruct.create("div");
-				chartNode2 = domConstruct.create("div");
-				this.cpTop.domNode.appendChild(chartNode1);
-				this.cpTop.domNode.appendChild(chartNode2);
+				this.chartNode1 = domConstruct.create("div");
+				this.chartNode2 = domConstruct.create("div");
+				this.cpTop.domNode.appendChild(this.chartNode1);
+				this.cpTop.domNode.appendChild(this.chartNode2);
 				// Define the data
-			    this.chartData1 = [10000,9200,11811,12000,7662,13887,14200,12222,12000,10009,11288,12099, 25000];
+			    this.chartData1 = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:10009},{x:6, y:11288},{x:7, y:12099}, {x:8, y:25000}];
 			 
 			    // Create the chart within it's "holding" node
-			    this.chart1 = new Chart(chartNode1);
+			    this.chart1 = new Chart(this.chartNode1);
+			   
 			 
 			    // Add the only/default plot
 			    this.chart1.addPlot("growth", {
 			        type: "Columns",
 			        markers: true,
 			        gap: 5,
-			        animate: {duration: 1800}
+			        animate: {duration: 1000}
 			    });
 			 
 			    // Add axes
-			    this.chart1.addAxis("x");
-			    this.chart1.addAxis("y", { vertical: true, fixLower: "major", fixUpper: "major" });
+			    this.chart1.addAxis("x", {htmlLabels: false});
+			    this.chart1.addAxis("y", { vertical: true, fixLower: "major", fixUpper: "major", htmlLabels: false });
 			 
 			    // Add the series of data
 			    this.chart1.addSeries("Economic Growth Scenarios", this.chartData1, {
@@ -468,46 +451,28 @@ define([
 			    	stroke: { color: "#1C4A85", width: 5, cap: "round", join: "round"  }
 			    });
 			 
-			    // Render the chart!
+			    // Render the chart
 			    this.chart1.render();
 
-			    // Define the data
-			    this.chartData2 = [13887,14200,12222,12000,10009,11288,12099, 25000];
-			 
-			    // Create the chart within it's "holding" node
-			    this.chart2 = new Chart(chartNode2);
-			 
-			    // Add the only/default plot
-			    this.chart2.addPlot("growth", {
-			        type: "Columns",
-			        markers: true,
-			        gap: 5,
-			        animate: {duration: 1800}
-			    });
-			 
-			    // Add axes
-			    this.chart2.addAxis("x");
-			    this.chart2.addAxis("y", { vertical: true, fixLower: "major", fixUpper: "major" });
-			 
-			    // Add the series of data
-			    this.chart2.addSeries("Economic Growth Scenarios", this.chartData2, {
-			    	plot: "growth",
-			    	stroke: { color: "#1C4A85", width: 5, cap: "round", join: "round"  }
-			    });
-			 
-			    // Render the chart!
-			    this.chart2.render();
+			    //initialize an empty dynamic map service layer
+			    var chartLayerUrl = 'http://dev.services2.coastalresilience.org:6080/arcgis/rest/services/Cost_Benefit/Cost_Benefit/MapServer';
+	          	console.log(self._map);
+	          	this.chartLayer = new DynamicMapServiceLayer(chartLayerUrl);
+	          	console.log(self.chartLayer);
+	          	this._map.addLayer(self.chartLayer);
+	          	self.chartLayer.setVisibleLayers([-1]);
 			}
 
-			this.updateChart = function(self){
-				console.log(self.chart1.series[0].data);
-				console.log(self.chartData);
-				self.chart1.updateSeries("Economic Growth Scenarios", self.chartData);
-				console.log(self.chart1.series[0].data);
+			this.updateChart = function(chartData){
+				//console.log(self.chart1.series[0].data);
+				//console.log(self.chart1);
+				self.chart1.updateSeries("Economic Growth Scenarios", chartData);
+				//console.log(self.chart1.series[0].data);
     			self.chart1.render();
 			}
 
-		} ;// End cdTool
+
+		};// End cdTool
 
 		
 		return ecaTool;	
