@@ -234,7 +234,7 @@ define([
 			    this.tc.addChild(this.tabExposure);
 				
 				//THE DAMAGES PANEL
-			    this.tabResults = new ContentPane({
+			    this.tabDamages = new ContentPane({
 			         title: "Damages",
 					 style: "position:relative;width:625px;height:553px;overflow:hidden;",
 					 isLayoutContainer: true,
@@ -243,9 +243,9 @@ define([
 						//placeholder function, performs a couple checks in CD
 					 }
 			    });
-				this.tabResults.startup();
+				this.tabDamages.startup();
 				//append results tab to main tabContainer
-			    this.tc.addChild(this.tabResults);
+			    this.tc.addChild(this.tabDamages);
 
 			    //THE MEASURES PANEL
 			    this.tabMeasures = new ContentPane({
@@ -296,7 +296,7 @@ define([
 			    this.cpBottom.startup();
 				
 				//add elements as children of inputs tab
-			    this.tabExposure.addChild(this.cpTop);
+			    this.tabDamages.addChild(this.cpTop);
 				//this.tabExposure.addChild(this.cpBottom);
 				
 				this.habitatTitlePaneDiv = new ContentPane({
@@ -322,47 +322,106 @@ define([
 			    //add container to DOM
 			    dom.byId(this._container).appendChild(this.tc.domNode);
 
-			    this.createExposureInputs();
+			    this.createDamagesInputs();
 			    this.createCharts();
 				
 				domStyle.set(this.tc, "width", "100%");
 			}
 			
-			this.createExposureInputs = function(){
-				var regionUnitsPanel = new TitlePane({
+			this.createDamagesInputs = function(){
+				var parameters = new TitlePane({
 			    	title: 'Parameters',
 			    	toggleable: false,
 			    });
-				this.cpTop.addChild(regionUnitsPanel);
 
-				growthSliderLabel = domConstruct.create("div", {innerHTML: "<p><b>Choose a Growth/Change Scenario</b></p>"});
-				this.cpTop.domNode.appendChild(growthSliderLabel);
+			    this.cpMain.startup();
 
-				var growthSlider = new HorizontalSlider({
-			        name: "growthSlider",
-			        value: 1,
-			        minimum: 1,
-			        maximum: 4,
-			        discreteValues: 4,
-			        showButtons: false,
-			        style: "width:500px;",
-			        onChange: function(value){
-			           this.value = value;
-			        }
-			    });
-			    this.cpTop.addChild(growthSlider);
+				econContainer = domConstruct.create("div", {innerHTML: "<p><b>Flood Risk - Select Inputs</b></p>"});
+				this.cpTop.domNode.appendChild(econContainer);
 
-			    var growthSliderLabels = new HorizontalRuleLabels({
-			    	container: 'bottomDecoration',
-			    	count: 4,
-			    	labels: ['LE/LCC', 'HE/LCC', 'LE/HCC', 'HE/HCC']
-			    });
-			    growthSlider.addChild(growthSliderLabels);
+				growthContainer = domConstruct.create("div", {style: 'width: 200px; display: inline-block;', innerHTML: "<p><b>Economic Growth Scenario:</b></p>"});
+				this.cpTop.domNode.appendChild(growthContainer);
 
-				yearSliderLabel = domConstruct.create("div", {innerHTML: "<p><br><br><b>Choose a year</b></p>"});
-				this.cpTop.domNode.appendChild(yearSliderLabel);
-				var yearSlider = new HorizontalSlider({
-			        name: "yearSlider",
+				defenseContainer = domConstruct.create("div", {style: 'width: 200px; display: inline-block;', innerHTML: "<p><b>Defense Scenario:</b></p>"});
+				this.cpTop.domNode.appendChild(defenseContainer);
+
+				var growthDropdown = new DropDownMenu({ style: "display: none;"});
+				domClass.add(growthDropdown.domNode, "claro");
+				
+				var menuItem1 = new MenuItem({
+					label: 'High',
+					onClick: function(){
+						self.comboButtonEconomy.set("label", this.label);
+						self.getInputValues();
+					}
+				});
+
+				var menuItem2 = new MenuItem({
+					label: 'Low',
+					onClick: function(){
+						self.comboButtonEconomy.set("label", this.label);
+						self.getInputValues();
+					}
+				});
+
+				growthDropdown.addChild(menuItem1);
+				growthDropdown.addChild(menuItem2);
+
+				this.comboButtonEconomy = new ComboButton({
+					label: "Economic Growth Scenario",
+					name: "growth",
+					style: "width: 200px; display: inline-block;",
+					dropDown: growthDropdown
+				});
+			
+				this.cpTop.domNode.appendChild(this.comboButtonEconomy.domNode);
+				//this.cpTop.addChild(growthDropdown);
+
+				var defenseDropdown = new DropDownMenu({ style: "display: none;"});
+				domClass.add(defenseDropdown.domNode, "claro");
+				
+				var defenseMenuItem1 = new MenuItem({
+					label: 'None',
+					onClick: function(){
+						self.comboButtonDefense.set("label", this.label);
+						self.getInputValues();
+					}
+				});
+
+				var defenseMenuItem2 = new MenuItem({
+					label: 'High',
+					onClick: function(){
+						self.comboButtonDefense.set("label", this.label);
+						self.getInputValues();
+					}
+				});
+
+				var defenseMenuItem3 = new MenuItem({
+					label: 'Low',
+					onClick: function(){
+						self.comboButtonDefense.set("label", this.label);
+						self.getInputValues();
+					}
+				});
+
+				defenseDropdown.addChild(defenseMenuItem1);
+				defenseDropdown.addChild(defenseMenuItem2);
+    			defenseDropdown.addChild(defenseMenuItem3);
+
+				this.comboButtonDefense = new ComboButton({
+					label: "Defense Scenario",
+					name: "defense",
+					style: "width: 200px; display: inline-block;",
+					dropDown: defenseDropdown
+				});
+			
+				this.cpTop.domNode.appendChild(this.comboButtonDefense.domNode);
+				//this.cpTop.addChild(defenseDropdown);
+
+				assetYearSliderLabel = domConstruct.create("div", {innerHTML: "<p><br><br><b>Choose a year for asset values</b></p>"});
+				this.cpTop.domNode.appendChild(assetYearSliderLabel);
+				this.assetYearSlider = new HorizontalSlider({
+			        name: "assetYearSlider",
 			        value: 2010,
 			        minimum: 2010,
 			        maximum: 2050,
@@ -370,50 +429,59 @@ define([
 			        showButtons: false,
 			        style: "width:500px;",
 			        onChange: function(value){
-			           this.value = value;
-			           //log the value for debugging purposes
-			           console.log(this.value);
+			           //this.value = value;
+			           self.getInputValues();
+			           
+			           /*console.log(this.value);
 			           var chartData = [];
 			           var visibleLayers = [];
 
-			           //replace with api call
-			           switch(value){
-			           		case 2010:
-			           			chartData = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:10009},{x:6, y:11288},{x:7, y:12099}, {x:8, y:11000}];
-			           			visibleLayers = [7];
-			           			break;
-			           		case 2030:
-			           			chartData = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:10009},{x:6, y:11288},{x:7, y:11000}, {x:8, y:25000}];
-			           			visibleLayers = [8];
-			           			break;
-			           		case 2050:
-			           			chartData = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:10009},{x:6, y:11288},{x:7, y:12099}, {x:8, y:25000}, {x:9, y:2300}];
-			           			visibleLayers = [9];
-			           			break;
-			           		default:
-			           			chartData = [{x:1, y:13887},{x:2, y:14200},{x:3, y:12222},{x:4, y:12000},{x:5, y:11000},{x:6, y:11288},{x:7, y:12099}, {x:8, y:25000}];
-			           			visibleLayers = [-1];
-			           			break;
-			           }
-
+			       
 			          //self.updateChart();
        				  console.log(self.chart1);
-			          self.updateChart(chartData);
+			          self.updateChart(chartData);*/
 
-			          self.chartLayer.setVisibleLayers(visibleLayers);
-			          console.log(self.chartLayer);
-			          self.chartLayer.show();
 			          
 			        }
 			    });
-			    this.cpTop.addChild(yearSlider);
+			    this.cpTop.addChild(this.assetYearSlider);
 
-			    var yearSliderLabels = new HorizontalRuleLabels({
+			    var assetYearSliderLabels = new HorizontalRuleLabels({
 			    	container: 'bottomDecoration',
 			    	count: 3,
 			    	labels: ['2010', '2030', '2050']
 			    });
-			    yearSlider.addChild(yearSliderLabels);
+			    this.assetYearSlider.addChild(assetYearSliderLabels);
+
+			    climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<p><br><br><b>Choose a year for climate data</b></p>"});
+				this.cpTop.domNode.appendChild(climateYearSliderLabel);
+				this.climateYearSlider = new HorizontalSlider({
+			        name: "climateYearSlider",
+			        value: 2010,
+			        minimum: 2010,
+			        maximum: 2050,
+			        discreteValues: 3,
+			        showButtons: false,
+			        style: "width:500px;",
+			        onChange: function(value){
+			          /* this.value = value;
+			           //log the value for debugging purposes
+			           console.log(this.value);
+			           var chartData = [];
+			           var visibleLayers = [];
+*/
+			           //replace with api call
+			           self.getInputValues();
+			        }
+			    });
+			    this.cpTop.addChild(this.climateYearSlider);
+
+			    var climateYearSliderLabels = new HorizontalRuleLabels({
+			    	container: 'bottomDecoration',
+			    	count: 3,
+			    	labels: ['2010', '2030', '2050']
+			    });
+			    this.climateYearSlider.addChild(climateYearSliderLabels);
 
 			}
 
@@ -453,14 +521,15 @@ define([
 			 
 			    // Render the chart
 			    this.chart1.render();
+			    this.initializeMap();
+			}
 
-			    //initialize an empty dynamic map service layer
-			    var chartLayerUrl = 'http://dev.services2.coastalresilience.org:6080/arcgis/rest/services/Cost_Benefit/Cost_Benefit/MapServer';
-	          	console.log(self._map);
-	          	this.chartLayer = new DynamicMapServiceLayer(chartLayerUrl);
-	          	console.log(self.chartLayer);
-	          	this._map.addLayer(self.chartLayer);
-	          	self.chartLayer.setVisibleLayers([-1]);
+			this.initializeMap = function(){
+				//initialize an empty dynamic map service layer
+			    var mapUrl = 'http://dev.services2.coastalresilience.org:6080/arcgis/rest/services/Cost_Benefit/Cost_Benefit/MapServer';
+	          	this.mapLayer = new DynamicMapServiceLayer(mapUrl);
+	          	this._map.addLayer(this.mapLayer);
+	          	this.mapLayer.setVisibleLayers([14]);
 			}
 
 			this.updateChart = function(chartData){
@@ -469,6 +538,160 @@ define([
 				self.chart1.updateSeries("Economic Growth Scenarios", chartData);
 				//console.log(self.chart1.series[0].data);
     			self.chart1.render();
+			}
+
+			this.getInputValues = function(){
+				console.log('getting inputs');
+				var growth = this.comboButtonEconomy.get("label");
+				var defense = this.comboButtonDefense.get("label");
+				var asset = this.assetYearSlider.get("value");
+				var climate = this.climateYearSlider.get("value");
+				var visibleLayers = [];
+				var inputString = growth + "-" + defense + "-" + asset + "-" + climate;
+				var inputString = inputString.toLowerCase();
+				console.log(inputString);
+				//huge switch/case statement to set proper layer for given inputs for flood scenarios
+				switch(inputString){
+					case 'high-high-2010-2010':
+						visibleLayers = [14];
+						break;
+					case 'high-high-2010-2030':
+						visibleLayers = [15];
+						break;
+					case 'high-high-2010-2050':
+						visibleLayers = [16];
+						break;
+					case 'high-high-2030-2010':
+						visibleLayers = [17];
+						break;
+					case 'high-high-2030-2030':
+						visibleLayers = [18];
+						break;
+					case 'high-high-2050-2010':
+						visibleLayers = [19];
+						break;
+					case 'high-high-2050-2050':
+						visibleLayers = [20];
+						break;
+					case 'high-low-2010-2010':
+						visibleLayers = [21];
+						break;
+					case 'high-low-2010-2030':
+						visibleLayers = [22];
+						break;
+					case 'high-low-2010-2050':
+						visibleLayers = [23];
+						break;
+					case 'high-low-2030-2010':
+						visibleLayers = [24];
+						break;
+					case 'high-low-2030-2030':
+						visibleLayers = [25];
+						break;
+					case 'high-low-2050-2010':
+						visibleLayers = [26];
+						break;
+					case 'high-low-2050-2050':
+						visibleLayers = [27];
+						break;
+					case 'high-none-2010-2010':
+						visibleLayers = [28];
+						break;		
+					case 'high-none-2010-2030':
+						visibleLayers = [29];
+						break;
+					case 'high-none-2010-2050':
+						visibleLayers = [30];
+						break;
+					case 'high-none-2030-2010':
+						visibleLayers = [31];
+						break;
+					case 'high-none-2030-2030':
+						visibleLayers = [32];
+						break;
+					case 'high-none-2050-2010':
+						visibleLayers = [33];
+						break;
+					case 'high-none-2050-2050':
+						visibleLayers = [34];
+						break;
+					case 'low-high-2010-2010':
+						visibleLayers = [35];
+						break;
+					case 'low-high-2010-2030':
+						visibleLayers = [36];
+						break;
+					case 'low-high-2010-2050':
+						visibleLayers = [37];
+						break;
+					case 'low-high-2030-2010':
+						visibleLayers = [38];
+						break;
+					case 'low-high-2030-2030':
+						visibleLayers = [39];
+						break;
+					case 'low-high-2050-2010':
+						visibleLayers = [40];
+						break;
+					case 'low-high-2050-2050':
+						visibleLayers = [41];
+						break;
+					case 'low-low-2010-2010':
+						visibleLayers = [42];
+						break;
+					case 'low-low-2010-2030':
+						visibleLayers = [43];
+						break;
+					case 'low-low-2010-2050':
+						visibleLayers = [44];
+						break;
+					case 'low-low-2030-2010':
+						visibleLayers = [45];
+						break;
+					case 'low-low-2030-2030':
+						visibleLayers = [46];
+						break;
+					case 'low-low-2050-2010':
+						visibleLayers = [47];
+						break;
+					case 'low-low-2050-2050':
+						visibleLayers = [48];
+						break;
+					case 'low-none-2010-2010':
+						visibleLayers = [49];
+						break;		
+					case 'low-none-2010-2030':
+						visibleLayers = [50];
+						break;
+					case 'low-none-2010-2050':
+						visibleLayers = [51];
+						break;
+					case 'low-none-2030-2010':
+						visibleLayers = [52];
+						break;
+					case 'low-none-2030-2030':
+						visibleLayers = [53];
+						break;
+					case 'low-none-2050-2010':
+						visibleLayers = [54];
+						break;
+					case 'low-none-2050-2050':
+						visibleLayers = [55];
+						break;		
+					default:
+						console.log('missing case or layer data');
+						visibleLayers = [-1];
+						break; 
+				}
+
+				this.updateLayer(visibleLayers);
+
+			}
+
+			this.updateLayer = function(visibleLayers){
+				this.mapLayer.setVisibleLayers(visibleLayers);
+	            console.log(this.mapLayer);
+	            this.mapLayer.show();
 			}
 
 
