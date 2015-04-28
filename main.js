@@ -82,10 +82,11 @@ define([
                         this.ecaTool.showTool(this.ecaTool);
                     //}
                     //t = this.ecaTool
+
                },
                
                deactivate: function () { 
-               
+                    this.hideTool();
                },
                
                hibernate: function () {
