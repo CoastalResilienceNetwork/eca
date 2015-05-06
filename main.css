@@ -1,0 +1,73 @@
+.bar rect, .bar line, #arrowhead, #arrowhead-total {
+shape-rendering: crispEdges;
+}
+
+.bar.today rect {
+  fill: #797B9C;
+  stroke: #444444;
+}
+.bar.economic rect {
+  fill: #F2C981;
+  stroke: #444444;
+}
+.bar.climate rect {
+  fill: #F2780C;
+  stroke: #444444;
+}
+.bar.total rect {
+  fill: #222426;
+  stroke: #444444;
+}
+
+.bar line.connector {
+  stroke: grey;
+  stroke-dasharray: 3;
+}
+
+.bar line.line-arrow {
+  stroke: #bbbbbb;
+}
+
+.bar line.line-arrow-total {
+  stroke: #ffffff;
+}
+
+.bar line.connector-total {
+  stroke: #ffffff;
+  stroke-dasharray: 3;
+}
+
+.bar text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.bar text.line-arrow-text {
+	fill: black;
+	font: 10px sans-serif;
+}
+
+.bar text.line-arrow-text-total {
+	fill: #ffffff;
+	font: 10px sans-serif;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#arrowhead {
+	fill: #aaaaaa;
+}
+
+#arrowhead-total{
+  fill: #ffffff;
+}

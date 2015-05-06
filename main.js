@@ -9,99 +9,69 @@ require({
     // https://dojotoolkit.org/documentation/tutorials/1.7/cdn
     packages: [
         {
-            name: "jquery",
-            location: "//ajax.googleapis.com/ajax/libs/jquery/1.9.0",
-            main: "jquery.min"
+            name: "d3",
+            location: "//d3js.org",
+            main: "d3.v3.min"
         },
         {
             name: "underscore",
             location: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4",
             main: "underscore-min"
         },
-            //         {
-            //             name: "extjs",
-            // location: location.pathname.replace(/\/[^/]+$/, "") + "plugins/coastal_defense/lib/ext-4.2.1-gpl",
-            //             main: "ext-all"
-            //         },
         {
             name: "tv4",
-            location: location.pathname.replace(/\/[^/]+$/, "") + "plugins/coastal_defense/lib",
+            location: location.pathname.replace(/\/[^/]+$/, "") + "plugins/eca/lib",
             main: "tv4.min"
-        },
-        {
-            name: "jquery_ui",
-            location: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1",
-            main: "jquery-ui.min"
         }
-        
-        
-
     ]
 });
-
-
-
-
 
 define([
         "dojo/_base/declare",
         "framework/PluginBase",
-        "jquery",
         "dojo/parser",
         "dijit/registry",
         "dojo/dom-class",
         "dojo/dom-style",
         "dojo/_base/lang",
         "dojo/query",
+		"d3",
         "use!underscore", 
-        "./app"
+        "./app",
+        "dojo/text!plugins/eca/app_data.json"
        ],
-       function (declare, PluginBase, $, parser, registry, domClass, domStyle, lang, query, _, eca) {
+       function (declare, PluginBase, parser, registry, domClass, domStyle, lang, query, d3, _, eca, appData) {
            return declare(PluginBase, {
-               toolbarName: "ECA Tool",
+               toolbarName: "Economics of Climate Adaptation",
                toolbarType: "sidebar",
                resizable: false,
                showServiceLayersInLegend: true,
-               allowIdentifyWhenActive: false,
+               allowIdentifyWhenActive: true,
                infoGraphic: "",
                pluginDirectory: "plugins/eca",
-               width: 625,
-               height: 625,
-               
+               width: 425,
+               height: 640,
                
                activate: function () {
-                    self = this;
-/*                    var showInfoGraphic = localStorage.getItem(this.toolbarName + " showinfographic");
-                    if (( showInfoGraphic === "true") || (showInfoGraphic == null)) {
-                       var pluginId = this.container.parentNode.parentNode.id;
-                       var introPanelButton = dojo.query("#" + pluginId + " .plugin-infographic  [widgetid*='Button']")[0];
-                       dojo.connect(introPanelButton, "onclick", function() {
-                            self.ecaTool.showTool(self.ecaTool);
-                       });
-                    } else {*/
-                        this.ecaTool.showTool(this.ecaTool);
-                    //}
-                    //t = this.ecaTool
-
+					this.ecaTool.showTool();
+					tool = this.ecaTool;
                },
                
                deactivate: function () { 
-                    this.hideTool();
+                    this.ecaTool.hideTool();
                },
                
                hibernate: function () {
-                         
+					this.ecaTool.hideTool();                         
                },
                
                initialize: function (frameworkParameters) {
-                   declare.safeMixin(this, frameworkParameters); 
+				   declare.safeMixin(this, frameworkParameters); 
                    var djConfig = {
                        parseOnLoad: true
                    };
-                   self = this;
                    domClass.add(this.container, "claro");
-                   this.ecaTool = new eca(this);
-                   ecaTool = this.ecaTool;
+                   this.ecaTool = new eca(this, appData);
                    this.ecaTool.initialize(this.ecaTool);
                },
                    
