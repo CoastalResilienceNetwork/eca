@@ -1,0 +1,109 @@
+{
+	"service": "http://dev.services2.coastalresilience.org:6080/arcgis/rest/services/Cost_Benefit/Cost_Benefit_Gulfmex/MapServer",
+	"extents": {
+		"initial": {
+			"xmin":-108.85253906249325,
+			"ymin":15.718238544736863,
+			"xmax":-68.532714843754,
+			"ymax":34.75063980504719
+		}
+	},
+	"exposure": {
+		"tooltips": {
+			"typeInfo": {"label" : "Exposure Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"geographyInfo": {"label" : "Geography", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"valuesInfo":  {"label" : "Display map values by", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"y-axis":  {"label" : "Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+		},
+		"messages": {
+		
+		},
+		"controls": {
+			"type":[
+				{"value":"residential", "name":"Residential"},
+				{"value":"commercial", "name":"Commercial"},
+				{"value":"industrial", "name":"Industrial"},
+				{"value":"other", "name":"Other"}
+			],
+			"geography":[
+				{"value":"county", "name":"County"},
+				{"value":"censustract", "name":"Census Tract"}
+			],
+			"elevation":[
+				{"value":"under10", "name":"Under 10 (Meters)"},
+				{"value":"under20", "name":"Under 20 (Meters)"}
+			]
+		}
+	},
+	"damages": {
+		"tooltips": {
+			"typeInfo": {"label" : "Hazard Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"growthInfo": {"label" : "Economic Growth Scenario", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"defenseInfo": {"label" : "Defense Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"assetInfo":  {"label" : "Reference Year for Assets", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"climateInfo":  {"label" : "Reference Year for Climate", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"protectionInfo":  {"label" : "Standard of Protection (year)", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"valuesInfo":  {"label" : "Display map values by", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"x-axis":  {"label" : "Risk Profile Graph X-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"y-axis":  {"label" : "Risk Profile Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+		},
+		"messages": {
+			"slider_error" : {"label" : "Invalid Information", "value": "Data with a combination of Assets in ASSETYEAR and Climate in CLIMATEYEAR does not exist. Sliders have been automatically adjusted to an allowable combination."}
+		},
+		"controls": {
+			"type":[
+				{"value":"flood", "name":"Flood"},
+				{"value":"wind", "name":"Wind"}
+			],
+			"growth":[
+				{"value":"low", "name":"Low"},
+				{"value":"high", "name":"High"}
+			],
+			"defense":[
+				{"value":"none", "name":"None"},
+				{"value":"low", "name":"Low"},
+				{"value":"high", "name":"High"}
+			],
+			"protection": {
+				"discreteValues":5,
+				"returnPeriod": {
+					"1":"Tr10",
+					"2":"Tr50",
+					"3":"Tr100",
+					"4":"Tr250",
+					"5":"Tr500"
+				}
+			}
+		}
+	},
+	"measures": {
+		"tooltips": {
+			"typeInfo": {"label" : "Model Form", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"growthInfo": {"label" : "Economic Growth Scenario", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"defenseInfo": {"label" : "Defense Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"climateInfo":  {"label" : "Reference Year for Climate", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"x-axis":  {"label" : "Cost Curve Graph X-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"y-axis":  {"label" : "Cost Curve Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"line":  {"label" : "Cost Curve Line", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+		},
+		"messages": {
+		
+		},
+		"controls": {
+			"type":[
+				{"value":"default", "name":"Default"},
+				{"value":"conservative", "name":"Conservative"},
+				{"value":"sensitivity", "name":"Sensitivity"}
+			],
+			"growth":[
+				{"value":"low", "name":"Low"},
+				{"value":"high", "name":"High"}
+			],
+			"defense":[
+				{"value":"none", "name":"None"},
+				{"value":"low", "name":"Low"},
+				{"value":"high", "name":"High"}
+			]
+		}
+	}
+}

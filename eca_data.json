@@ -1,0 +1,1199 @@
+{ "damages" : {
+    "flood": {
+    "high-high-2010-2010": {
+        "percent": {"layerIndex": 16},
+        "total": {"layerIndex": 74} 
+    },
+    "high-high-2010-2030": {
+        "percent": {"layerIndex": 17},
+        "total": {"layerIndex": 75} 
+    },
+    "high-high-2010-2050": {
+         "percent": {"layerIndex": 18},
+         "total": {"layerIndex": 76} 
+    },
+    "high-high-2030-2010": {
+         "percent": {"layerIndex": 19},
+         "total": {"layerIndex": 77} 
+    },
+    "high-high-2030-2030": {
+         "percent": {"layerIndex": 20},
+         "total": {"layerIndex": 78} 
+    },
+    "high-high-2050-2010": {
+         "percent": {"layerIndex": 21},
+         "total": {"layerIndex": 79} 
+    },
+    "high-high-2050-2050": {
+         "percent": {"layerIndex": 22},
+         "total": {"layerIndex": 80} 
+    },
+    "high-low-2010-2010": {
+         "percent": {"layerIndex": 23},
+         "total": {"layerIndex": 81} 
+    },
+    "high-low-2010-2030": {
+         "percent": {"layerIndex": 24},
+         "total": {"layerIndex": 82} 
+    },
+    "high-low-2010-2050": {
+        "percent": {"layerIndex": 25},
+        "total": {"layerIndex": 83} 
+    },
+    "high-low-2030-2010": {
+        "percent": {"layerIndex": 26},
+        "total": {"layerIndex": 84} 
+    },
+    "high-low-2030-2030": {
+         "percent": {"layerIndex": 27},
+         "total": {"layerIndex": 85} 
+    },
+    "high-low-2050-2010": {
+        "percent": {"layerIndex": 28},
+        "total": {"layerIndex": 86} 
+    },
+    "high-low-2050-2050": {
+         "percent": {"layerIndex": 29},
+         "total": {"layerIndex": 87} 
+    },
+    "high-none-2010-2010": {
+        "percent": {"layerIndex": 30},
+        "total": {"layerIndex": 88} 
+    },
+    "high-none-2010-2030": {
+        "percent": {"layerIndex": 31},
+        "total": {"layerIndex": 89} 
+    },
+    "high-none-2010-2050": {
+        "percent": {"layerIndex": 32},
+        "total": {"layerIndex": 90} 
+    },
+    "high-none-2030-2010": {
+        "percent": {"layerIndex": 33},
+        "total": {"layerIndex": 91} 
+    },
+    "high-none-2030-2030": {
+         "percent": {"layerIndex": 34},
+        "total": {"layerIndex": 92} 
+    },
+    "high-none-2050-2010": {
+        "percent": {"layerIndex": 35},
+				"total": {"layerIndex": 93} 
+    },
+    "high-none-2050-2050": {
+        "percent": {"layerIndex": 36},
+				"total": {"layerIndex": 94} 
+    },
+    "low-high-2010-2010": {
+        "percent": {"layerIndex": 37},
+				"total": {"layerIndex": 95} 
+    },
+    "low-high-2010-2030": {
+        "percent": {"layerIndex": 38},
+				"total": {"layerIndex": 96} 
+    },
+    "low-high-2010-2050": {
+        "percent": {"layerIndex": 39},
+				"total": {"layerIndex": 97} 
+    },
+    "low-high-2030-2010": {
+        "percent": {"layerIndex": 40},
+				"total": {"layerIndex": 98} 
+    },
+    "low-high-2030-2030": {
+        "percent": {"layerIndex": 41},
+				"total": {"layerIndex": 99} 
+    },
+    "low-high-2050-2010": {
+        "percent": {"layerIndex": 42},
+				"total": {"layerIndex": 100} 
+    },
+    "low-high-2050-2050": {
+        "percent": {"layerIndex": 43},
+				"total": {"layerIndex": 101} 
+    },
+    "low-low-2010-2010": {
+        "percent": {"layerIndex": 44},
+				"total": {"layerIndex": 102} 
+    },
+    "low-low-2010-2030": {
+        "percent": {"layerIndex": 45},
+				"total": {"layerIndex": 103} 
+    },
+    "low-low-2010-2050": {
+        "percent": {"layerIndex": 46},
+				"total": {"layerIndex": 104} 
+    },
+    "low-low-2030-2010": {
+        "percent": {"layerIndex": 47},
+				"total": {"layerIndex": 105} 
+    },
+    "low-low-2030-2030": {
+        "percent": {"layerIndex": 48},
+				"total": {"layerIndex": 106} 
+    },
+    "low-low-2050-2010": {
+        "percent": {"layerIndex": 49},
+				"total": {"layerIndex": 107} 
+    },
+    "low-low-2050-2050": {
+        "percent": {"layerIndex": 50},
+				"total": {"layerIndex": 108} 
+    },
+    "low-none-2010-2010": {
+        "percent": {"layerIndex": 51},
+				"total": {"layerIndex": 109} 
+    },
+    "low-none-2010-2030": {
+        "percent": {"layerIndex": 52},
+				"total": {"layerIndex": 110} 
+    },
+    "low-none-2010-2050": {
+        "percent": {"layerIndex": 53},
+				"total": {"layerIndex": 111} 
+    },
+    "low-none-2030-2010": {
+        "percent": {"layerIndex": 54},
+				"total": {"layerIndex": 112} 
+    },
+    "low-none-2030-2030": {
+        "percent": {"layerIndex": 55},
+				"total": {"layerIndex": 113} 
+    },
+    "low-none-2050-2010": {
+        "percent": {"layerIndex": 56},
+				"total": {"layerIndex": 114} 
+    },
+    "low-none-2050-2050": {
+        "percent": {"layerIndex": 57},
+				"total": {"layerIndex": 115} 
+    },
+	"chartData": {
+		"Tr10": {
+			"low-none-2030-2030": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 3930017897.74513 },{ "name": "Climate","value": 6256573022.39832 },{ "name": "Total","value": 22026928788.2752 } ],
+		  "low-none-2050-2050": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 10699989318.9823 },{ "name": "Climate","value": 29135587133.955 },{ "name": "Total","value": 51675914321.069 } ],
+		  "low-low-2030-2030": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 3137236352.41368 },{ "name": "Climate","value": 4744331422.04597 },{ "name": "Total","value": 16701529403.7803 } ],
+		  "low-low-2050-2050": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 8437305426.45728 },{ "name": "Climate","value": 15498822164.9256 },{ "name": "Total","value": 32756089220.7035 } ],
+		  "low-high-2030-2030": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 2244954422.00715 },{ "name": "Climate","value": 3891442920.66377 },{ "name": "Total","value": 12684793251.8619 } ],
+		  "low-high-2050-2050": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 5641962173.21377 },{ "name": "Climate","value": 11063932124.6163 },{ "name": "Total","value": 23254290207.0211 } ],
+		  "high-none-2030-2030": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 9077871310.344 },{ "name": "Climate","value": 8127389266.76467 },{ "name": "Total","value": 29045598445.2404 } ],
+		  "high-none-2050-2050": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 29264124812.8012 },{ "name": "Climate","value": 52879936458.5896 },{ "name": "Total","value": 93984399139.5225 } ],
+		  "high-low-2030-2030": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 6947218323.18642 },{ "name": "Climate","value": 6256041540.83617 },{ "name": "Total","value": 22023221493.3432 } ],
+		  "high-low-2050-2050": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 22393103607.9543 },{ "name": "Climate","value": 28032581623.2169 },{ "name": "Total","value": 59245646860.4918 } ],
+		  "high-high-2030-2030": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 5046823745.88483 },{ "name": "Climate","value": 5211052067.99192 },{ "name": "Total","value": 16806271723.0678 } ],
+		  "high-high-2050-2050": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 15670421941.8837 },{ "name": "Climate","value": 19891509186.0849 },{ "name": "Total","value": 42110327037.1596 } ],
+		  "low-none-2010-2010": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 11840337868.1317 } ],
+		  "low-low-2010-2010": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 8819961629.32063 } ],
+		  "low-high-2010-2010": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 6548395909.19102 } ],
+		  "high-none-2010-2010": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 11840337868.1317 } ],
+		  "high-low-2010-2010": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 8819961629.32063 } ],
+		  "high-high-2010-2010": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 6548395909.19102 } ],
+		  "low-none-2010-2030": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 6256573022.39832 },{ "name": "Total","value": 18096910890.53 } ],
+		  "low-none-2010-2050": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 29135587133.955 },{ "name": "Total","value": 40975925002.0867 } ],
+		  "low-none-2030-2010": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 3930017897.74513 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 15770355765.8769 } ],
+		  "low-none-2050-2010": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 10699989318.9823 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 22540327187.1141 } ],
+		  "low-low-2010-2030": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 4744331422.04597 },{ "name": "Total","value": 13564293051.3666 } ],
+		  "low-low-2010-2050": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 15498822164.9256 },{ "name": "Total","value": 24318783794.2462 } ],
+		  "low-low-2030-2010": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 3137236352.41368 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 11957197981.7343 } ],
+		  "low-low-2050-2010": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 8437305426.45728 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 17257267055.7779 } ],
+		  "low-high-2010-2030": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 3891442920.66377 },{ "name": "Total","value": 10439838829.8548 } ],
+		  "low-high-2010-2050": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 11063932124.6163 },{ "name": "Total","value": 17612328033.8073 } ],
+		  "low-high-2030-2010": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 2244954422.00715 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 8793350331.19817 } ],
+		  "low-high-2050-2010": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 5641962173.21377 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 12190358082.4048 } ],
+		  "high-none-2010-2030": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 8127389266.76467 },{ "name": "Total","value": 19967727134.8964 } ],
+		  "high-none-2010-2050": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 52879936458.5896 },{ "name": "Total","value": 64720274326.7214 } ],
+		  "high-none-2030-2010": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 9077871310.344 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 20918209178.4757 } ],
+		  "high-none-2050-2010": [ { "name": "Today","value": 11840337868.1317 },{ "name": "Economic","value": 29264124812.8012 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 41104462680.9329 } ],
+		  "high-low-2010-2030": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 6256041540.83617 },{ "name": "Total","value": 15076003170.1568 } ],
+		  "high-low-2010-2050": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 28032581623.2169 },{ "name": "Total","value": 36852543252.5376 } ],
+		  "high-low-2030-2010": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 6947218323.18642 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 15767179952.507 } ],
+		  "high-low-2050-2010": [ { "name": "Today","value": 8819961629.32063 },{ "name": "Economic","value": 22393103607.9543 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 31213065237.2749 } ],
+		  "high-high-2010-2030": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 5211052067.99192 },{ "name": "Total","value": 11759447977.1829 } ],
+		  "high-high-2010-2050": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 19891509186.0849 },{ "name": "Total","value": 26439905095.2759 } ],
+		  "high-high-2030-2010": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 5046823745.88483 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 11595219655.0759 } ],
+		  "high-high-2050-2010": [ { "name": "Today","value": 6548395909.19102 },{ "name": "Economic","value": 15670421941.8837 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 22218817851.0748 } ]
+		},
+		"Tr50": {		
+     "low-none-2030-2030": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 22737968928.2141 },{ "name": "Climate","value": 41692518175.5339 },{ "name": "Total","value": 135038012644.697 } ],
+      "low-none-2050-2050": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 58170630118.7267 },{ "name": "Climate","value": 102020061924.707 },{ "name": "Total","value": 230798217584.383 } ],
+      "low-low-2030-2030": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 20970014964.208 },{ "name": "Climate","value": 28658581025.5978 },{ "name": "Total","value": 111170021471.688 } ],
+      "low-low-2050-2050": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 51934994830.9799 },{ "name": "Climate","value": 67933671744.838 },{ "name": "Total","value": 181410092057.7 } ],
+      "low-high-2030-2030": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 16276140301.6643 },{ "name": "Climate","value": 32023277726.0791 },{ "name": "Total","value": 96264169706.9221 } ],
+      "low-high-2050-2050": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 41748670523.1353 },{ "name": "Climate","value": 57896534407.6218 },{ "name": "Total","value": 147609956609.936 } ],
+      "high-none-2030-2030": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 52551308562.4194 },{ "name": "Climate","value": 55258416712.7187 },{ "name": "Total","value": 178417250816.087 } ],
+      "high-none-2050-2050": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 162312489504.945 },{ "name": "Climate","value": 184626004481.46 },{ "name": "Total","value": 417546019527.353 } ],
+      "high-low-2030-2030": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 47261049114.7104 },{ "name": "Climate","value": 37790208450.539 },{ "name": "Total","value": 146592683047.132 } ],
+      "high-low-2050-2050": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 143702365361.114 },{ "name": "Climate","value": 122871027094.021 },{ "name": "Total","value": 328114817937.017 } ],
+      "high-high-2030-2030": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 36948172668.9772 },{ "name": "Climate","value": 42102844935.6599 },{ "name": "Total","value": 127015769283.816 } ],
+      "high-high-2050-2050": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 114518048491.313 },{ "name": "Climate","value": 104882978725.367 },{ "name": "Total","value": 267365778895.859 } ],
+      "low-none-2010-2010": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 70607525540.9488 } ],
+      "low-low-2010-2010": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 61541425481.8826 } ],
+      "low-high-2010-2010": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 47964751679.1786 } ],
+      "high-none-2010-2010": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 70607525540.9488 } ],
+      "high-low-2010-2010": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 61541425481.8826 } ],
+      "high-high-2010-2010": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 47964751679.1786 } ],
+      "low-none-2010-2030": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 41692518175.5339 },{ "name": "Total","value": 112300043716.483 } ],
+      "low-none-2010-2050": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 102020061924.707 },{ "name": "Total","value": 172627587465.656 } ],
+      "low-none-2030-2010": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 22737968928.2141 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 93345494469.1629 } ],
+      "low-none-2050-2010": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 58170630118.7267 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 128778155659.675 } ],
+      "low-low-2010-2030": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 28658581025.5978 },{ "name": "Total","value": 90200006507.4804 } ],
+      "low-low-2010-2050": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 67933671744.838 },{ "name": "Total","value": 129475097226.721 } ],
+      "low-low-2030-2010": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 20970014964.208 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 82511440446.0907 } ],
+      "low-low-2050-2010": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 51934994830.9799 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 113476420312.862 } ],
+      "low-high-2010-2030": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 32023277726.0791 },{ "name": "Total","value": 79988029405.2577 } ],
+      "low-high-2010-2050": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 57896534407.6218 },{ "name": "Total","value": 105861286086.8 } ],
+      "low-high-2030-2010": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 16276140301.6643 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 64240891980.8429 } ],
+      "low-high-2050-2010": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 41748670523.1353 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 89713422202.3139 } ],
+      "high-none-2010-2030": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 55258416712.7187 },{ "name": "Total","value": 125865942253.667 } ],
+      "high-none-2010-2050": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 184626004481.46 },{ "name": "Total","value": 255233530022.409 } ],
+      "high-none-2030-2010": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 52551308562.4194 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 123158834103.368 } ],
+      "high-none-2050-2010": [ { "name": "Today","value": 70607525540.9488 },{ "name": "Economic","value": 162312489504.945 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 232920015045.893 } ],
+      "high-low-2010-2030": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 37790208450.539 },{ "name": "Total","value": 99331633932.4216 } ],
+      "high-low-2010-2050": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 122871027094.021 },{ "name": "Total","value": 184412452575.904 } ],
+      "high-low-2030-2010": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 47261049114.7104 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 108802474596.593 } ],
+      "high-low-2050-2010": [ { "name": "Today","value": 61541425481.8826 },{ "name": "Economic","value": 143702365361.114 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 205243790842.996 } ],
+      "high-high-2010-2030": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 42102844935.6599 },{ "name": "Total","value": 90067596614.8385 } ],
+      "high-high-2010-2050": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 104882978725.367 },{ "name": "Total","value": 152847730404.546 } ],
+      "high-high-2030-2010": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 36948172668.9772 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 84912924348.1559 } ],
+      "high-high-2050-2010": [ { "name": "Today","value": 47964751679.1786 },{ "name": "Economic","value": 114518048491.313 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 162482800170.492 } ]
+		},
+		"Tr100": {
+			"low-none-2030-2030": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 35732033592.2023 },{ "name": "Climate","value": 30359910568.2323 },{ "name": "Total","value": 170382769600.953 } ],
+      "low-none-2050-2050": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 91604085311.4655 },{ "name": "Climate","value": 90800295954.0844 },{ "name": "Total","value": 286695206706.068 } ],
+      "low-low-2030-2030": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 31736979145.8579 },{ "name": "Climate","value": 25695485829.4046 },{ "name": "Total","value": 151740581282.626 } ],
+      "low-low-2050-2050": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 81013241867.7217 },{ "name": "Climate","value": 62913631770.8607 },{ "name": "Total","value": 238234989945.945 } ],
+      "low-high-2030-2030": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 24226738797.3186 },{ "name": "Climate","value": 23817423150.6084 },{ "name": "Total","value": 123369105524.715 } ],
+      "low-high-2050-2050": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 61634118849.9337 },{ "name": "Climate","value": 57349611273.7691 },{ "name": "Total","value": 194308673700.49 } ],
+      "high-none-2030-2030": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 80672586609.1734 },{ "name": "Climate","value": 39774128797.2081 },{ "name": "Total","value": 224737540846.9 } ],
+      "high-none-2050-2050": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 250631439242.649 },{ "name": "Climate","value": 164328183291.15 },{ "name": "Total","value": 519250447974.317 } ],
+      "high-low-2030-2030": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 71899360158.0898 },{ "name": "Climate","value": 33882967368.9613 },{ "name": "Total","value": 200090443834.414 } ],
+      "high-low-2050-2050": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 222794062880.064 },{ "name": "Climate","value": 113791325499.613 },{ "name": "Total","value": 430893504687.04 } ],
+      "high-high-2030-2030": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 55947453014.5371 },{ "name": "Climate","value": 31605104308.3013 },{ "name": "Total","value": 162877500899.626 } ],
+      "high-high-2050-2050": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 172437370909.58 },{ "name": "Climate","value": 103789558198.285 },{ "name": "Total","value": 351551872684.653 } ],
+      "low-none-2010-2010": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 104290825440.518 } ],
+      "low-low-2010-2010": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 94308116307.3631 } ],
+      "low-high-2010-2010": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 75324943576.7877 } ],
+      "high-none-2010-2010": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 104290825440.518 } ],
+      "high-low-2010-2010": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 94308116307.3631 } ],
+      "high-high-2010-2010": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 75324943576.7877 } ],
+      "low-none-2010-2030": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 30359910568.2323 },{ "name": "Total","value": 134650736008.75 } ],
+      "low-none-2010-2050": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 90800295954.0844 },{ "name": "Total","value": 195091121394.603 } ],
+      "low-none-2030-2010": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 35732033592.2023 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 140022859032.72 } ],
+      "low-none-2050-2010": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 91604085311.4655 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 195894910751.984 } ],
+      "low-low-2010-2030": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 25695485829.4046 },{ "name": "Total","value": 120003602136.768 } ],
+      "low-low-2010-2050": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 62913631770.8607 },{ "name": "Total","value": 157221748078.224 } ],
+      "low-low-2030-2010": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 31736979145.8579 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 126045095453.221 } ],
+      "low-low-2050-2010": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 81013241867.7217 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 175321358175.085 } ],
+      "low-high-2010-2030": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 23817423150.6084 },{ "name": "Total","value": 99142366727.3961 } ],
+      "low-high-2010-2050": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 57349611273.7691 },{ "name": "Total","value": 132674554850.557 } ],
+      "low-high-2030-2010": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 24226738797.3186 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 99551682374.1063 } ],
+      "low-high-2050-2010": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 61634118849.9337 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 136959062426.721 } ],
+      "high-none-2010-2030": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 39774128797.2081 },{ "name": "Total","value": 144064954237.726 } ],
+      "high-none-2010-2050": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 164328183291.15 },{ "name": "Total","value": 268619008731.668 } ],
+      "high-none-2030-2010": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 80672586609.1734 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 184963412049.691 } ],
+      "high-none-2050-2010": [ { "name": "Today","value": 104290825440.518 },{ "name": "Economic","value": 250631439242.649 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 354922264683.167 } ],
+      "high-low-2010-2030": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 33882967368.9613 },{ "name": "Total","value": 128191083676.324 } ],
+      "high-low-2010-2050": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 113791325499.613 },{ "name": "Total","value": 208099441806.976 } ],
+      "high-low-2030-2010": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 71899360158.0898 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 166207476465.453 } ],
+      "high-low-2050-2010": [ { "name": "Today","value": 94308116307.3631 },{ "name": "Economic","value": 222794062880.064 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 317102179187.427 } ],
+      "high-high-2010-2030": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 31605104308.3013 },{ "name": "Total","value": 106930047885.089 } ],
+      "high-high-2010-2050": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 103789558198.285 },{ "name": "Total","value": 179114501775.073 } ],
+      "high-high-2030-2010": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 55947453014.5371 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 131272396591.325 } ],
+      "high-high-2050-2010": [ { "name": "Today","value": 75324943576.7877 },{ "name": "Economic","value": 172437370909.58 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 247762314486.368 } ]
+		},
+		"Tr250": {
+			"low-none-2030-2030": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 43422862736.9142 },{ "name": "Climate","value": 63148043225.9156 },{ "name": "Total","value": 238936679216.932 } ],
+      "low-none-2050-2050": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 111527197659.304 },{ "name": "Climate","value": 149670423268.07 },{ "name": "Total","value": 393563394181.476 } ],
+      "low-low-2030-2030": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 40634736487.7441 },{ "name": "Climate","value": 53887141761.1283 },{ "name": "Total","value": 219031036660.072 } ],
+      "low-low-2050-2050": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 103564829587.981 },{ "name": "Climate","value": 125133687306.109 },{ "name": "Total","value": 353207675305.29 } ],
+      "low-high-2030-2030": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 36523793297.7302 },{ "name": "Climate","value": 42732386125.2297 },{ "name": "Total","value": 192236492468.609 } ],
+      "low-high-2050-2050": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 93069109722.7228 },{ "name": "Climate","value": 95379144255.2701 },{ "name": "Total","value": 301428567023.642 } ],
+      "high-none-2030-2030": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 99553648687.5997 },{ "name": "Climate","value": 83438234520.39 },{ "name": "Total","value": 315357656462.092 } ],
+      "high-none-2050-2050": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 309224017076.866 },{ "name": "Climate","value": 270332585784.659 },{ "name": "Total","value": 711922376115.627 } ],
+      "high-low-2030-2030": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 93255364088.7351 },{ "name": "Climate","value": 71057472040.8476 },{ "name": "Total","value": 288821994540.782 } ],
+      "high-low-2050-2050": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 288006232544.66 },{ "name": "Climate","value": 226328185838.596 },{ "name": "Total","value": 638843576794.454 } ],
+      "high-high-2030-2030": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 84186740534.2364 },{ "name": "Climate","value": 56407638930.4417 },{ "name": "Total","value": 253574692510.327 } ],
+      "high-high-2050-2050": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 259758674511.916 },{ "name": "Climate","value": 172667522157.688 },{ "name": "Total","value": 545406509715.253 } ],
+      "low-none-2010-2010": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 132365773254.102 } ],
+      "low-low-2010-2010": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 124509158411.199 } ],
+      "low-high-2010-2010": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 112980313045.649 } ],
+      "high-none-2010-2010": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 132365773254.102 } ],
+      "high-low-2010-2010": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 124509158411.199 } ],
+      "high-high-2010-2010": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 112980313045.649 } ],
+      "low-none-2010-2030": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 63148043225.9156 },{ "name": "Total","value": 195513816480.018 } ],
+      "low-none-2010-2050": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 149670423268.07 },{ "name": "Total","value": 282036196522.172 } ],
+      "low-none-2030-2010": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 43422862736.9142 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 175788635991.016 } ],
+      "low-none-2050-2010": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 111527197659.304 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 243892970913.406 } ],
+      "low-low-2010-2030": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 53887141761.1283 },{ "name": "Total","value": 178396300172.328 } ],
+      "low-low-2010-2050": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 125133687306.109 },{ "name": "Total","value": 249642845717.309 } ],
+      "low-low-2030-2010": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 40634736487.7441 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 165143894898.943 } ],
+      "low-low-2050-2010": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 103564829587.981 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 228073987999.181 } ],
+      "low-high-2010-2030": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 42732386125.2297 },{ "name": "Total","value": 155712699170.879 } ],
+      "low-high-2010-2050": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 95379144255.2701 },{ "name": "Total","value": 208359457300.919 } ],
+      "low-high-2030-2010": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 36523793297.7302 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 149504106343.379 } ],
+      "low-high-2050-2010": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 93069109722.7228 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 206049422768.372 } ],
+      "high-none-2010-2030": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 83438234520.39 },{ "name": "Total","value": 215804007774.492 } ],
+      "high-none-2010-2050": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 270332585784.659 },{ "name": "Total","value": 402698359038.761 } ],
+      "high-none-2030-2010": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 99553648687.5997 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 231919421941.702 } ],
+      "high-none-2050-2010": [ { "name": "Today","value": 132365773254.102 },{ "name": "Economic","value": 309224017076.866 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 441589790330.968 } ],
+      "high-low-2010-2030": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 71057472040.8476 },{ "name": "Total","value": 195566630452.047 } ],
+      "high-low-2010-2050": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 226328185838.596 },{ "name": "Total","value": 350837344249.795 } ],
+      "high-low-2030-2010": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 93255364088.7351 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 217764522499.934 } ],
+      "high-low-2050-2010": [ { "name": "Today","value": 124509158411.199 },{ "name": "Economic","value": 288006232544.66 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 412515390955.859 } ],
+      "high-high-2010-2030": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 56407638930.4417 },{ "name": "Total","value": 169387951976.091 } ],
+      "high-high-2010-2050": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 172667522157.688 },{ "name": "Total","value": 285647835203.338 } ],
+      "high-high-2030-2010": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 84186740534.2364 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 197167053579.886 } ],
+      "high-high-2050-2010": [ { "name": "Today","value": 112980313045.649 },{ "name": "Economic","value": 259758674511.916 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 372738987557.565 } ]
+		},
+		"Tr500": {
+			"low-none-2030-2030": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 55670343227.7676 },{ "name": "Climate","value": 55521066694.2515 },{ "name": "Total","value": 279670991909.24 } ],
+      "low-none-2050-2050": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 141990816497.039 },{ "name": "Climate","value": 142085276839.797 },{ "name": "Total","value": 452555675324.057 } ],
+      "low-low-2030-2030": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 52050503174.0846 },{ "name": "Climate","value": 50151724242.3397 },{ "name": "Total","value": 260518372230.007 } ],
+      "low-low-2050-2050": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 132734769971.023 },{ "name": "Climate","value": 106947647653.71 },{ "name": "Total","value": 397998562438.315 } ],
+      "low-high-2030-2030": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 45895657981.7109 },{ "name": "Climate","value": 43110091072.2733 },{ "name": "Total","value": 231197893074.639 } ],
+      "low-high-2050-2050": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 116964235906.604 },{ "name": "Climate","value": 86006032081.6473 },{ "name": "Total","value": 345162412008.906 } ],
+      "high-none-2030-2030": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 127298060076.011 },{ "name": "Climate","value": 73391011480.1552 },{ "name": "Total","value": 369168653543.387 } ],
+      "high-none-2050-2050": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 393508616619.561 },{ "name": "Climate","value": 257237218707.786 },{ "name": "Total","value": 819225417314.567 } ],
+      "high-low-2030-2030": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 119080683431.136 },{ "name": "Climate","value": 66131819701.0232 },{ "name": "Total","value": 343528647945.741 } ],
+      "high-low-2050-2050": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 368105052771.051 },{ "name": "Climate","value": 193435257877.096 },{ "name": "Total","value": 719856455461.729 } ],
+      "high-high-2030-2030": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 105851950176.902 },{ "name": "Climate","value": 56897957934.5925 },{ "name": "Total","value": 304942052132.149 } ],
+      "high-high-2050-2050": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 326697020634.854 },{ "name": "Climate","value": 155574571699.237 },{ "name": "Total","value": 624463736354.746 } ],
+      "low-none-2010-2010": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 168479581987.221 } ],
+      "low-low-2010-2010": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 158316144813.582 } ],
+      "low-high-2010-2010": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 142192144020.655 } ],
+      "high-none-2010-2010": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 168479581987.221 } ],
+      "high-low-2010-2010": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 158316144813.582 } ],
+      "high-high-2010-2010": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 142192144020.655 } ],
+      "low-none-2010-2030": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 55521066694.2515 },{ "name": "Total","value": 224000648681.472 } ],
+      "low-none-2010-2050": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 142085276839.797 },{ "name": "Total","value": 310564858827.018 } ],
+      "low-none-2030-2010": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 55670343227.7676 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 224149925214.988 } ],
+      "low-none-2050-2010": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 141990816497.039 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 310470398484.26 } ],
+      "low-low-2010-2030": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 50151724242.3397 },{ "name": "Total","value": 208467869055.922 } ],
+      "low-low-2010-2050": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 106947647653.71 },{ "name": "Total","value": 265263792467.292 } ],
+      "low-low-2030-2010": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 52050503174.0846 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 210366647987.667 } ],
+      "low-low-2050-2010": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 132734769971.023 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 291050914784.606 } ],
+      "low-high-2010-2030": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 43110091072.2733 },{ "name": "Total","value": 185302235092.928 } ],
+      "low-high-2010-2050": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 86006032081.6473 },{ "name": "Total","value": 228198176102.302 } ],
+      "low-high-2030-2010": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 45895657981.7109 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 188087802002.366 } ],
+      "low-high-2050-2010": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 116964235906.604 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 259156379927.258 } ],
+      "high-none-2010-2030": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 73391011480.1552 },{ "name": "Total","value": 241870593467.376 } ],
+      "high-none-2010-2050": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 257237218707.786 },{ "name": "Total","value": 425716800695.007 } ],
+      "high-none-2030-2010": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 127298060076.011 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 295777642063.232 } ],
+      "high-none-2050-2010": [ { "name": "Today","value": 168479581987.221 },{ "name": "Economic","value": 393508616619.561 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 561988198606.781 } ],
+      "high-low-2010-2030": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 66131819701.0232 },{ "name": "Total","value": 224447964514.605 } ],
+      "high-low-2010-2050": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 193435257877.096 },{ "name": "Total","value": 351751402690.678 } ],
+      "high-low-2030-2010": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 119080683431.136 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 277396828244.718 } ],
+      "high-low-2050-2010": [ { "name": "Today","value": 158316144813.582 },{ "name": "Economic","value": 368105052771.051 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 526421197584.633 } ],
+      "high-high-2010-2030": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 56897957934.5925 },{ "name": "Total","value": 199090101955.247 } ],
+      "high-high-2010-2050": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 155574571699.237 },{ "name": "Total","value": 297766715719.892 } ],
+      "high-high-2030-2010": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 105851950176.902 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 248044094197.557 } ],
+      "high-high-2050-2010": [ { "name": "Today","value": 142192144020.655 },{ "name": "Economic","value": 326697020634.854 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 468889164655.509 } ]
+		}
+	}
+},
+
+    "wind": {
+      "high-2010-2010": {
+          "percent": {"layerIndex": 59},
+				  "total": {"layerIndex": 117}   
+      },
+       "high-2010-2030": {
+          "percent": {"layerIndex": 60},
+				  "total": {"layerIndex": 118}   
+      },
+       "high-2010-2050": {
+          "percent": {"layerIndex": 61},
+				  "total": {"layerIndex": 119}   
+      },
+       "high-2030-2010": {
+          "percent": {"layerIndex": 62},
+				  "total": {"layerIndex": 120}   
+      },
+       "high-2050-2010": {
+          "percent": {"layerIndex": 63},
+					"total": {"layerIndex": 121}   
+      },
+       "high-2050-2010": {
+          "percent": {"layerIndex": 64},
+					"total": {"layerIndex": 122}   
+      },
+       "high-2050-2050": {
+          "percent": {"layerIndex": 65},
+					"total": {"layerIndex": 123}  
+      },
+       "low-2010-2010": {
+          "percent": {"layerIndex": 66},
+					"total": {"layerIndex": 124}   
+      },
+       "low-2010-2030": {
+          "percent": {"layerIndex": 67},
+					"total": {"layerIndex": 125}  
+      },
+       "low-2010-2050": {
+          "percent": {"layerIndex": 68},
+					"total": {"layerIndex": 126}   
+      },
+       "low-2030-2010": {
+          "percent": {"layerIndex": 69},
+					"total": {"layerIndex": 127}  
+      },
+       "low-2030-2030": {
+          "percent": {"layerIndex": 70},
+					"total": {"layerIndex": 128}   
+      },
+        "low-2050-2010": {
+          "percent": {"layerIndex": 71},
+					"total": {"layerIndex": 129} 
+      },
+       "low-2050-2050": {
+          "percent": {"layerIndex": 72},
+					"total": {"layerIndex": 130}  
+      },
+	"chartData": {
+		"Tr10": {
+			"low-2030-2030": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 9535421918.59467 },{ "name": "Climate","value": 7319958294.06731 },{ "name": "Total","value": 29449873712.4943 } ],
+			"low-2050-2050": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 17211293876.0053 },{ "name": "Climate","value": 9858922476.10217 },{ "name": "Total","value": 39664709851.9397 } ],
+			"high-2030-2030": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 17081372621.7073 },{ "name": "Climate","value": 9815948151.75473 },{ "name": "Total","value": 39491814273.2944 } ],
+			"high-2050-2050": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 41003421700.8259 },{ "name": "Climate","value": 17728694235.8166 },{ "name": "Total","value": 71326609436.4749 } ],
+			"low-2010-2010": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 12594493499.8323 } ],
+			"high-2010-2010": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 12594493499.8323 } ],
+			"low-2010-2030": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 7319958294.06731 },{ "name": "Total","value": 19914451793.8996 } ],
+			"low-2010-2050": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 9858922476.10217 },{ "name": "Total","value": 22453415975.9345 } ],
+			"low-2030-2010": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 9535421918.59467 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 22129915418.427 } ],
+			"low-2050-2010": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 17211293876.0053 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 29805787375.8376 } ],
+			"high-2010-2030": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 9815948151.75473 },{ "name": "Total","value": 22410441651.587 } ],
+			"high-2010-2050": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 17728694235.8166 },{ "name": "Total","value": 30323187735.6489 } ],
+			"high-2030-2010": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 17081372621.7073 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 29675866121.5396 } ],
+			"high-2050-2010": [ { "name": "Today","value": 12594493499.8323 },{ "name": "Economic","value": 41003421700.8259 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 53597915200.6582 } ]
+
+		},
+		"Tr50": {
+			"low-2030-2030": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 41409219411.8184 },{ "name": "Climate","value": 37856622668.8423 },{ "name": "Total","value": 126877366025.183 } ],
+			"low-2050-2050": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 72286509931.7729 },{ "name": "Climate","value": 50987381772.6064 },{ "name": "Total","value": 170885415648.902 } ],
+			"high-2030-2030": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 71763883142.7993 },{ "name": "Climate","value": 50765131492.4935 },{ "name": "Total","value": 170140538579.815 } ],
+			"high-2050-2050": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 167993739939.124 },{ "name": "Climate","value": 91687474318.0628 },{ "name": "Total","value": 307292738201.71 } ],
+			"low-2010-2010": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 47611523944.5226 } ],
+			"high-2010-2010": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 47611523944.5226 } ],
+			"low-2010-2030": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 37856622668.8423 },{ "name": "Total","value": 85468146613.3649 } ],
+			"low-2010-2050": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 50987381772.6064 },{ "name": "Total","value": 98598905717.129 } ],
+			"low-2030-2010": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 41409219411.8184 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 89020743356.341 } ],
+			"low-2050-2010": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 72286509931.7729 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 119898033876.296 } ],
+			"high-2010-2030": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 50765131492.4935 },{ "name": "Total","value": 98376655437.0162 } ],
+			"high-2010-2050": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 91687474318.0628 },{ "name": "Total","value": 139298998262.585 } ],
+			"high-2030-2010": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 71763883142.7993 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 119375407087.322 } ],
+			"high-2050-2010": [ { "name": "Today","value": 47611523944.5226 },{ "name": "Economic","value": 167993739939.124 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 215605263883.647 } ]
+		},
+		"Tr100": {
+			"low-2030-2030": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 74645402687.8326 },{ "name": "Climate","value": 71405950553.1595 },{ "name": "Total","value": 248206182138.281 } ],
+			"low-2050-2050": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 135969448172.341 },{ "name": "Climate","value": 96173461999.9887 },{ "name": "Total","value": 334297739069.618 } ],
+			"high-2030-2030": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 134931481808.106 },{ "name": "Climate","value": 95754248890.2772 },{ "name": "Total","value": 332840559595.672 } ],
+			"high-2050-2050": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 326049420454.047 },{ "name": "Climate","value": 172942824688.062 },{ "name": "Total","value": 601147074039.398 } ],
+			"low-2010-2010": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 102154828897.289 } ],
+			"high-2010-2010": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 102154828897.289 } ],
+			"low-2010-2030": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 71405950553.1595 },{ "name": "Total","value": 173560779450.448 } ],
+			"low-2010-2050": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 96173461999.9887 },{ "name": "Total","value": 198328290897.278 } ],
+			"low-2030-2010": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 74645402687.8326 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 176800231585.121 } ],
+			"low-2050-2010": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 135969448172.341 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 238124277069.629 } ],
+			"high-2010-2030": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 95754248890.2772 },{ "name": "Total","value": 197909077787.566 } ],
+			"high-2010-2050": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 172942824688.062 },{ "name": "Total","value": 275097653585.351 } ],
+			"high-2030-2010": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 134931481808.106 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 237086310705.395 } ],
+			"high-2050-2010": [ { "name": "Today","value": 102154828897.289 },{ "name": "Economic","value": 326049420454.047 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 428204249351.336 } ]
+		},
+		"Tr250": {
+			"low-2030-2030": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 109532888843.602 },{ "name": "Climate","value": 56026708356.7017 },{ "name": "Total","value": 309545534017.392 } ],
+			"low-2050-2050": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 197467162778.703 },{ "name": "Climate","value": 75459852650.7437 },{ "name": "Total","value": 416912952246.534 } ],
+			"high-2030-2030": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 195978793609.856 },{ "name": "Climate","value": 75130928654.1419 },{ "name": "Total","value": 415095659081.086 } ],
+			"high-2050-2050": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 470028182198.375 },{ "name": "Climate","value": 135694814313.392 },{ "name": "Total","value": 749708933328.855 } ],
+			"low-2010-2010": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 143985936817.088 } ],
+			"high-2010-2010": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 143985936817.088 } ],
+			"low-2010-2030": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 56026708356.7017 },{ "name": "Total","value": 200012645173.789 } ],
+			"low-2010-2050": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 75459852650.7437 },{ "name": "Total","value": 219445789467.831 } ],
+			"low-2030-2010": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 109532888843.602 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 253518825660.69 } ],
+			"low-2050-2010": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 197467162778.703 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 341453099595.791 } ],
+			"high-2010-2030": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 75130928654.1419 },{ "name": "Total","value": 219116865471.23 } ],
+			"high-2010-2050": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 135694814313.392 },{ "name": "Total","value": 279680751130.48 } ],
+			"high-2030-2010": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 195978793609.856 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 339964730426.944 } ],
+			"high-2050-2010": [ { "name": "Today","value": 143985936817.088 },{ "name": "Economic","value": 470028182198.375 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 614014119015.462 } ]
+		},
+		"Tr500": {
+			"low-2030-2030": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 132233975807.078 },{ "name": "Climate","value": 69571589830.2153 },{ "name": "Total","value": 382772335425.217 } ],
+			"low-2050-2050": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 240869222471.914 },{ "name": "Climate","value": 93702844076.4714 },{ "name": "Total","value": 515538836336.31 } ],
+			"high-2030-2030": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 239030470133.942 },{ "name": "Climate","value": 93294400210.1793 },{ "name": "Total","value": 513291640132.046 } ],
+			"high-2050-2050": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 577594963765.105 },{ "name": "Climate","value": 168500064351.35 },{ "name": "Total","value": 927061797904.379 } ],
+			"low-2010-2010": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 180966769787.924 } ],
+			"high-2010-2010": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 180966769787.924 } ],
+			"low-2010-2030": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 69571589830.2153 },{ "name": "Total","value": 250538359618.14 } ],
+			"low-2010-2050": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 93702844076.4714 },{ "name": "Total","value": 274669613864.396 } ],
+			"low-2030-2010": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 132233975807.078 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 313200745595.002 } ],
+			"low-2050-2010": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 240869222471.914 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 421835992259.838 } ],
+			"high-2010-2030": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 93294400210.1793 },{ "name": "Total","value": 274261169998.104 } ],
+			"high-2010-2050": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 0 },{ "name": "Climate","value": 168500064351.35 },{ "name": "Total","value": 349466834139.274 } ],
+			"high-2030-2010": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 239030470133.942 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 419997239921.867 } ],
+			"high-2050-2010": [ { "name": "Today","value": 180966769787.924 },{ "name": "Economic","value": 577594963765.105 },{ "name": "Climate","value": 0 },{ "name": "Total","value": 758561733553.029 } ]
+		}
+    }
+	}
+  },
+  "exposure": {
+	  "county-residential-under10": {
+        "percent": {"layerIndex": 2},
+        "total": {"layerIndex": 1}  
+      },
+	  "county-commercial-under10": {
+        "percent": {"layerIndex": 4},
+        "total": {"layerIndex": 3}
+      },
+	  "county-industrial-under10": {
+        "percent": {"layerIndex": 6},
+        "total": {"layerIndex": 5}
+      },
+	  "county-other-under10": {
+        "percent": {"layerIndex": 8},
+        "total": {"layerIndex": 7}
+      }, 
+    "censustract-residential-under10": {
+        "percent": {"layerIndex": 10},
+        "total": {"layerIndex": 10}
+      },
+    "censustract-commercial-under10": {
+        "percent": {"layerIndex": 11},
+        "total": {"layerIndex": 11} 
+      },
+    "censustract-industrial-under10": {
+        "percent": {"layerIndex": 12},
+        "total": {"layerIndex": 12} 
+      }, 
+    "censustract-other-under10": {
+        "percent": {"layerIndex": 13},
+        "total": {"layerIndex": 13}
+      }
+    },
+	"measures": {
+		"layers": {
+			"oysters": { "name":"Oyster Reef Restoration", "layerIndex": 133, "class": "oysters", "legendOrder": 1 },
+			"wetland": { "name":"Wetland Restoration", "layerIndex": 132, "class": "wetland", "legendOrder": 2 },
+			"barrier": { "name":"Barrier Island Restoration", "layerIndex": 134, "class": "barrier", "legendOrder": 3 },
+			"beach": { "name":"Beach Nourishment", "layerIndex": 135, "class": "beach", "legendOrder": 4 },
+			"levees": { "name":"Levee or Floodwall", "layerIndex": 136, "class": "levees", "legendOrder": 5 },
+			"sandbags": { "name":"Sandbag or Barrier", "layerIndex": 137, "class": "sandbags", "legendOrder": 6 },
+			"other": { "name":"Home Elevation", "layerIndex": 138, "class": "other", "legendOrder": 7 },
+			"counties": { "layerIndex": 139, "legendOrder": -1 }
+		},
+		 "chartData": {
+			"default-low-none-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.615574825756935, "benefit": 4099431784.08874, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.48177674013316, "benefit": 62214315310.4529, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.934374255580773, "benefit": 13988131552.3326, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 12.9850055883835, "benefit": 13634339679.067, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 2.608808852757, "benefit": 17772519108.9394, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 7.57283471925264, "benefit": 14735468134.8196, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.302822460436782, "benefit": 531287779.198531, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.743457236739769, "benefit": 8223609417.21543, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.167293598604698, "benefit": 5596208469.35074, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.410721306350631, "benefit": 86621666206.3644, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 6.30069127379043, "benefit": 13134416434.0036, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 4.16491331459283, "benefit": 13024565343.484, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 15.7159449543273, "benefit": 18358671197.639, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 21.318759336735, "benefit": 28027341580.0525, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 5.53698975436952, "benefit": 30584401117.258, "class": "beach" }
+			],
+			"default-low-none-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 2.21145755094804, "benefit": 16272064452.1172, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 4.26281370326378, "benefit": 197753938162.583, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 4.34726878769808, "benefit": 65081167778.8286, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 42.5431772764477, "benefit": 49356360229.9165, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 7.95534198167094, "benefit": 54195794083.5631, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 24.3446628612376, "benefit": 52339607207.3915, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 1.11567849795998, "benefit": 4120134192.90537, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 2.21369377962818, "benefit": 51541206713.8149, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.681006940040744, "benefit": 22780649333.4384, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.35123230375829, "benefit": 284976678281.904, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 40.1719395688206, "benefit": 41871197963.1004, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 16.0742816602488, "benefit": 50267680506.0815, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 55.0612781037831, "benefit": 64320147682.2925, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 65.5322646012324, "benefit": 86153942426.108, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 16.9165553107094, "benefit": 93441154146.3884, "class": "beach" }
+			],
+			"default-low-low-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.434274159781098, "benefit": 2892056690.95705, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.16532765496771, "benefit": 48927790673.5375, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.25817849611645, "benefit": 3865083767.12024, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 9.48157813964242, "benefit": 9955718245.13893, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.68202791245161, "benefit": 11458820827.0697, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 5.57077304210559, "benefit": 10839791398.0038, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.209974223472575, "benefit": 368389909.773451, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.582757099584666, "benefit": 6446055718.15972, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.115999795419022, "benefit": 3880357903.59676, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.321942870952631, "benefit": 67898176875.6117, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 5.88005660821476, "benefit": 12257561716.9298, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 2.52504184944643, "benefit": 7896340230.6398, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 7.58534328696918, "benefit": 8860862247.31537, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 16.1857162372434, "benefit": 21279033668.5934, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 5.1058753333832, "benefit": 28203075349.3215, "class": "beach" }
+			],
+			"default-low-low-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 1.21128445201114, "benefit": 8912718521.10527, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 2.89445514139196, "benefit": 134275139119.252, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.951203973255712, "benefit": 14240082313.4111, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 24.6257536098069, "benefit": 28569506179.5884, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 4.84757918027053, "benefit": 33024149516.5149, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 14.4317763084457, "benefit": 31027478490.6423, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.583483338532002, "benefit": 2154769190.65129, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.48233409293428, "benefit": 34513033648.0837, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.356156548382711, "benefit": 11913942368.9705, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.904812458600923, "benefit": 190826143071.768, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 35.7181365551092, "benefit": 37229000706.0751, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 7.57916070682133, "benefit": 23701639486.4419, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 23.144399333229, "benefit": 27036262767.5539, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 47.0572965742218, "benefit": 61865275745.5227, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 14.6660840094943, "benefit": 81010335229.8601, "class": "beach" }
+			],
+			"default-low-high-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.264315058880079, "benefit": 1760210957.38267, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.03005325537, "benefit": 43248119828.3545, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.157556384400372, "benefit": 2358711639.08771, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 8.17288505667017, "benefit": 8581582061.10434, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.26113609257775, "benefit": 8591493884.5077, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 4.84696228599532, "benefit": 9431376883.79462, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.120658777416693, "benefit": 211690156.014392, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.506316952540787, "benefit": 5600527714.63931, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.0666576747582421, "benefit": 2229793890.14605, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.279713680758492, "benefit": 58991984865.1126, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 5.25686208828347, "benefit": 10958450875.2011, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.94144993066462, "benefit": 6071324796.71212, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 4.81414756683263, "benefit": 5623674079.62056, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 13.9647639888388, "benefit": 18359192681.7982, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 4.61943653864974, "benefit": 25516157027.7943, "class": "beach" }
+			],
+			"default-low-high-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.720704420347901, "benefit": 5302995200.51803, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 2.46253155814681, "benefit": 114238000384.658, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.552230468812586, "benefit": 8267214554.36013, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 20.4288120572685, "benefit": 23700434981.9919, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 3.62277797483949, "benefit": 24680187173.252, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 12.0117847230818, "benefit": 25824637533.4641, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.328163800494212, "benefit": 1211889355.00886, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.24818277462033, "benefit": 29061312361.8819, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.200310238133429, "benefit": 6700661952.93428, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.761887168669331, "benefit": 160683010574.198, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 31.7734749554031, "benefit": 33117481359.1993, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 5.25088660413791, "benefit": 16420633641.3283, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 13.9596972151044, "benefit": 16307100332.5278, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 38.140072265481, "benefit": 50141981359.6073, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 12.6333582484124, "benefit": 69782266767.3439, "class": "beach" }
+			],
+			"default-high-none-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.735020098157306, "benefit": 5405654296.39092, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.76929861230204, "benefit": 82037974667.6782, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 1.23209861150055, "benefit": 18445240073.9611, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 15.5045977885956, "benefit": 17978717721.4804, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 3.44006670341573, "benefit": 23435466020.3912, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 9.04225690488456, "benefit": 19430704260.4004, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.361581704256302, "benefit": 1331645675.81236, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.887716632096276, "benefit": 20612056871.5596, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.220599197080465, "benefit": 7379356444.77791, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.541591496390018, "benefit": 114222362207.944, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 16.6166242778286, "benefit": 17319501425.2046, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 5.49200053541757, "benefit": 17174647930.6949, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 20.7235953270247, "benefit": 24208386689.2787, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 28.1116625600725, "benefit": 36957834014.134, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 7.30126857359852, "benefit": 40329662258.0068, "class": "beach" }
+			],
+			"default-high-none-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 3.27967286510922, "benefit": 29431138061.8691, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 6.32190946899039, "benefit": 357675786834.996, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 7.86286634122195, "benefit": 117711728573.961, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 63.0930962474215, "benefit": 89270409199.2795, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 14.3887561950669, "benefit": 98023450112.2789, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 36.1040301958231, "benefit": 94666181439.8018, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 1.65459223686047, "benefit": 13528927458.3955, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 3.28298927446925, "benefit": 169241392173.579, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 1.23173118766872, "benefit": 41203157573.7861, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 2.44396183425819, "benefit": 515434780117.006, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 72.6586293424386, "benefit": 75732062867.2373, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 29.0734100875894, "benefit": 90918706066.9319, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 99.5888433519891, "benefit": 116335278302.748, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 118.527623379386, "benefit": 155825868412.595, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 30.5968229382144, "benefit": 169006183353.977, "class": "beach" }
+			],
+			"default-high-low-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.518540106244504, "benefit": 3813567221.08531, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.39144619224235, "benefit": 64517898039.886, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.340443205369181, "benefit": 5096634795.27473, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 11.3213702108696, "benefit": 13127958687.9266, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 2.21798090332516, "benefit": 15110002385.1693, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 6.65171799900258, "benefit": 14293728504.0401, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.250717326130971, "benefit": 923350488.322514, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.69583446660909, "benefit": 16156709337.6059, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.152961392093675, "benefit": 5116775806.47285, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.424525142804454, "benefit": 89532913553.853, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 15.5072970798471, "benefit": 16163250091.2863, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 3.32960859966117, "benefit": 10412390726.733, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 10.0022992669255, "benefit": 11684243231.6683, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 21.3430521902101, "benefit": 28059278903.0245, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 6.73278600216362, "benefit": 37189562715.7936, "class": "beach" }
+			],
+			"default-high-low-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 1.79637938222443, "benefit": 16120354615.9112, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 4.29258340610192, "benefit": 242862248322.823, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 1.72043415537417, "benefit": 25755910063.6199, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 36.5208981118824, "benefit": 51673411398.1001, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 8.76777329269818, "benefit": 59730485130.2732, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 21.4028549333144, "benefit": 56119124027.3586, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.865327246188505, "benefit": 7075428785.80824, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 2.19835596642468, "benefit": 113327456517.797, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.644177177267927, "benefit": 21548641461.8137, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.63652623596353, "benefit": 345145545550.472, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 64.603075495383, "benefit": 67335762030.066, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 13.7083604733668, "benefit": 42868944261.5338, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 41.8610689589853, "benefit": 48900247693.2254, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 85.1121132398024, "benefit": 111895173292.827, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 26.526415537531, "benefit": 146522671883.703, "class": "beach" }
+			],
+			"default-high-high-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.315602380723712, "benefit": 2321075804.03226, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.22992333862626, "benefit": 57028485183.8129, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.207759365471894, "benefit": 3110279760.05572, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 9.758740164845, "benefit": 11315974598.8427, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.66297821167217, "benefit": 11329044676.255, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 5.78746002297294, "benefit": 12436543808.4966, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.144071236687297, "benefit": 530590561.096492, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.604561981068022, "benefit": 14037436593.6239, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.0878971440244123, "benefit": 2940284302.11163, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.368840253915205, "benefit": 77788896909.1815, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 13.8637648482687, "benefit": 14450197045.6582, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 2.56006386047406, "benefit": 8005861470.73174, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 6.34810355403726, "benefit": 7415573560.21687, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 18.4144267864983, "benefit": 24209074336.5508, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 6.09135077426499, "benefit": 33646498131.773, "class": "beach" }
+			],
+			"default-high-high-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 1.06883115625063, "benefit": 9591480192.76365, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 3.6520248499757, "benefit": 206621253936.53, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.998814330992047, "benefit": 14952837339.8812, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 30.2966794645949, "benefit": 42866765685.0702, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 6.55248626003891, "benefit": 44638834748.1017, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 17.8139184272062, "benefit": 46708791922.5933, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.486678982976797, "benefit": 3979376011.52544, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.8511009514356, "benefit": 95426111961.7719, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.36229934382682, "benefit": 12119427600.7816, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.37801853690136, "benefit": 290625930245.143, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 57.4684011896206, "benefit": 59899293602.9681, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 9.49723183854644, "benefit": 29699853831.2815, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 25.2487800333177, "benefit": 29494507146.7408, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 68.9836090459168, "benefit": 90691355140.1258, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 22.8498425561295, "benefit": 126214564448.373, "class": "beach" }
+			],
+			
+			"conservative-low-none-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.744286402129527, "benefit": 4956588875.45152, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.9240590517194, "benefit": 80784110910.5575, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.934374255580773, "benefit": 13988131552.3326, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 12.9850055883835, "benefit": 13634339679.067, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.27545084407028, "benefit": 10426815812.8011, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 7.57283471925264, "benefit": 14735468134.8196, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.302822460436782, "benefit": 531287779.198531, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.743457236739769, "benefit": 8223609417.21543, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.167293598604698, "benefit": 5596208469.35074, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.410721306350631, "benefit": 86621666206.3644, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 3.40752944381022, "benefit": 8524000071.98714, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.8538462368423, "benefit": 6956843408.17116, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 7.92044690583662, "benefit": 11102778553.0064, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 10.8284902955181, "benefit": 17083196532.1252, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 4.40896573263868, "benefit": 29224307602.777, "class": "beach" }
+			],
+			"conservative-low-none-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 2.60365073840875, "benefit": 19157850263.9706, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 5.39598193556813, "benefit": 250322146894.611, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 4.34726878769808, "benefit": 65081167778.8286, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 42.5431772764477, "benefit": 49356360229.9165, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 3.71479571648833, "benefit": 30368470018.3336, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 24.3446628612376, "benefit": 52339607207.3915, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 1.11567849795998, "benefit": 4120134192.90537, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 2.21369377962818, "benefit": 51541206713.8149, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.681006940040744, "benefit": 22780649333.4384, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.35123230375829, "benefit": 284976678281.904, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 20.9439392239751, "benefit": 26195832258.64, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 6.36495562708315, "benefit": 23885475892.002, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 25.8465576171934, "benefit": 36231365350.0726, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 29.9718632920748, "benefit": 47284082737.2238, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 12.5530459786997, "benefit": 83206379745.158, "class": "beach" }
+			],
+			"conservative-low-low-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.531691467339934, "benefit": 3540809028.15014, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.55230032023896, "benefit": 65175339148.0451, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.25817849611645, "benefit": 3865083767.12024, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 9.48157813964242, "benefit": 9955718245.13893, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 0.812055240033522, "benefit": 6638554874.15634, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 5.57077304210559, "benefit": 10839791398.0038, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.209974223472575, "benefit": 368389909.773451, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.582757099584666, "benefit": 6446055718.15972, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.115999795419022, "benefit": 3880357903.59676, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.321942870952631, "benefit": 67898176875.6117, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 3.22052307947637, "benefit": 8056200075.14798, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.1826204769754, "benefit": 4437965407.32974, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 4.14735765931311, "benefit": 5813711551.7479, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 9.05149795897259, "benefit": 14279785484.7097, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 4.12615972103165, "benefit": 27349761422.04, "class": "beach" }
+			],
+			"conservative-low-low-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 1.45262654792407, "benefit": 10688531101.3742, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 3.80930017912247, "benefit": 176715231887.366, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.951203973255712, "benefit": 14240082313.4111, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 24.6257536098069, "benefit": 28569506179.5884, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 2.43600820543403, "benefit": 19914376939.4325, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 14.4317763084457, "benefit": 31027478490.6423, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.583483338532002, "benefit": 2154769190.65129, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.48233409293428, "benefit": 34513033648.0837, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.356156548382711, "benefit": 11913942368.9705, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.904812458600923, "benefit": 190826143071.768, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 18.7909648515771, "benefit": 23502978974.7684, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 3.38838753879676, "benefit": 12715445890.3556, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 12.1485741173137, "benefit": 17029711803.2472, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 24.3457936411152, "benefit": 38408306804.6777, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 11.220168193861, "benefit": 74371557080.8137, "class": "beach" }
+			],
+			"conservative-low-high-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.311029038045367, "benefit": 2071303553.99099, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.35352794083657, "benefit": 56829623391.9469, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.157556384400372, "benefit": 2358711639.08771, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 8.17288505667017, "benefit": 8581582061.10434, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 0.599885630539068, "benefit": 4904067457.75951, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 4.84696228599532, "benefit": 9431376883.79462, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.120658777416693, "benefit": 211690156.014392, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.506316952540787, "benefit": 5600527714.63931, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.0666576747582421, "benefit": 2229793890.14605, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.279713680758492, "benefit": 58991984865.1126, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 2.87610490488624, "benefit": 7194631424.48442, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 0.901868251701141, "benefit": 3384399459.45725, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 2.72894442537532, "benefit": 3825398490.59224, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 7.91015463067234, "benefit": 12479184306.1637, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 3.75460971781214, "benefit": 24886986194.8437, "class": "beach" }
+			],
+			"conservative-low-high-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.836568345840452, "benefit": 6155530336.21704, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 3.24494894156383, "benefit": 150534711812.398, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.552230468812586, "benefit": 8267214554.36013, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 20.4288120572685, "benefit": 23700434981.9919, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.74047004042577, "benefit": 14228349625.2233, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 12.0117847230818, "benefit": 25824637533.4641, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.328163800494212, "benefit": 1211889355.00886, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.24818277462033, "benefit": 29061312361.8819, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.200310238133429, "benefit": 6700661952.93428, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.761887168669331, "benefit": 160683010574.198, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 16.7445522650231, "benefit": 20943408863.5272, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 2.40996750139793, "benefit": 9043774069.72244, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 7.56398592460926, "benefit": 10603096226.4399, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 20.8943043653475, "benefit": 32963183060.0625, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 9.9269713597172, "benefit": 65799754902.3155, "class": "beach" }
+			],
+			"conservative-high-none-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.888706687570729, "benefit": 6535931651.31373, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 2.29740076085172, "benefit": 106524757386.789, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 1.23209861150055, "benefit": 18445240073.9611, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 15.5045977885956, "benefit": 17978717721.4804, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.68185414423624, "benefit": 13749164436.6196, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 9.04225690488456, "benefit": 19430704260.4004, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.361581704256302, "benefit": 1331645675.81236, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.887716632096276, "benefit": 20612056871.5596, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.220599197080465, "benefit": 7379356444.77791, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.541591496390018, "benefit": 114222362207.944, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 8.98657528563086, "benefit": 11240044971.6997, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 2.44454656226496, "benefit": 9173537319.16178, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 10.4441786327681, "benefit": 14640512575.3969, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 14.2788264745827, "benefit": 22526501133.2532, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 5.81381659960346, "benefit": 38536195324.7157, "class": "beach" }
+			],
+			"conservative-high-none-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 3.86130978336859, "benefit": 34650633160.0796, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 8.00243962499492, "benefit": 452755437816.592, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 7.86286634122195, "benefit": 117711728573.961, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 63.0930962474215, "benefit": 89270409199.2795, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 6.71891792988609, "benefit": 54927181272.3732, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 36.1040301958231, "benefit": 94666181439.8018, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 1.65459223686047, "benefit": 13528927458.3955, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 3.28298927446925, "benefit": 169241392173.579, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 1.23173118766872, "benefit": 41203157573.7861, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 2.44396183425819, "benefit": 515434780117.006, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 37.8811163558257, "benefit": 47380168516.3069, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 11.5122385588858, "benefit": 43201447531.1046, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 46.7484385828212, "benefit": 65531347846.2182, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 54.2098422186099, "benefit": 85522299353.1529, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 22.7045824691276, "benefit": 150494638041.402, "class": "beach" }
+			],
+			"conservative-high-low-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.634860130988949, "benefit": 4669034769.64959, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.85350648858746, "benefit": 85942484383.273, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.340443205369181, "benefit": 5096634795.27473, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 11.3213702108696, "benefit": 13127958687.9266, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.0708044744717, "benefit": 8753830913.00423, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 6.65171799900258, "benefit": 14293728504.0401, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.250717326130971, "benefit": 923350488.322514, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.69583446660909, "benefit": 16156709337.6059, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.152961392093675, "benefit": 5116775806.47285, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.424525142804454, "benefit": 89532913553.853, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 8.49338900516226, "benefit": 10623187515.3608, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.55944477163254, "benefit": 5852056586.10491, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 5.46885103363621, "benefit": 7666163625.32501, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 11.9356221563683, "benefit": 18829825161.7606, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 5.44089868995011, "benefit": 36064353091.6005, "class": "beach" }
+			],
+			"conservative-high-low-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 2.15429858480413, "benefit": 19332251015.1475, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 5.64933223663572, "benefit": 319623266157.54, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 1.72043415537417, "benefit": 25755910063.6199, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 36.5208981118824, "benefit": 51673411398.1001, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 4.40598634702565, "benefit": 36018956220.6458, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 21.4028549333144, "benefit": 56119124027.3586, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.865327246188505, "benefit": 7075428785.80824, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 2.19835596642468, "benefit": 113327456517.797, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.644177177267927, "benefit": 21548641461.8137, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.63652623596353, "benefit": 345145545550.472, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 33.9870507820146, "benefit": 42509628763.2634, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 6.12854636575825, "benefit": 22998313743.0634, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 21.9730178155049, "benefit": 30801488078.5373, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 44.034020144508, "benefit": 69468762468.1663, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 20.2938182897814, "benefit": 134515172967.9, "class": "beach" }
+			],
+			"conservative-high-high-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.371380674628407, "benefit": 2731293395.1528, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.61616459657678, "benefit": 74937531353.3168, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.207759365471894, "benefit": 3110279760.05572, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 9.758740164845, "benefit": 11315974598.8427, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 0.791030198051534, "benefit": 6466675070.85243, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 5.78746002297294, "benefit": 12436543808.4966, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.144071236687297, "benefit": 530590561.096492, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.604561981068022, "benefit": 14037436593.6239, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.0878971440244123, "benefit": 2940284302.11163, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.368840253915205, "benefit": 77788896909.1815, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 7.58506527480821, "benefit": 9487092923.86871, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.18923505655315, "benefit": 4462787635.52689, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 3.59848167614282, "benefit": 5044304400.02359, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 10.4306068783414, "benefit": 16455489397.7968, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 4.95095984549296, "benefit": 32816851440.3696, "class": "beach" }
+			],
+			"conservative-high-high-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 1.24066161816486, "benefit": 11133452900.3569, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 4.81237859969255, "benefit": 272270792651.483, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.998814330992047, "benefit": 14952837339.8812, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 30.2966794645949, "benefit": 42866765685.0702, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 3.1479726621676, "benefit": 25734689254.9834, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 17.8139184272062, "benefit": 46708791922.5933, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.486678982976797, "benefit": 3979376011.52544, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.8511009514356, "benefit": 95426111961.7719, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.36229934382682, "benefit": 12119427600.7816, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.37801853690136, "benefit": 290625930245.143, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 30.285722561273, "benefit": 37880157097.6025, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 4.3588867575435, "benefit": 16357393619.5662, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 13.6809139799199, "benefit": 19177725717.705, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 37.7913422290529, "benefit": 59620215643.4424, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 17.9548246925753, "benefit": 119011430704.798, "class": "beach" }
+			],
+			
+			"sensitivity-low-none-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.615574825756935, "benefit": 4099431784.08874, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.48177674013316, "benefit": 62214315310.4529, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.934374255580773, "benefit": 13988131552.3326, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 12.9850055883835, "benefit": 13634339679.067, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.53054101288433, "benefit": 10426815812.8011, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 7.57283471925264, "benefit": 14735468134.8196, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.302822460436782, "benefit": 531287779.198531, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.743457236739769, "benefit": 8223609417.21543, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.167293598604698, "benefit": 5596208469.35074, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.410721306350631, "benefit": 86621666206.3644, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 4.08903533257226, "benefit": 8524000071.98714, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 2.22461548421076, "benefit": 6956843408.17116, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 9.50453628700394, "benefit": 11102778553.0064, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 12.9941883546218, "benefit": 17083196532.1252, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 5.29075887916642, "benefit": 29224307602.777, "class": "beach" }
+			],
+			"sensitivity-low-none-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 2.21145755094804, "benefit": 16272064452.1172, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 4.26281370326378, "benefit": 197753938162.583, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 4.34726878769808, "benefit": 65081167778.8286, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 42.5431772764477, "benefit": 49356360229.9165, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 4.457754859786, "benefit": 30368470018.3336, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 24.3446628612376, "benefit": 52339607207.3915, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 1.11567849795998, "benefit": 4120134192.90537, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 2.21369377962818, "benefit": 51541206713.8149, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.681006940040744, "benefit": 22780649333.4384, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.35123230375829, "benefit": 284976678281.904, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 25.1327270687701, "benefit": 26195832258.64, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 7.63794675249978, "benefit": 23885475892.002, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 31.0158691406321, "benefit": 36231365350.0726, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 35.9662359504898, "benefit": 47284082737.2238, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 15.0636551744396, "benefit": 83206379745.158, "class": "beach" }
+			],
+			"sensitivity-low-low-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.434274159781098, "benefit": 2892056690.95705, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.16532765496771, "benefit": 48927790673.5375, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.25817849611645, "benefit": 3865083767.12024, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 9.48157813964242, "benefit": 9955718245.13893, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 0.974466288040226, "benefit": 6638554874.15634, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 5.57077304210559, "benefit": 10839791398.0038, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.209974223472575, "benefit": 368389909.773451, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.582757099584666, "benefit": 6446055718.15972, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.115999795419022, "benefit": 3880357903.59676, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.321942870952631, "benefit": 67898176875.6117, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 3.86462769537164, "benefit": 8056200075.14798, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.41914457237048, "benefit": 4437965407.32974, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 4.97682919117573, "benefit": 5813711551.7479, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 10.8617975507671, "benefit": 14279785484.7097, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 4.95139166523798, "benefit": 27349761422.04, "class": "beach" }
+			],
+			"sensitivity-low-low-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 1.21128445201114, "benefit": 8912718521.10527, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 2.89445514139196, "benefit": 134275139119.252, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.951203973255712, "benefit": 14240082313.4111, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 24.6257536098069, "benefit": 28569506179.5884, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 2.92320984652084, "benefit": 19914376939.4325, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 14.4317763084457, "benefit": 31027478490.6423, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.583483338532002, "benefit": 2154769190.65129, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.48233409293428, "benefit": 34513033648.0837, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.356156548382711, "benefit": 11913942368.9705, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.904812458600923, "benefit": 190826143071.768, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 22.5491578218926, "benefit": 23502978974.7684, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 4.06606504655611, "benefit": 12715445890.3556, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 14.5782889407764, "benefit": 17029711803.2472, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 29.2149523693383, "benefit": 38408306804.6777, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 13.4642018326332, "benefit": 74371557080.8137, "class": "beach" }
+			],
+			"sensitivity-low-high-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.264315058880079, "benefit": 1760210957.38267, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.03005325537, "benefit": 43248119828.3545, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.157556384400372, "benefit": 2358711639.08771, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 8.17288505667017, "benefit": 8581582061.10434, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 0.719862756646882, "benefit": 4904067457.75951, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 4.84696228599532, "benefit": 9431376883.79462, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.120658777416693, "benefit": 211690156.014392, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.506316952540787, "benefit": 5600527714.63931, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.0666576747582421, "benefit": 2229793890.14605, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.279713680758492, "benefit": 58991984865.1126, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 3.45132588586349, "benefit": 7194631424.48442, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.08224190204137, "benefit": 3384399459.45725, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 3.27473331045039, "benefit": 3825398490.59224, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 9.49218555680682, "benefit": 12479184306.1637, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 4.50553166137456, "benefit": 24886986194.8437, "class": "beach" }
+			],
+			"sensitivity-low-high-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.720704420347901, "benefit": 5302995200.51803, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 2.46253155814681, "benefit": 114238000384.658, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.552230468812586, "benefit": 8267214554.36013, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 20.4288120572685, "benefit": 23700434981.9919, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 2.08856404851093, "benefit": 14228349625.2233, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 12.0117847230818, "benefit": 25824637533.4641, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.328163800494212, "benefit": 1211889355.00886, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.24818277462033, "benefit": 29061312361.8819, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.200310238133429, "benefit": 6700661952.93428, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.761887168669331, "benefit": 160683010574.198, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 20.0934627180277, "benefit": 20943408863.5272, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 2.89196100167752, "benefit": 9043774069.72244, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 9.0767831095311, "benefit": 10603096226.4399, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 25.0731652384171, "benefit": 32963183060.0625, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 11.9123656316606, "benefit": 65799754902.3155, "class": "beach" }
+			],
+			"sensitivity-high-none-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.735020098157306, "benefit": 5405654296.39092, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.76929861230204, "benefit": 82037974667.6782, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 1.23209861150055, "benefit": 18445240073.9611, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 15.5045977885956, "benefit": 17978717721.4804, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 2.01822497308349, "benefit": 13749164436.6196, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 9.04225690488456, "benefit": 19430704260.4004, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.361581704256302, "benefit": 1331645675.81236, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.887716632096276, "benefit": 20612056871.5596, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.220599197080465, "benefit": 7379356444.77791, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.541591496390018, "benefit": 114222362207.944, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 10.783890342757, "benefit": 11240044971.6997, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 2.93345587471796, "benefit": 9173537319.16178, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 12.5330143593217, "benefit": 14640512575.3969, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 17.1345917694993, "benefit": 22526501133.2532, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 6.97657991952414, "benefit": 38536195324.7157, "class": "beach" }
+			],
+			"sensitivity-high-none-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 3.27967286510922, "benefit": 29431138061.8691, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 6.32190946899039, "benefit": 357675786834.996, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 7.86286634122195, "benefit": 117711728573.961, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 63.0930962474215, "benefit": 89270409199.2795, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 8.06270151586332, "benefit": 54927181272.3732, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 36.1040301958231, "benefit": 94666181439.8018, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 1.65459223686047, "benefit": 13528927458.3955, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 3.28298927446925, "benefit": 169241392173.579, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 1.23173118766872, "benefit": 41203157573.7861, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 2.44396183425819, "benefit": 515434780117.006, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 45.4573396269908, "benefit": 47380168516.3069, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 13.8146862706629, "benefit": 43201447531.1046, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 56.0981262993854, "benefit": 65531347846.2182, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 65.0518106623319, "benefit": 85522299353.1529, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 27.2454989629531, "benefit": 150494638041.402, "class": "beach" }
+			],
+			"sensitivity-high-low-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.518540106244504, "benefit": 3813567221.08531, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.39144619224235, "benefit": 64517898039.886, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.340443205369181, "benefit": 5096634795.27473, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 11.3213702108696, "benefit": 13127958687.9266, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 1.28496536936604, "benefit": 8753830913.00423, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 6.65171799900258, "benefit": 14293728504.0401, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.250717326130971, "benefit": 923350488.322514, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.69583446660909, "benefit": 16156709337.6059, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.152961392093675, "benefit": 5116775806.47285, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.424525142804454, "benefit": 89532913553.853, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 10.1920668061947, "benefit": 10623187515.3608, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.87133372595904, "benefit": 5852056586.10491, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 6.56262124036345, "benefit": 7666163625.32501, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 14.3227465876419, "benefit": 18829825161.7606, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 6.52907842794013, "benefit": 36064353091.6005, "class": "beach" }
+			],
+			"sensitivity-high-low-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 1.79637938222443, "benefit": 16120354615.9112, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 4.29258340610192, "benefit": 242862248322.823, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 1.72043415537417, "benefit": 25755910063.6199, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 36.5208981118824, "benefit": 51673411398.1001, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 5.28718361643078, "benefit": 36018956220.6458, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 21.4028549333144, "benefit": 56119124027.3586, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.865327246188505, "benefit": 7075428785.80824, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 2.19835596642468, "benefit": 113327456517.797, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.644177177267927, "benefit": 21548641461.8137, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.63652623596353, "benefit": 345145545550.472, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 40.7844609384176, "benefit": 42509628763.2634, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 7.3542556389099, "benefit": 22998313743.0634, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 26.3676213786059, "benefit": 30801488078.5373, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 52.8408241734097, "benefit": 69468762468.1663, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 24.3525819477377, "benefit": 134515172967.9, "class": "beach" }
+			],
+			"sensitivity-high-high-2030": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 0.315602380723712, "benefit": 2321075804.03226, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 1.22992333862626, "benefit": 57028485183.8129, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.207759365471894, "benefit": 3110279760.05572, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 9.758740164845, "benefit": 11315974598.8427, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 0.949236237661841, "benefit": 6466675070.85243, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 5.78746002297294, "benefit": 12436543808.4966, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.144071236687297, "benefit": 530590561.096492, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 0.604561981068022, "benefit": 14037436593.6239, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.0878971440244123, "benefit": 2940284302.11163, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 0.368840253915205, "benefit": 77788896909.1815, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 9.10207832976985, "benefit": 9487092923.86871, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 1.42708206786379, "benefit": 4462787635.52689, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 4.31817801137139, "benefit": 5044304400.02359, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 12.5167282540097, "benefit": 16455489397.7968, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 5.94115181459155, "benefit": 32816851440.3696, "class": "beach" }
+			],
+			"sensitivity-high-high-2050": [
+				{ "type":"Local levees - homes - priority", "costbenefit": 1.06883115625063, "benefit": 9591480192.76365, "class": "levees" },
+				{ "type":"Local levees - homes - remaining", "costbenefit": 3.6520248499757, "benefit": 206621253936.53, "class": "levees" },
+				{ "type":"Shoreline Levees", "costbenefit": 0.998814330992047, "benefit": 14952837339.8812, "class": "levees" },
+				{ "type":"Sandbags & temporal flood-barriers", "costbenefit": 30.2966794645949, "benefit": 42866765685.0702, "class": "sandbags" },
+				{ "type":"Beach Nourishment - low risk ", "costbenefit": 3.77756719460112, "benefit": 25734689254.9834, "class": "beach" },
+				{ "type":"Local Floodwalls", "costbenefit": 17.8139184272062, "benefit": 46708791922.5933, "class": "levees" },
+				{ "type":"Home Elevation, new build, priority", "costbenefit": 0.486678982976797, "benefit": 3979376011.52544, "class": "other" },
+				{ "type":"Home Elevation, new builds, low risk", "costbenefit": 1.8511009514356, "benefit": 95426111961.7719, "class": "other" },
+				{ "type":"Home Elevation, existing homes - high risk", "costbenefit": 0.36229934382682, "benefit": 12119427600.7816, "class": "other" },
+				{ "type":"Home Elevation, existing homes -  low risk", "costbenefit": 1.37801853690136, "benefit": 290625930245.143, "class": "other" },
+				{ "type":"Wetland restoration - Risk Reduction", "costbenefit": 36.3428670735276, "benefit": 37880157097.6025, "class": "wetland" },
+				{ "type":"Wetland restoration - Conservation", "costbenefit": 5.23066410905219, "benefit": 16357393619.5662, "class": "wetland" },
+				{ "type":"Barrier island restoration", "costbenefit": 16.4170967759039, "benefit": 19177725717.705, "class": "barrier" },
+				{ "type":"Oyster reef restoration", "costbenefit": 45.3496106748635, "benefit": 59620215643.4424, "class": "oysters" },
+				{ "type":"Beach Nourishment - high risk ", "costbenefit": 21.5457896310903, "benefit": 119011430704.798, "class": "beach" }
+			]
+		 }
+	 }
+}
