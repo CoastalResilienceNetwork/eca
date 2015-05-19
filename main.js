@@ -17,30 +17,27 @@ require({
             name: "underscore",
             location: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4",
             main: "underscore-min"
-        },
-        {
-            name: "tv4",
-            location: location.pathname.replace(/\/[^/]+$/, "") + "plugins/eca/lib",
-            main: "tv4.min"
         }
     ]
 });
 
 define([
-        "dojo/_base/declare",
-        "framework/PluginBase",
-        "dojo/parser",
-        "dijit/registry",
-        "dojo/dom-class",
-        "dojo/dom-style",
-        "dojo/_base/lang",
-        "dojo/query",
-		"d3",
-        "use!underscore", 
-        "./app",
-        "dojo/text!plugins/eca/app_data.json"
+		"dojo/_base/declare",
+		"framework/PluginBase",
+		"dojo/parser",
+		"dijit/registry",
+		"dojo/dom-class",
+		"dojo/dom-style",
+		"dojo/_base/lang",
+		"dojo/query",
+		 "d3",
+		"use!underscore",
+		"./app",
+		"dojo/text!plugins/eca/eca_data.json",
+		"dojo/text!plugins/eca/eca_interface.json",
+		"dojo/text!./templates.html"
        ],
-       function (declare, PluginBase, parser, registry, domClass, domStyle, lang, query, d3, _, eca, appData) {
+       function (declare, PluginBase, parser, registry, domClass, domStyle, lang, query, d3, _, eca, appData, ecaConfig, templates) {
            return declare(PluginBase, {
                toolbarName: "Economics of Climate Adaptation",
                toolbarType: "sidebar",
@@ -50,7 +47,7 @@ define([
                infoGraphic: "",
                pluginDirectory: "plugins/eca",
                width: 425,
-               height: 640,
+               height: 650,
                
                activate: function () {
 					this.ecaTool.showTool();
@@ -58,11 +55,11 @@ define([
                },
                
                deactivate: function () { 
-                    this.ecaTool.hideTool();
+                   this.ecaTool.hideTool();
                },
                
                hibernate: function () {
-					this.ecaTool.hideTool();                         
+				   this.ecaTool.hideTool();                         
                },
                
                initialize: function (frameworkParameters) {
@@ -71,7 +68,7 @@ define([
                        parseOnLoad: true
                    };
                    domClass.add(this.container, "claro");
-                   this.ecaTool = new eca(this, appData);
+                   this.ecaTool = new eca(this, appData, ecaConfig, templates);
                    this.ecaTool.initialize(this.ecaTool);
                },
                    

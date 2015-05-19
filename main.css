@@ -1,24 +1,85 @@
+.fi-info {
+  font-size: 20px;
+  position: relative;
+  top: 2px;
+}
+
 .bar rect, .bar line, #arrowhead, #arrowhead-total {
 shape-rendering: crispEdges;
 }
 
 .bar.today rect {
-  fill: #797B9C;
-  stroke: #444444;
+  fill: #EBE9D7;
+  stroke: #bbbbbb;
 }
 .bar.economic rect {
-  fill: #F2C981;
-  stroke: #444444;
+  fill: #C2CFC0;
+  stroke: #bbbbbb;
 }
 .bar.climate rect {
-  fill: #F2780C;
-  stroke: #444444;
-}
-.bar.total rect {
-  fill: #222426;
-  stroke: #444444;
+  fill: #7991AB;
+  stroke: #bbbbbb;
 }
 
+.bar.total rect {
+  fill: #412A22;
+  stroke: #bbbbbb;
+}
+
+.bar.cb.beach rect, .legend.beach rect  {
+  fill: #F7F3CE;
+  stroke: #aaaaaa;
+}
+
+.bar.cb.levees rect, .legend.levees rect  {
+  fill: #CED7DE;
+  stroke: #bbbbbb;
+}
+
+.bar.cb.oysters rect, .legend.oysters rect  {
+  fill: #527D84;
+  stroke: #bbbbbb;
+}
+
+.bar.cb.barrier rect, .legend.barrier rect  {
+  fill: #C2CFC0;
+  stroke: #bbbbbb;
+}
+
+.bar.cb.sandbags rect, .legend.sandbags rect  {
+  fill: #666666;
+  stroke: #bbbbbb;
+}
+
+.bar.cb.wetlandrisk rect, .legend.wetlandrisk rect  {
+  fill: #527D84;
+  stroke: #bbbbbb;
+}
+
+.bar.cb.wetlandconservation rect, .legend.wetlandconservation rect   {
+  fill: #ADCFC6;
+  stroke: #bbbbbb;
+}
+
+.bar.cb.wetland rect, .legend.wetland rect   {
+  fill: #7991AB;
+  stroke: #bbbbbb;
+}
+
+.bar.cb.other rect, .legend.other rect {
+  fill: #412A22;
+  stroke: #bbbbbb;
+}
+
+
+.categories rect {
+stroke: #bbbbbb;
+}
+
+.line-cb line{
+  stroke: #ff0000;
+  stroke-dasharray: 3;
+}
 .bar line.connector {
   stroke: grey;
   stroke-dasharray: 3;
@@ -38,9 +99,13 @@ shape-rendering: crispEdges;
 }
 
 .bar text {
-  fill: white;
+  fill: black;
   font: 10px sans-serif;
   text-anchor: middle;
+}
+
+.bar.today text {
+  fill: black;
 }
 
 .bar text.line-arrow-text {
@@ -64,10 +129,118 @@ shape-rendering: crispEdges;
   shape-rendering: crispEdges;
 }
 
+.x-axis-title {
+font: 10px sans-serif;
+}
+
 #arrowhead {
 	fill: #aaaaaa;
 }
 
 #arrowhead-total{
   fill: #ffffff;
+}
+
+/* base CSS element */
+.measuresChartTooltip {
+position:absolute;
+display:none;
+z-index: 10;
+padding: 10px;
+border-radius: 5px;
+max-height:75px; 
+width:100px; 
+left:0px; 
+top:0px; 
+background-color: #444444; 
+border: 1px solid #cccccc;
+color: #ffffff;
+font-size: 11px;
+font-weight: bold;
+text-align:center;
+}
+.measuresChartTooltip span {
+display:inline-block;
+vertical-align:middle;
+text-align:center;
+}
+
+.measuresChartTooltip:after, .measuresChartTooltip:before {
+top: 100%;
+left: 50%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+}
+
+.measuresChartTooltip:after {
+border-color: rgba(68, 68, 68, 0);
+border-top-color: #444;
+border-width: 5px;
+margin-left: -5px;
+}
+.measuresChartTooltip:before {
+border-color: rgba(204, 204, 204, 0);
+border-top-color: #ccc;
+border-width: 6px;
+margin-left: -6px;
+}
+
+/* 
+ * Mesasage info box 
+ */
+
+.pluginEca-info-box {
+    position: absolute; 
+}
+
+.pluginEca-info-box .body {
+    width: 300px;
+    max-height: 400px;
+    background: #fff;
+    border: 5px solid #444;
+    border-radius: 5px;
+    padding: 10px 10px 0 10px;
+    overflow: auto;
+}
+
+.pluginEca-info-box .close {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+    padding: 6px;
+    background: #FFF;
+    border-radius: 4px;
+    color: #CCC;
+    font-weight: 700;
+    height: 24px;
+    line-height: 10px;
+    width: 24px;
+    font-size: 14px;
+}
+.pluginEca-info-box .close:hover {
+    background: #F1F2F2;
+    color: #333;
+}
+
+.pluginEca-info-box .info-label {
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+
+.pluginEca-info-box .info-value {
+    padding-bottom: 10px;
+}
+
+.eca-labels {
+font-size: 13px !important;
+top: 1px !important;
+position: relative !important;
+}
+.dijitRuleLabel {
+font-size: 13px !important;
 }
