@@ -10,7 +10,7 @@
 	},
 	"exposure": {
 		"tooltips": {
-			"typeInfo": {"label" : "Exposure Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"typeInfo": {"label" : "Assets", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"geographyInfo": {"label" : "Geography", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"valuesInfo":  {"label" : "Display map values by", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"y-axis":  {"label" : "Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
@@ -41,14 +41,18 @@
 			"growthInfo": {"label" : "Economic Growth Scenario", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"defenseInfo": {"label" : "Defense Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"assetInfo":  {"label" : "Reference Year for Assets", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"climateInfo":  {"label" : "Reference Year for Climate", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"climateInfo":  {"label" : "Reference Year", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"protectionInfo":  {"label" : "Standard of Protection (year)", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"valuesInfo":  {"label" : "Display map values by", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"x-axis":  {"label" : "Risk Profile Graph X-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"y-axis":  {"label" : "Risk Profile Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
 		},
 		"messages": {
-			"slider_error" : {"label" : "Invalid Information", "value": "Data with a combination of Assets in ASSETYEAR and Climate in CLIMATEYEAR does not exist. Sliders have been automatically adjusted to an allowable combination."}
+			"slider_error" : {"label" : "Invalid Information", "value": "Data with a combination of Assets in ASSETYEAR and Climate in CLIMATEYEAR does not exist. Sliders have been automatically adjusted to an allowable combination."},
+			"Today" : {"label" : "Expected Current Damages in 2010", "value": "<b>$VALUE (US)</b> in expected damages in 2010."},
+			"Economic" : {"label" : "Expected Future Damages from Economy", "value": "<b>$VALUE (US)</b> in expected damages in the future from economic growth alone representing a <b>PERCENT</b> increase relative to expected damages in 2010."},
+			"Climate" : {"label" : "Expected Future Damages from Climate", "value": "<b>$VALUE (US)</b> in expected damages in the future from climate change alone representing a <b>PERCENT</b> increase relative to expected damages in 2010."},
+			"Total" : {"label" : "Expected Future Damages in FUTUREYEAR", "value": "<b>$VALUE (US)</b> in total expected damages in the future (including increase from both economic growth and climate change) representing a <b>PERCENT</b> increase relative to  expected damages in 2010."}
 		},
 		"controls": {
 			"type":[
@@ -81,13 +85,21 @@
 			"typeInfo": {"label" : "Model Form", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"growthInfo": {"label" : "Economic Growth Scenario", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"defenseInfo": {"label" : "Defense Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"climateInfo":  {"label" : "Reference Year for Climate", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"climateInfo":  {"label" : "Reference Year", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"x-axis":  {"label" : "Cost Curve Graph X-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"y-axis":  {"label" : "Cost Curve Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"line":  {"label" : "Cost Curve Line", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+			"line":  {"label" : "Cost Curve Line", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"oysters": { "label":"Oyster Reef Restoration", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"wetland": { "label":"Wetland Restoration",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"barrier": { "label":"Barrier Island Restoration",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"beach": { "label":"Beach Nourishment",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"levees": { "label":"Levee or Floodwall",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"sandbags": { "label":"Sandbag or Barrier",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"other": { "label":"Home Elevation",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."}
 		},
 		"messages": {
-		
+			"graph-bar": { "label" : "NAME", "value": "Benefit-cost ratio for avoided damages from present to FUTUREYEAR is <b>CBRATIO</b> with a total amount of <b>$CBDAMAGE (US)</b> in damages averted.<br><br>Note the height of the bar (the higher the bar, the more cost-effective of a measure) and the width (the larger the bar, the greater the amount of damages averted) relative to other measures. Cost-Benefit ratios below a value of 1 (the red dashed line) represent particularly ineffective adaptation measures relative to their cost to implement." }
+			
 		},
 		"controls": {
 			"type":[
