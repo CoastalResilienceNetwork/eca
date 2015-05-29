@@ -1777,7 +1777,7 @@ define([
 				var config = this._data.measures.chartData.config;
 				var updatedData = [];
 				array.forEach(inData, function(item){
-					if(config[item.type].show) {
+					if(config[item.type] && config[item.type].show) {
 						var obj = lang.clone(item);
 						obj.class = config[item.type].class;
 						updatedData.push(obj);
