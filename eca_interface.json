@@ -13,7 +13,11 @@
 			"typeInfo": {"label" : "Assets", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"geographyInfo": {"label" : "Geography", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
 			"valuesInfo":  {"label" : "Display map values by", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"y-axis":  {"label" : "Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+			"y-axis":  {"label" : "Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+			"Residential": { "label":"Residential Assets",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"Commercial": { "label":"Commercial Assets",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"Industrial": { "label":"Industrial Assets",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
+			"Other": { "label":"Other Assets",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."}
 		},
 		"messages": {
 		
