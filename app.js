@@ -975,7 +975,7 @@ define([
 					var legend = self.exposureChart.selectAll(".legend")
 						.data(color.domain().slice().reverse())
 						.enter().append("g")
-						.attr("class", "legend")
+						.attr("class", function(d) { return "legend " + d; })
 						.attr("transform", function(d, i) { return "translate(0," + ((i * 20) - 20) + ")"; });
 
 					legend.append("rect")
@@ -989,6 +989,14 @@ define([
 							self.comboButtonExposureType.set("label", d);
 							self.comboButtonExposureType.set("value", d.toLowerCase());
 							self.getExposureInputValues();						
+						})
+						.on("mouseover", function(d) {
+							var parent = _.last(query(".legend." + d).parents(".dijitTitlePane")).id
+							var message = self._interface["exposure"]["tooltips"][d];
+							self.showMessageDialog(parent, message.label, message.value);
+						})
+						.on("mouseout", function(d) {
+							self.hideMessageDialog();
 						});
 
 					legend.append("text")
@@ -1471,7 +1479,8 @@ define([
 							} else { 
 								widget.set("checked", true);
 							}
-						}).on("mouseover", function(d) {
+						})
+						.on("mouseover", function(d) {
 							var parent = _.last(query(".legend." + d.class).parents(".dijitTitlePane")).id
 							var message = self._interface["measures"]["tooltips"][d.class];
 							self.showMessageDialog(parent, message.label, message.value);
