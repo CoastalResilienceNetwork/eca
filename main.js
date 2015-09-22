@@ -40,21 +40,30 @@ define([
        ],
        function (declare, PluginBase, parser, registry, domClass, domStyle, lang, array, query, d3, _, eca, appData, ecaConfig, templates) {
            return declare(PluginBase, {
-               toolbarName: "Economics of Climate Adaptation",
+               toolbarName: "Economics of Coastal Adaptation",
                toolbarType: "sidebar",
                resizable: false,
                showServiceLayersInLegend: true,
                allowIdentifyWhenActive: true,
                infoGraphic: "",
                pluginDirectory: "plugins/eca",
-               width: 425,
-               height: 600,
+               width: 450,
+               height: 630,
 			   _state: {},
                
                activate: function () {
 					//process this._state if a populated object from setState exists
 					if (!_.isEmpty(this._state)) {
-						console.log(this._state);
+						 for (var check in this._state.controls.radiocheck) {
+							 for (property in this._state.controls.radiocheck[check]) {
+								 registry.byId(check).set(property, this._state.controls.radiocheck[check][property]);
+							 }
+						 }
+						 
+						 if (!_.isUndefined(this.ecaTool._map.getLayer("ecaMapLayer"))) {
+							 this.ecaTool.updateLayer([-1]);
+						 }
+						 
 						 for (var button in this._state.controls.buttons) {
 							 for (property in this._state.controls.buttons[button]) {
 								this.ecaTool[button].set(property, this._state.controls.buttons[button][property]);
@@ -67,13 +76,12 @@ define([
 							 }
 						 }
 						 
-						 for (var check in this._state.controls.radiocheck) {
-							 for (property in this._state.controls.radiocheck[check]) {
-								 registry.byId(check).set(property, this._state.controls.radiocheck[check][property]);
-							 }
-						 }
 						 var tab = registry.byId(this._state.tab);
 						 this.ecaTool.tc.selectChild(tab);
+						 
+						 this.ecaTool.adjustInterfaceControls("exposure");
+						 this.ecaTool.adjustInterfaceControls("damages");
+						 this.ecaTool.adjustInterfaceControls("measures");
 						
 						this._state = {};
 					}
@@ -98,6 +106,7 @@ define([
                    domClass.add(this.container, "claro");
 					this.ecaTool = new eca(this, appData, ecaConfig, templates);
 					this.ecaTool.initialize(this.ecaTool);
+					t = this.ecaTool;
                },
                    
                getState: function () {
@@ -128,16 +137,23 @@ define([
 						"label": this.ecaTool.comboButtonEconomy.get("label")
 				   }
 				   state.controls.buttons.comboButtonDefense = { 
-						"label": this.ecaTool.comboButtonDefense.get("label")
+						"label": this.ecaTool.comboButtonDefense.get("label"),
+						"value": this.ecaTool.comboButtonDefense.get("value")
+				   }
+				   state.controls.buttons.comboButtonGeographyDamages = { 
+						"label": this.ecaTool.comboButtonGeographyDamages.get("label"),
+						"value": this.ecaTool.comboButtonGeographyDamages.get("value")
 				   }
 				   state.controls.buttons.comboButtonTypeMeasures = { 
-						"label": this.ecaTool.comboButtonTypeMeasures.get("label")
+						"label": this.ecaTool.comboButtonTypeMeasures.get("label"),
+						"value": this.ecaTool.comboButtonTypeMeasures.get("value")
 				   }
 				   state.controls.buttons.comboButtonEconomyMeasures = { 
 						"label": this.ecaTool.comboButtonEconomyMeasures.get("label")
 				   }
 				   state.controls.buttons.comboButtonDefenseMeasures = { 
-						"label": this.ecaTool.comboButtonDefenseMeasures.get("label")
+						"label": this.ecaTool.comboButtonDefenseMeasures.get("label"),
+						"value": this.ecaTool.comboButtonDefenseMeasures.get("value")
 				   }
 				   
 				   state.controls.sliders.climateYearSliderDamages = { 
@@ -162,12 +178,19 @@ define([
 				   state.controls.radiocheck["damagesPercentRb-" + this.map.id] = {
 					   "checked": this.ecaTool.damagesPercentRb.get("checked")
 				   }
+				   state.controls.radiocheck["measuresTotalRb-" + this.map.id] = {
+					   "checked": this.ecaTool.measuresTotalRb.get("checked")
+				   }
+				   state.controls.radiocheck["measuresPercentRb-" + this.map.id] = {
+					   "checked": this.ecaTool.measuresPercentRb.get("checked")
+				   }
 				   var checkboxes = query("[name=measuresCheckbox-" + this.map.id + "]");
 				   array.forEach(checkboxes, function(checkbox) {
 					   state.controls.radiocheck[checkbox.id] = {
 							"checked": registry.byId(checkbox.id).get("checked")
 					   }
 				   });
+				   
                    return state;
                    
                 },

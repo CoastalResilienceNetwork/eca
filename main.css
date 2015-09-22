@@ -52,12 +52,12 @@ shape-rendering: crispEdges;
 }
 
 .bar.cb.wetlandrisk rect, .legend.wetlandrisk rect  {
-  fill: #527D84;
+  fill: #5F7287;
   stroke: #bbbbbb;
 }
 
 .bar.cb.wetlandconservation rect, .legend.wetlandconservation rect   {
-  fill: #ADCFC6;
+  fill: #7991AB;
   stroke: #bbbbbb;
 }
 
@@ -80,6 +80,12 @@ stroke: #bbbbbb;
   stroke: #ff0000;
   stroke-dasharray: 3;
 }
+
+.cb-ratio line{
+  stroke: #ff0000;
+  stroke-dasharray: 3;	
+}
+
 .bar line.connector {
   stroke: grey;
   stroke-dasharray: 3;
@@ -241,6 +247,6 @@ font-size: 13px !important;
 top: 1px !important;
 position: relative !important;
 }
-.dijitRuleLabel {
+.dijitRuleLabel, .dijitReset  {
 font-size: 13px !important;
 }

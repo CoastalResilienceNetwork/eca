@@ -178,8 +178,8 @@ define([
 			
 			this.resetInterface = function(){
 				if (this.mapLayer && this.mapLayer.loaded) {
-					this.comboButtonExposureType.set("label", _.first(this._interface.exposure.controls.type).name);
-					this.comboButtonExposureType.set("value", _.first(this._interface.exposure.controls.type).value);
+					this.comboButtonExposureType.set("label", _.first(this._interface.exposure.controls.type.percent).name);
+					this.comboButtonExposureType.set("value", _.first(this._interface.exposure.controls.type.percent).value);
 					this.comboButtonElevation.set("label", _.first(this._interface.exposure.controls.elevation).name);
 					this.comboButtonElevation.set("value", _.first(this._interface.exposure.controls.elevation).value);
 					this.comboButtonGeography.set("label", _.first(this._interface.exposure.controls.geography).name);
@@ -187,9 +187,14 @@ define([
 					this.comboButtonType.set("label", _.first(this._interface.damages.controls.type).name);
 					this.comboButtonEconomy.set("label", _.first(this._interface.damages.controls.growth).name);
 					this.comboButtonDefense.set("label", _.first(this._interface.damages.controls.defense).name);
+					this.comboButtonDefense.set("value", _.first(this._interface.damages.controls.defense).value);
+					this.comboButtonGeographyDamages.set("label", _.first(this._interface.damages.controls.geography).name);
+					this.comboButtonGeographyDamages.set("value", _.first(this._interface.damages.controls.geography).value);
 					this.comboButtonTypeMeasures.set("label", _.first(this._interface.measures.controls.type).name);
+					this.comboButtonTypeMeasures.set("value", _.first(this._interface.measures.controls.type).value);
 					this.comboButtonEconomyMeasures.get("label", _.first(this._interface.measures.controls.growth).name);
 					this.comboButtonDefenseMeasures.set("label", _.first(this._interface.measures.controls.defense).name);
+					this.comboButtonDefenseMeasures.set("value", _.first(this._interface.measures.controls.defense).value);
 					this.climateYearSliderDamages.set("value", 2030);
 					this.returnPeriodSlider.set("value", 1);
 					this.climateYearSliderMeasures.set("value", 2030);
@@ -198,6 +203,8 @@ define([
 					this.exposurePercentRb.set("checked", true);
 					this.damagesTotalRb.set("checked", false);
 					this.damagesPercentRb.set("checked", true);
+					this.measuresTotalRb.set("checked", false);
+					this.measuresPercentRb.set("checked", true);
 
 					var checkboxes = query("[name=measuresCheckbox-" + this._map.id + "]");
 					array.forEach(checkboxes, function(checkbox) {
@@ -251,11 +258,11 @@ define([
 				this.tabOverview = new ContentPane({
 			         id: "tabOverview-" + this._map.id,
 					 title: "Overview",
-					 style: "position:relative;width:100%;height:528px;overflow:hidden;",
+					 style: "position:relative;width:100%;height:558px;overflow:hidden;",
 					 isLayoutContainer: true,
 					 onShow: function() {
 						 window.setTimeout(function(){ domStyle.set(self.cpOverview.domNode, "width", "100%") }, 5);
-						 if (self.mapLayer && self.mapLayer.loaded) { self.mapLayer.hide(); }
+						 if (self.mapLayer && self.mapLayer.loaded) { self.mapLayer.setVisibleLayers([-1]); }
 					 }
 			    });
 				this.tabOverview.startup();
@@ -275,6 +282,7 @@ define([
 							label: "Methods",
 							disabled: false,
 							onClick: function(){
+								window.open("http://www.researchgate.net/publication/267636488_COASTAL_RISKS_NATURE-BASED_DEFENSES_AND_THE_ECONOMICS_OF_ADAPTATION_AN_APPLICATION_IN_THE_GULF_OF_MEXICO_USA","_blank");
 							}
 						});
 						methodsButtonDiv.appendChild(methodsButton.domNode);
@@ -288,7 +296,7 @@ define([
 			    this.tabExposure = new ContentPane({
 			         id: "tabExposure-" + this._map.id,
 					 title: "Exposure",
-					 style: "position:relative;width:100%;height:528px;overflow:hidden;",
+					 style: "position:relative;width:100%;height:558px;overflow:hidden;",
 			         isLayoutContainer: true,
 					 onShow: function() {
 						window.setTimeout(function(){ domStyle.set(self.cpExposure.domNode, "width", "100%") }, 5);
@@ -302,8 +310,8 @@ define([
 				//THE DAMAGES PANEL
 			    this.tabDamages = new ContentPane({
 			         id: "tabDamages-" + this._map.id,
-					 title: "Damages",
-					 style: "position:relative;width:100%;height:528px;overflow:hidden;",
+					 title: "Risk",
+					 style: "position:relative;width:100%;height:558px;overflow:hidden;",
 					 isLayoutContainer: true,
 					 onShow: function() {
 						window.setTimeout(function(){ domStyle.set(self.cpDamages.domNode, "width", "100%") }, 5);
@@ -317,8 +325,8 @@ define([
 			    //THE MEASURES PANEL
 			    this.tabMeasures = new ContentPane({
 			         id: "tabMeasures-" + this._map.id,
-					 title: "Measures",
-					 style: "position:relative;width:100%;height:528px;overflow:hidden;",
+					 title: "Solutions",
+					 style: "position:relative;width:100%;height:558px;overflow:hidden;",
 					 isLayoutContainer: true,
 					 onShow: function() {
 						window.setTimeout(function(){ domStyle.set(self.cpMeasures.domNode, "width", "100%") }, 10);
@@ -370,15 +378,21 @@ define([
 
 				this.createMessageDialog();
 				
-				//this.tc.selectChild(this.tabOverview);
-				
 				domStyle.set(this.tc, "width", "100%");
 				this.createTooltips();
+				
+				array.forEach(this.tc.getChildren(), function(tab) {
+					query("#" + tab.containerNode.id + " .dijitTitlePaneContentOuter").style("border", "none");
+				});
+				
+				on(this._map, "resize", function() {
+					window.setTimeout(function(){ domStyle.set(_.first(self.tc.selectedChildWidget.getChildren()).domNode, "width", "100%") }, 10);
+				});
 			}
 			
 			this.createExposureInputs = function(){
 				this.exposureInputsPane = new TitlePane({
-			    	title: 'Set Exposure Inputs',
+			    	title: 'Distribution of Assets',
 			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%;display:inline-block;',
 			    	toggleable: false,
 			    });
@@ -398,18 +412,11 @@ define([
 				var exposureDropdown = new DropDownMenu({ style: "display: none;"});
 				domClass.add(exposureDropdown.domNode, "claro");
 				
-				_.each(this._interface.exposure.controls.type, function(value, key){
+				_.each(this._interface.exposure.controls.type.percent, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
 						value: value.value,
 						onClick: function(){
-							var exposure = this.label;
-							var geography = self.comboButtonGeography.get("label");
-
-							var marginLeft = (exposure != "Other") ?  25 : 35;
-							var marginRight = (exposure != "Other" && geography == "County") ?  98 : (exposure != "Other" && geography == "Census Tract") ? 78 : (exposure == "Other" && geography == "County") ? 88 : 68;
-							dojo.style(self.comboButtonExposureType.domNode, { "marginLeft": marginLeft + "px", "marginRight": marginRight + "px" });
-							
 							self.comboButtonExposureType.set("label", this.label);
 							self.comboButtonExposureType.set("value", this.value);
 							/*if (self.comboButtonElevation.get("value") == "under20") {
@@ -418,6 +425,7 @@ define([
 								self.updateExposureChart();
 							}
 							self.comboButtonElevation.set("disabled", true);*/
+							self.adjustInterfaceControls("exposure");
 							self.getExposureInputValues();
 						}
 					});
@@ -425,10 +433,10 @@ define([
 				});
 
 				this.comboButtonExposureType = new ComboButton({
-					label: _.first(this._interface.exposure.controls.type).name,
-					value: _.first(this._interface.exposure.controls.type).value,
+					label: _.first(this._interface.exposure.controls.type.percent).name,
+					value: _.first(this._interface.exposure.controls.type.percent).value,
 					name: "type",
-					style: "display: inline-block; margin-left: 25px; width: 100px; margin-right: 98px;",
+					style: "display: inline-block; margin-left: 22px; width: 125px;",
 					onChange: function(value) {
 						console.log(value);
 					},
@@ -473,14 +481,9 @@ define([
 						label: value.name,
 						value: value.value,
 						onClick: function(){
-							var exposure = self.comboButtonExposureType.get("label");
-							var geography = this.label;
-							var marginLeft = (exposure != "Other") ?  25 : 35;
-							var marginRight = (exposure != "Other" && geography == "County") ?  98 : (exposure != "Other" && geography == "Census Tract") ? 78 : (exposure == "Other" && geography == "County") ? 88 : 68;
-							dojo.style(self.comboButtonExposureType.domNode, { "marginLeft": marginLeft + "px", "marginRight": marginRight + "px" });
-							
 							self.comboButtonGeography.set("label", this.label);
 							self.comboButtonGeography.set("value", this.value);
+							self.adjustInterfaceControls("exposure");
 						
 							if(geography == "County"){
 								self.exposurePercentRb.set("disabled", false);
@@ -499,7 +502,7 @@ define([
 					label: _.first(this._interface.exposure.controls.geography).name,
 					value: _.first(this._interface.exposure.controls.geography).value,
 					name: "geography",
-					style: "display: inline-block; width: 110px;",
+					style: "display: inline-block; width: 110px; margin-left: 90px;",
 					disabled: false,
 					dropDown: geographyDropdown
 				});
@@ -528,7 +531,36 @@ define([
 			    	"value": "percent",
 			    	"checked": true,
 			    	onChange: function() {
-			    		if(this.get('checked')){self.getExposureInputValues()};
+			    		if (this.get('checked')){
+							
+							var currentTypeLabel = self.comboButtonExposureType.get("label");
+							var currentTypeValue = self.comboButtonExposureType.get("value");
+							
+							_.each(self.comboButtonExposureType.dropDown.getChildren(), function(menuItem) {
+								menuItem.destroyRecursive();
+							})
+							
+							_.each(self._interface.exposure.controls.type.percent, function(value, key){
+								var menuItem = new MenuItem({
+									label: value.name,
+									value: value.value,
+									onClick: function(){
+										self.comboButtonExposureType.set("label", this.label);
+										self.comboButtonExposureType.set("value", this.value);
+										self.adjustInterfaceControls("exposure");
+										self.getExposureInputValues();
+									}
+								});
+								self.comboButtonExposureType.dropDown.addChild(menuItem);
+							})
+							
+							var newTypeLabel = ( currentTypeValue != "total" ) ? currentTypeLabel : _.first(self._interface.exposure.controls.type.percent).name;
+							var newTypeValue = ( currentTypeValue != "total" ) ? currentTypeValue : _.first(self._interface.exposure.controls.type.percent).value;
+							self.comboButtonExposureType.set("label", newTypeLabel);
+							self.comboButtonExposureType.set("value", newTypeValue);
+							self.adjustInterfaceControls("exposure");
+							self.getExposureInputValues();
+						};
 			    	}
 			    }, "exposurePercentRb-" + this._map.id);
 			    this.exposurePercentRb.startup();
@@ -543,7 +575,35 @@ define([
 			    	"value": "total",
 			    	"checked": false,
 			    	onChange: function() {
-			    		if(this.get('checked')){self.getExposureInputValues()};
+			    		if (this.get('checked')){
+							var currentTypeLabel = self.comboButtonExposureType.get("label");
+							var currentTypeValue = self.comboButtonExposureType.get("value");
+							
+							_.each(self.comboButtonExposureType.dropDown.getChildren(), function(menuItem) {
+								menuItem.destroyRecursive();
+							})
+							
+							_.each(self._interface.exposure.controls.type.total, function(value, key){
+								var menuItem = new MenuItem({
+									label: value.name,
+									value: value.value,
+									onClick: function(){
+										self.comboButtonExposureType.set("label", this.label);
+										self.comboButtonExposureType.set("value", this.value);
+										self.adjustInterfaceControls("exposure");
+										self.getExposureInputValues();
+									}
+								});
+								self.comboButtonExposureType.dropDown.addChild(menuItem);
+							})
+							
+							var newTypeLabel = ( currentTypeValue != "total" ) ? currentTypeLabel : _.first(self._interface.exposure.controls.type.total).name;
+							var newTypeValue = ( currentTypeValue != "total" ) ? currentTypeValue : _.first(self._interface.exposure.controls.type.total).value;
+							self.comboButtonExposureType.set("label", newTypeLabel);
+							self.comboButtonExposureType.set("value", newTypeValue);
+							self.adjustInterfaceControls("exposure");
+							self.getExposureInputValues()
+						};
 			    	}
 			    }, "exposureTotalRb-" + this._map.id);
 			    this.exposureTotalRb.startup();
@@ -554,7 +614,7 @@ define([
 
 			this.createDamagesInputs = function(){
 				this.damageInputsPane = new TitlePane({
-			    	title: 'Set Damages Inputs',
+			    	title: 'Select Model Settings',
 			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%',
 			    	toggleable: false,
 			    });
@@ -563,14 +623,17 @@ define([
 			    domStyle.set(this.damageInputsPane.containerNode, {"border": "1px dotted #ccc" });
 
 				//dropdown labels
-				var damageTypeContainer = domConstruct.create("div", {style: 'width: 39%; display: inline-block; margin-left:0px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-typeInfo'></i>&nbsp;<b>Hazard:</b>"});
+				var damageTypeContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block; margin-left:0px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-typeInfo'></i>&nbsp;<b>Hazard:</b>"});
 				this.damageInputsPane.containerNode.appendChild(damageTypeContainer);
 
-				var growthContainer = domConstruct.create("div", {style: 'width: 30%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-growthInfo'></i>&nbsp;<b>Economic:</b>"});
+				var growthContainer = domConstruct.create("div", {style: 'width: 26%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-growthInfo'></i>&nbsp;<b>Economy:</b>"});
 				this.damageInputsPane.containerNode.appendChild(growthContainer);
 
-				var defenseContainer = domConstruct.create("div", {style: 'width: 23%; display: inline-block; float: right', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
+				var defenseContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
 				this.damageInputsPane.containerNode.appendChild(defenseContainer);
+				
+				var geographyContainer = domConstruct.create("div", {style: 'width: 25%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
+				this.damageInputsPane.containerNode.appendChild(geographyContainer);
 
 				//damage type dropdown
 				var typeDropdown = new DropDownMenu({ style: "display: none;"});
@@ -590,7 +653,7 @@ define([
 				this.comboButtonType = new ComboButton({
 					label: _.first(this._interface.damages.controls.type).name,
 					name: "type",
-					style: "width: 68px; display: inline-block; margin-left: 5px;",
+					style: "width: 68px; display: inline-block; margin-left: 0px;",
 					dropDown: typeDropdown
 				});
 				this.damageInputsPane.containerNode.appendChild(this.comboButtonType.domNode);				
@@ -615,12 +678,11 @@ define([
 				this.comboButtonEconomy = new ComboButton({
 					label: _.first(this._interface.damages.controls.growth).name,
 					name: "growth",
-					style: "width: 60px; display: inline-block; margin-left:78px;",
+					style: "width: 60px; display: inline-block; margin-left:30px;",
 					dropDown: growthDropdown
 				});
 			
 				this.damageInputsPane.containerNode.appendChild(this.comboButtonEconomy.domNode);
-
 
 				//defense scenario dropdown
 				var defenseDropdown = new DropDownMenu({ style: "display: none;"});
@@ -629,9 +691,12 @@ define([
 				_.each(this._interface.damages.controls.defense, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
+						value: value.value,
 						onClick: function(){
 							self.comboButtonDefense.set("label", this.label);
+							self.comboButtonDefense.set("value", this.value);
 							self.comboButtonDefenseMeasures.set("label", this.label);
+							self.comboButtonDefenseMeasures.set("value", this.label);
 							self.getDamageInputValues();
 						}
 					});
@@ -640,12 +705,41 @@ define([
 
 				this.comboButtonDefense = new ComboButton({
 					label: _.first(this._interface.damages.controls.defense).name,
+					value: _.first(this._interface.damages.controls.defense).value,
 					name: "defense",
-					style: "width: 65px; display: inline-block; margin-left: 65px;",
+					style: "width: 65px; display: inline-block; margin-left: 30px;",
 					dropDown: defenseDropdown
 				});
 			
 				this.damageInputsPane.containerNode.appendChild(this.comboButtonDefense.domNode);
+
+				var geographyDropdown = new DropDownMenu({ style: "display: none;"});
+				domClass.add(geographyDropdown.domNode, "claro");
+				
+				_.each(this._interface.damages.controls.geography, function(value, key){
+					var menuItem = new MenuItem({
+						label: value.name,
+						value: value.value,
+						onClick: function(){						
+							self.comboButtonGeographyDamages.set("label", this.label);
+							self.comboButtonGeographyDamages.set("value", this.value);
+							self.adjustInterfaceControls("damages");
+							self.getDamageInputValues();
+						}
+					});
+					geographyDropdown.addChild(menuItem);
+				});
+
+				this.comboButtonGeographyDamages = new ComboButton({
+					label: _.first(this._interface.damages.controls.geography).name,
+					value: _.first(this._interface.damages.controls.geography).value,
+					name: "geography",
+					style: "width: 85px; display: inline-block; margin-left: 30px;",
+					disabled: false,
+					dropDown: geographyDropdown
+				});
+
+				this.damageInputsPane.containerNode.appendChild(this.comboButtonGeographyDamages.domNode);
 
 				//climate year slider
 			    var climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-climateInfo'></i>&nbsp;<b>Reference Year: </b>", style:"position:relative; width: 120px; top:-7px; margin-top:25px; display: inline-block"});
@@ -657,7 +751,7 @@ define([
 			        maximum: 2050,
 			        discreteValues: 2,
 			        showButtons: false,
-			        style: "width: 230px; display: inline-block",
+			        style: "width: 250px; display: inline-block",
 			        onChange: function(value){
 			           self.climateYearSliderMeasures.set("value", value);
 			           if(self.tc.selectedChildWidget.id == ("tabDamages-" + self._map.id)) {
@@ -727,7 +821,7 @@ define([
 			
 			this.createMeasuresInputs = function(){
 				this.measureInputsPane = new TitlePane({
-			    	title: 'Set Measures',
+			    	title: 'Select Model Settings',
 			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%;',
 			    	toggleable: false,
 			    });
@@ -735,35 +829,39 @@ define([
 			    domStyle.set(this.measureInputsPane.containerNode, {"border": "1px dotted #ccc" });
 
 			    //dropdown labels
-				var measureTypeContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block; margin-left:0px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-typeInfo'></i>&nbsp;<b>Model Form:</b>"});
+				var measureTypeContainer = domConstruct.create("div", {id: "measureTypeContainer-" + this._map.id, style: 'width: 90px; display: inline-block; margin-left:5px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-typeInfo'></i>&nbsp;<b>Estimates:</b>"});
 				this.measureInputsPane.containerNode.appendChild(measureTypeContainer);
 
-				var growthContainer = domConstruct.create("div", {style: 'width: 34%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-growthInfo'></i>&nbsp;<b>Economic:</b>"});
+				var growthContainer = domConstruct.create("div", {id: "growthContainer-" + this._map.id, style: 'width:  90px; display: inline-block; margin-left: 14%;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-growthInfo'></i>&nbsp;<b>Economy:</b>"});
 				this.measureInputsPane.containerNode.appendChild(growthContainer);
 
-				var defenseContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block; float: right', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
+				var defenseContainer = domConstruct.create("div", {style: 'width:  90px; display: inline-block; margin-left: 13%;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
 				this.measureInputsPane.containerNode.appendChild(defenseContainer);
 
 				//measure type dropdown
-				var typeDropdown = new DropDownMenu({ style: "display: none;" });
-				domClass.add(typeDropdown.domNode, "claro");
+				var typeMeasuresDropdown = new DropDownMenu({ style: "display: none;" });
+				domClass.add(typeMeasuresDropdown.domNode, "claro");
 				
 				_.each(this._interface.measures.controls.type, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
+						value: value.value,
 						onClick: function(){
 							self.comboButtonTypeMeasures.set("label", this.label);
+							self.comboButtonTypeMeasures.set("value", this.value);
+							self.adjustInterfaceControls("measures");
 							self.getMeasureInputValues();
 						}
 					});
-					typeDropdown.addChild(menuItem);
+					typeMeasuresDropdown.addChild(menuItem);
 				});
 
 				this.comboButtonTypeMeasures = new ComboButton({
 					label: _.first(this._interface.measures.controls.type).name,
+					value: _.first(this._interface.measures.controls.type).value,
 					name: "type",
-					style: "width: 75px; display: inline-block; margin-left: 15px;",
-					dropDown: typeDropdown
+					style: "width: 125px; display: inline-block; margin-left: 15px;",
+					dropDown: typeMeasuresDropdown
 				});
 
 				this.measureInputsPane.containerNode.appendChild(this.comboButtonTypeMeasures.domNode);				
@@ -788,7 +886,7 @@ define([
 				this.comboButtonEconomyMeasures = new ComboButton({
 					label: _.first(this._interface.measures.controls.growth).name,
 					name: "growth",
-					style: "width: 60px; display: inline-block; margin-left: 62px;",
+					style: "width: 60px; display: inline-block; margin-left: 15px;",
 					dropDown: growthDropdown
 				});
 			
@@ -803,9 +901,12 @@ define([
 				_.each(this._interface.measures.controls.defense, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
+						value: value.value,
 						onClick: function(){
 							self.comboButtonDefenseMeasures.set("label", this.label);
+							self.comboButtonDefenseMeasures.set("value", this.value);
 							self.comboButtonDefense.set("label", this.label);
+							self.comboButtonDefense.set("value", this.value);
 							self.getMeasureInputValues();
 						}
 					});
@@ -814,8 +915,9 @@ define([
 
 				this.comboButtonDefenseMeasures = new ComboButton({
 					label: _.first(this._interface.measures.controls.defense).name,
+					value: _.first(this._interface.measures.controls.defense).value,
 					name: "defense",
-					style: "width: 65px; display: inline-block; margin-left: 62px;",
+					style: "width: 65px; display: inline-block; margin-left: 70px;",
 					dropDown: defenseDropdown
 				});
 			
@@ -832,7 +934,7 @@ define([
 			        maximum: 2050,
 			        discreteValues: 2,
 			        showButtons: false,
-			        style: "width: 230px; display: inline-block",
+			        style: "width: 250px; display: inline-block",
 			        onChange: function(value){
 			           self.climateYearSliderDamages.set("value", value);
 			           if(self.tc.selectedChildWidget.id == ("tabMeasures-" + self._map.id)) {
@@ -850,21 +952,63 @@ define([
 			    });
 			    this.climateYearSliderMeasures.addChild(climateYearSliderLabels);
 
-			    var clearDiv = domConstruct.create("div", {style: 'height: 15px; position: relative; clear: both'});
+			    var clearDiv = domConstruct.create("div", {style: 'height: 25px; position: relative; clear: both'});
+				this.measureInputsPane.containerNode.appendChild(clearDiv);
+				
+				var dataTypeText = domConstruct.create("div", {style: 'width: 44%; display: inline-block; margin-left: 0px; float: left', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
+				this.measureInputsPane.containerNode.appendChild(dataTypeText);
+
+			    var radioButtonContainerPercent = domConstruct.create("div", {style: 'width: 32%; display: inline-block; position: relative; float: left'});
+				this.measureInputsPane.containerNode.appendChild(radioButtonContainerPercent);
+
+				var radioButtonContainerTotal = domConstruct.create("div", {style: 'width: 23%; display: inline-block; position: relative; float: left'});
+				this.measureInputsPane.containerNode.appendChild(radioButtonContainerTotal);
+
+			    var measuresPercentInput = domConstruct.create("input", { id:"measuresPercentRb-" + this._map.id, "type": "radio", "name": "damagesRb",  "value": "percent", "checked": true});
+			    var measuresPercentLabel = domConstruct.create("label", {"for": "measuresPercentRb-" + this._map.id, innerHTML: "Percent Value", "class": "eca-labels", "style" : "float:left; margin: 1px 5px 0px 0px;"});
+			    radioButtonContainerPercent.appendChild(measuresPercentInput);
+			    radioButtonContainerPercent.appendChild(measuresPercentLabel);
+
+			    this.measuresPercentRb = new RadioButton({
+			    	"name": "measuresRb",
+			    	"value": "percent",
+			    	"checked": true,
+			    	onChange: function() {
+			    		if(this.get('checked')){ self.getMeasureInputValues()};
+			    	}
+			    }, "measuresPercentRb-" + this._map.id);
+			    this.measuresPercentRb.startup();
+
+			    var measuresTotalInput = domConstruct.create("input", { id:"measuresTotalRb-" + this._map.id, "type": "radio", "name": "damagesRb",  "value": "total"});
+			    var measuresTotalLabel = domConstruct.create("label", {"for": "measuresTotalRb-" + this._map.id, innerHTML: "Total Value", "class": "eca-labels", "style" : "float:left; margin: 1px 5px 0px 0px;"});
+			    radioButtonContainerTotal.appendChild(measuresTotalInput);
+			    radioButtonContainerTotal.appendChild(measuresTotalLabel);
+
+			    this.measuresTotalRb = new RadioButton({
+			    	"name": "measuresRb",
+			    	"value": "total",
+			    	"checked": false,
+			    	onChange: function() {
+			    		if(this.get('checked')){self.getMeasureInputValues()};
+			    	}
+			    }, "measuresTotalRb-" + this._map.id);
+			    this.measuresTotalRb.startup();
+
+			    var clearDiv = domConstruct.create("div", {style: 'height: 10px; position: relative; clear: both'});
 				this.measureInputsPane.containerNode.appendChild(clearDiv);
 
 			}
 
 			this.createExposureChart = function(){
 				var margin = {top: 20, right: 0, bottom: 40, left: 35}
-				var width = 320;
-				var height = 243;
+				var width = 340;
+				var height = 273;
 				var padding = 0.25;
 				
 				this.parameters.exposureChart = { height: height, width: width, margin: margin }
 				
 				this.exposureChartPane = new TitlePane({
-			    	title: 'Distribution of Assets by Elevation',
+			    	title: "<i class='fa fa-info-circle eca-" + this._map.id + " exposure-graphInfo'></i>&nbsp;Distribution of Assets by Elevation",
 			    	style: 'overflow:visible; position: relative;',
 			    	toggleable: false,
 			    });
@@ -941,7 +1085,7 @@ define([
 						.attr("y", 0 - margin.left)
 						.attr("dy", ".7em")
 						.style("text-anchor", "middle")
-						.text("Asset Value (1e9 $US)")
+						.text("Asset Values ($US Billion)")
 						.on("mouseover", function(d) {
 							var parent = _.last(query(".y.axis.e").parents(".dijitTitlePane")).id
 							var message = self._interface["exposure"]["tooltips"]["y-axis"];
@@ -966,7 +1110,8 @@ define([
 						.attr("height", function(d) { return self.exposureChartY(d.y0) - self.exposureChartY(d.y1); })
 						.style("fill", function(d) { return color(d.name); })
 						.on("click", function(d){
-							self.comboButtonExposureType.set("label", d.name);
+							var label = (d.name == "Other") ? "Essential Facilities" : d.name;
+							self.comboButtonExposureType.set("label", label);
 							self.comboButtonExposureType.set("value", d.name.toLowerCase());
 							self.getExposureInputValues();
 						});
@@ -975,7 +1120,7 @@ define([
 					var legend = self.exposureChart.selectAll(".legend")
 						.data(color.domain().slice().reverse())
 						.enter().append("g")
-						.attr("class", "legend")
+						.attr("class", function(d) { return "legend " + d; })
 						.attr("transform", function(d, i) { return "translate(0," + ((i * 20) - 20) + ")"; });
 
 					legend.append("rect")
@@ -986,9 +1131,18 @@ define([
 						.style("stroke", "#bbbbbb")
 						.attr("cursor", "pointer")
 						.on("click", function(d) {
-							self.comboButtonExposureType.set("label", d);
+							var label = (d == "Other") ? "Essential Facilities" : d;
+							self.comboButtonExposureType.set("label", label);
 							self.comboButtonExposureType.set("value", d.toLowerCase());
 							self.getExposureInputValues();						
+						})
+						.on("mouseover", function(d) {
+							var parent = _.last(query(".legend." + d).parents(".dijitTitlePane")).id
+							var message = self._interface["exposure"]["tooltips"][d];
+							self.showMessageDialog(parent, message.label, message.value);
+						})
+						.on("mouseout", function(d) {
+							self.hideMessageDialog();
 						});
 
 					legend.append("text")
@@ -996,7 +1150,13 @@ define([
 						.attr("y", 9)
 						.attr("dy", ".35em")
 						.style("text-anchor", "end")
-						.text(function(d) { return d; });
+						.text(function(d) { 
+							if (d == "Other") {
+								return "Essential Facilities";
+							} else {
+								return d;
+							}
+						});
 
 				})
 
@@ -1006,15 +1166,15 @@ define([
 
 			this.createDamagesChart = function(){
 				var margin = {top: 15, right: 0, bottom: 30, left: 40}
-				var width = 310;
-				var height = 160;
+				var width = 340;
+				var height = 190;
 				var padding = 0.45;
 				
 				this.parameters.damagesChart = { height: height, width: width, margin: margin }
 				
 				this.damagesChartPane = new TitlePane({
 			    	id: "damagesChartPane-" + this._map.id,
-					title: 'Risk Profile',
+					title: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-graphInfo'></i>&nbsp;Risk Profile",
 			    	style: 'overflow:visible; position: relative;',
 			    	toggleable: false,
 			    });
@@ -1024,7 +1184,7 @@ define([
 				this.damagesChartNode = domConstruct.create("div", { "style": "height:" + (height + 40) + "px;", "class": "damagesChartNode-" + this._map.id });
 				this.damagesChartPane.containerNode.appendChild(this.damagesChartNode);
 				
-				this.damagesChartNote = domConstruct.create("div", { style: "position:absolute; text-align:center; font-size:11px; width:100%; top:5px; left:0px; color: #666666;", innerHTML: "hover over any chart element for more information" });
+				this.damagesChartNote = domConstruct.create("div", { style: "position:absolute; text-align:center; font-size:12px; width:100%; top:5px; left:0px; color: #666666;", innerHTML: "hover over any chart element for more Results" });
 				this.damagesChartNode.appendChild(this.damagesChartNote);
 				
 				var maxY = 0;
@@ -1033,7 +1193,7 @@ define([
 					if (max > maxY) { maxY = max }
 				}
 				
-				var data = this.processDamagesChartData(this._data.damages.flood.chartData["Tr10"]["low-none-2010-2010"]);
+				var data = this.processDamagesChartData(this._data.damages.flood.chartData["Tr10"]["low-none-2030-2030"]);
 				var today = _.first(data).value;
 
 				this.damagesChartX = d3.scale.ordinal()
@@ -1092,12 +1252,14 @@ define([
 					.call(xAxis)
 					.selectAll(".tick text")
 					.text( function (d, i) { 
-						if (i == 0) {
+						if (d == "Today") {
 							return "2010"; 
-						} else if (i == 3) {
-							return "2030";
+						} else if (d == "Economic") {
+							return "Economic Growth";
+						} else if (d == "Climate") {
+							return "Climate Change";
 						} else {
-							return d;
+							return "Future Total";
 						}
 					});
 
@@ -1110,7 +1272,7 @@ define([
 					.attr("y", 0 - margin.left)
 					.attr("dy", ".7em")
 					.style("text-anchor", "middle")
-					.text("Damage Amount (1e9 $US)")
+					.text("Damages ($US Billion)")
 					.on("mouseover", function(d) {
 						var parent = _.last(query(".y.axis.d").parents(".dijitTitlePane")).id
 						var message = self._interface["damages"]["tooltips"]["y-axis"];
@@ -1131,6 +1293,7 @@ define([
 					.attr("width", self.damagesChartX.rangeBand())
 					.attr("y", function (d, i) { return self.damagesChartY( Math.max(d.start, d.end) ); })
 					.attr("height", function (d) { return Math.abs( self.damagesChartY(d.start) - self.damagesChartY(d.end) ); })
+					.attr("cursor", "pointer")
 					.on("mouseover", function(d) {
 						var parent = _.last(query(".bar." + d.class).parents(".dijitTitlePane")).id
 						var message = self._interface["damages"]["messages"][d.name];
@@ -1208,7 +1371,7 @@ define([
 				this.damagesChartPane.containerNode.appendChild(this.damagesChartYaxisTitle); */
 				
 				
-				var returnPeriodSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-protectionInfo'></i>&nbsp;<b>Standard of Protection (yr) :</b>", style:"position:relative; width:180px; top:-7px; margin-top:10px; margin-left:0px; display:inline-block;"});
+				var returnPeriodSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-protectionInfo'></i>&nbsp;<b>Storm Return Period (yr) :</b>", style:"position:relative; width:175px; top:-7px; margin-top:10px; margin-left:0px; display:inline-block;"});
 				this.damagesChartPane.containerNode.appendChild(returnPeriodSliderLabel);
 				this.returnPeriodSlider = new HorizontalSlider({
 			        name: "returnPeriodSlider",
@@ -1217,7 +1380,7 @@ define([
 			        maximum: this._interface.damages.controls.protection.discreteValues,
 			        discreteValues: this._interface.damages.controls.protection.discreteValues,
 			        showButtons: false,
-			        style: "width:175px;display: inline-block;",
+			        style: "width:200px;display: inline-block;",
 			        onChange: function(value){
 					   self.getDamageInputValues();
 			        }
@@ -1240,28 +1403,28 @@ define([
 		
 			this.createMeasuresChart = function(){
 				var margin = {top: 10, right: 20, bottom: 40, left: 35}
-				var width = 310;
-				var height = 230;
+				var width = 340;
+				var height = 225;
 				var padding = 0.25;
 				var tooltip = {width: 100, height: 50}
 				
 				this.parameters.measuresChart = { height: height, width: width, margin: margin }
 				
 				this.measuresChartPane = new TitlePane({
-			    	title: 'Cost Curve of Adapation Measures',
+			    	title: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-graphInfo'></i>&nbsp;Cost : Benefit Curve",
 			    	style: 'overflow:visible; position: relative;',
 			    	toggleable: false,
 			    });
 				
 				this.cpMeasures.domNode.appendChild(this.measuresChartPane.domNode);
 				domStyle.set(this.measuresChartPane.containerNode, {"position": "relative", "border": "1px dotted #ccc", "padding-bottom": "10px", "padding-top": "20px"});
-				this.measuresChartNode = domConstruct.create("div", { "style": "height:" + (height + 35) + "px;", "id": "measuresChartNode-" + this._map.id, "class": "measuresChartNode-" + this._map.id });
+				this.measuresChartNode = domConstruct.create("div", { "style": "height:" + (height + 45) + "px;", "id": "measuresChartNode-" + this._map.id, "class": "measuresChartNode-" + this._map.id });
 				this.measuresChartPane.containerNode.appendChild(this.measuresChartNode);
 				
 				this.measuresChartTip = domConstruct.create("div", { "class": "measuresChartTooltip" });
 				this.measuresChartNode.appendChild(this.measuresChartTip);
 				
-				this.measuresChartNote = domConstruct.create("div", { style: "position:absolute; text-align:center; font-size:11px; width:100%; top:5px; left:0px; color: #666666;", innerHTML: "hover over any chart element for more information" });
+				this.measuresChartNote = domConstruct.create("div", { style: "position:absolute; text-align:center; font-size:12px; width:100%; top:5px; left:0px; color: #666666;", innerHTML: "hover over any chart element for more Results" });
 				this.measuresChartNode.appendChild(this.measuresChartNote);
 				
 				var data = this.processMeasuresChartData(this._data.measures.chartData["default-low-none-2030"]);
@@ -1310,7 +1473,7 @@ define([
 					.attr("transform", "translate(" + (width/2) + "," + (height + margin.bottom -10)+ ")")
 					.attr("cursor", "pointer")
 					.style("text-anchor", "middle")
-					.text("Averted Damages over 21 yrs ($US 1e10)")
+					.text("Averted Damages over 21 yrs ($US 10 Billion)")
 					.on("mouseover", function(d) {
 						var parent = _.last(query(".y.axis.cb").parents(".dijitTitlePane")).id
 						var message = self._interface["measures"]["tooltips"]["x-axis"];
@@ -1330,7 +1493,7 @@ define([
 					.attr("dy", ".7em")
 					.attr("cursor", "pointer")
 					.style("text-anchor", "middle")
-					.text("Benefit/Cost Ratio ($US/$US)")
+					.text("Benefit:Cost Ratio")
 					.on("mouseover", function(d) {
 						var parent = _.last(query(".y.axis.cb").parents(".dijitTitlePane")).id
 						var message = self._interface["measures"]["tooltips"]["y-axis"];
@@ -1344,17 +1507,25 @@ define([
 					.data(data)
 					.enter()
 					.append("g")
-					.attr("class", function(d) { return "bar cb " + d.class })
+					.attr("class", function(d) { return "bar cb " + self._data['measures']['chartData']['config'][d.type]['class'] })
 					.attr("transform", function(d) { return "translate(" + self.measuresChartX(d.xStart) + ",0)"; });
 
 				bar.append("rect")
 					.attr("name", function (d) { return d.type; })
 					.attr("width", function (d) { return self.measuresChartX(d.benefit); })
 					.attr("y", function (d) { return self.measuresChartY(d.costbenefit); })
+					.attr("cursor", "pointer")
 					.attr("height", function (d) { return height - self.measuresChartY(d.costbenefit); })
 					.on("click", function(d,i) {
-						//var visibleLayers = [self._data['measures']['layers'][d.class]['layerIndex'], self._data['measures']['layers']['counties']['layerIndex']];
-						var visibleLayers = [self._data['measures']['layers'][d.class]['layerIndex']];
+						var growth = self.comboButtonEconomyMeasures.get("label");
+						var defense = self.comboButtonDefenseMeasures.get("value");
+						var climate = self.climateYearSliderMeasures.get("value");
+						var dataToggle = (self.measuresTotalRb.get("checked")) ? self.measuresTotalRb.get("value") : self.measuresPercentRb.get("value");
+						
+						var inputString = growth + "-" + defense + "-" + climate;
+						inputString = inputString.toLowerCase();
+						
+						var visibleLayers = [self._data['measures']['layersData'][d.type][inputString][dataToggle]['layerIndex']];
 						self.updateLayer(visibleLayers);
 					})
 					.on('mouseover',function(d,i) {
@@ -1379,10 +1550,18 @@ define([
 						var ratio = d3.round(d.costbenefit, 2);
 						var damage = self.formatter(d.benefit, 1000000000) + " billion";
 						var year = self.climateYearSliderDamages.get("value");
+						var name = self._data['measures']['chartData']['config'][d.type]['display'];
+						self.showMessageDialog(parent, name, message.value,  { "CBRATIO": ratio, "CBDAMAGE": damage, "FUTUREYEAR": year } );
 						
-						self.showMessageDialog(parent, d.type, message.value,  { "CBRATIO": ratio, "CBDAMAGE": damage, "FUTUREYEAR": year } );
+						var growth = self.comboButtonEconomyMeasures.get("label");
+						var defense = self.comboButtonDefenseMeasures.get("value");
+						var climate = self.climateYearSliderMeasures.get("value");
+						var dataToggle = (self.measuresTotalRb.get("checked")) ? self.measuresTotalRb.get("value") : self.measuresPercentRb.get("value");
 						
-						var visibleLayers = [self._data['measures']['layers'][d.class]['layerIndex']];
+						var inputString = growth + "-" + defense + "-" + climate;
+						inputString = inputString.toLowerCase();
+						
+						var visibleLayers = [self._data['measures']['layersData'][d.type][inputString][dataToggle]['layerIndex']];
 						self.updateLayer(visibleLayers);
 					})
 					.on('mouseout', function(d,i) {
@@ -1391,10 +1570,21 @@ define([
 						
 						var checkboxes = query("[name=measuresCheckbox-" + self._map.id + "]");
 						var visibleLayers = [];
+						
+						var growth = self.comboButtonEconomyMeasures.get("label");
+						var defense = self.comboButtonDefenseMeasures.get("value");
+						var climate = self.climateYearSliderMeasures.get("value");
+						var dataToggle = (self.measuresTotalRb.get("checked")) ? self.measuresTotalRb.get("value") : self.measuresPercentRb.get("value");
+						var inputString = growth + "-" + defense + "-" + climate;
+						inputString = inputString.toLowerCase();
+						
 						dojo.forEach(checkboxes, function(checkbox) {
 							var widget = registry.byId(checkbox.id);
 							if (widget.get("checked")) {
-								visibleLayers.push(self._data['measures']['layers'][widget.get("value")]['layerIndex']);
+								dojo.forEach(self._data['measures']['layers'][widget.get("value")]['layers'], function(layer) {					
+									var index = self._data['measures']['layersData'][layer][inputString][dataToggle]['layerIndex'];
+									visibleLayers.push(index);
+								})
 							}
 						});
 						visibleLayers = (visibleLayers.length == 0) ? [-1] : visibleLayers;
@@ -1410,15 +1600,16 @@ define([
 					.attr("x2", width)
 					.attr("y2", self.measuresChartY(1) )
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".line-cb").parents(".dijitTitlePane")).id
+						/* var parent = _.last(query(".line-cb").parents(".dijitTitlePane")).id
 						var message = self._interface["measures"]["tooltips"]["line"];
 						self.showMessageDialog(parent, message.label, message.value);
-						window.setTimeout(function(){ self.hideMessageDialog(); }, 4000);
+						window.setTimeout(function(){ self.hideMessageDialog(); }, 4000); */
 					})
 					.on("mouseout", function(d) {
 						//self.hideMessageDialog();
 					});
 					
+					var legendOffset = 5;
 					var legendData = [];
 					for (var layer in self._data["measures"]["layers"]) {
 						var item = self._data["measures"]["layers"][layer];
@@ -1426,13 +1617,13 @@ define([
 							legendData.push( { "name": item.name, "class": item.class, "order": item.legendOrder } );
 						}
 					}
-					legendData.sort(function(a,b) { return a.legendOrder - b.legendOrder});
+					legendData.sort(function(a,b) { return a.order - b.order });
 					var legend = self.measuresChart.selectAll(".legend")
 						.data(legendData)
 						.enter().append("g")
 						.attr("class", function(d) { return "legend " + d.class; })
 						.attr("transform", function(d, i) { 
-							var y = 20 + ((i * 20) - 20);
+							var y = i * 20 + legendOffset;
 							
 							var checkBoxDiv = domConstruct.create("div", {id: d.class + "Checkbox-" + self._map.id, style: 'position: absolute; right: 0px; top: 0px;'});
 							self.measuresChartPane.containerNode.appendChild(checkBoxDiv);
@@ -1440,14 +1631,25 @@ define([
 								name: "measuresCheckbox-" + self._map.id,
 								value: d.class,
 								checked: false,
-								style: 'position: absolute; right: 6px; top: ' + (y + 31) + 'px;',
+								style: 'position: absolute; right: 5px; top: ' + (y + 31) + 'px;',
 								onChange: function(b){
 									var checkboxes = query("[name=measuresCheckbox-" + self._map.id + "]");
 									var visibleLayers = [];
+									
+									var growth = self.comboButtonEconomyMeasures.get("label");
+									var defense = self.comboButtonDefenseMeasures.get("value");
+									var climate = self.climateYearSliderMeasures.get("value");
+									var dataToggle = (self.measuresTotalRb.get("checked")) ? self.measuresTotalRb.get("value") : self.measuresPercentRb.get("value");
+									var inputString = growth + "-" + defense + "-" + climate;
+									inputString = inputString.toLowerCase();
+											
 									dojo.forEach(checkboxes, function(checkbox) {
 										var widget = registry.byId(checkbox.id);
 										if (widget.get("checked")) {
-											visibleLayers.push(self._data['measures']['layers'][widget.get("value")]['layerIndex']);
+											dojo.forEach(self._data['measures']['layers'][widget.get("value")]['layers'], function(layer) {					
+												var index = self._data['measures']['layersData'][layer][inputString][dataToggle]['layerIndex'];
+												visibleLayers.push(index);
+											});
 										}
 									});
 									visibleLayers = (visibleLayers.length == 0) ? [-1] : visibleLayers;
@@ -1471,7 +1673,8 @@ define([
 							} else { 
 								widget.set("checked", true);
 							}
-						}).on("mouseover", function(d) {
+						})
+						.on("mouseover", function(d) {
 							var parent = _.last(query(".legend." + d.class).parents(".dijitTitlePane")).id
 							var message = self._interface["measures"]["tooltips"][d.class];
 							self.showMessageDialog(parent, message.label, message.value);
@@ -1484,10 +1687,58 @@ define([
 						.attr("x", width - 30)
 						.attr("y", 9)
 						.attr("dy", ".35em")
+						.attr("cursor", "pointer")
+						.attr("text-decoration", "none")
 						.style("text-anchor", "end")
-						.text(function(d) { return d.name; }); 
+						.text(function(d) { return d.name; })
+						.on("click", function(d) {
+							var id = d.class + "Checkbox-" + self._map.id;
+							var widget = dijit.byId(id);
+							if (widget.get("checked")) { 
+								widget.set("checked", false);
+							} else { 
+								widget.set("checked", true);
+							}
+						})
+						.on("mouseover", function(d) {
+							var parent = _.last(query(".legend." + d.class).parents(".dijitTitlePane")).id
+							var message = self._interface["measures"]["tooltips"][d.class];
+							self.showMessageDialog(parent, message.label, message.value);
+							d3.select(this).attr("text-decoration", "underline");
+						})
+						.on("mouseout", function(d) {
+							self.hideMessageDialog();
+							d3.select(this).attr("text-decoration", "none");
+						});
+
+						this.measuresChart.append("g")
+							.attr("transform", "translate(0, " + (legendData.length*20 + legendOffset) + ")")
+							.attr("class", "legend cb-ratio")
+							.on("mouseover", function(d) {
+								var parent = _.last(query(".legend.cb-ratio").parents(".dijitTitlePane")).id
+								var message = self._interface["measures"]["tooltips"]["cb-ratio"];
+								self.showMessageDialog(parent, message.label, message.value);
+							})
+							.on("mouseout", function(d) {
+								self.hideMessageDialog();
+							})
+							.append("line")
+							.attr("x1", width - 24 )
+							.attr("y1", 10 )
+							.attr("x2", width - 4)
+							.attr("y2", 10 )
+							
+						this.measuresChart.select(".cb-ratio")
+							.append("text")
+							.attr("x", width - 30)
+							.attr("y", 10)
+							.attr("dy", ".35em")
+							.attr("text-decoration", "none")
+							.attr("class", "legend cb-ratio")
+							.style("text-anchor", "end")
+							.text("Benefit:Cost Line");
 				
-				var clearDiv = domConstruct.create("div", {style: 'height: 10px; position: relative; clear: both'});
+				var clearDiv = domConstruct.create("div", {style: 'height: 1px; position: relative; clear: both'});
 				this.measuresChartPane.containerNode.appendChild(clearDiv);
 			}
 
@@ -1496,10 +1747,9 @@ define([
 				var elevation = this.comboButtonElevation.get('value');
 				var geography = this.comboButtonGeography.get('value');
 				var dataToggle = (this.exposureTotalRb.get("checked")) ? this.exposureTotalRb.get("value") : this.exposurePercentRb.get("value");
-				var inputString = geography + '-' + exposureType + '-' + elevation;
+				var inputString = exposureType + '-' + elevation;
 				var visibleLayers = [];
-				visibleLayers = [this._data['exposure'][inputString][dataToggle]['layerIndex']];
-					
+				visibleLayers = [this._data['exposure'][geography][inputString][dataToggle]['layerIndex']];
 				//this.updateExposureChart(chartDataShow);
 				this.updateLayer(visibleLayers);
 			}
@@ -1507,7 +1757,8 @@ define([
 			this.getDamageInputValues = function(){
 				var type = this.comboButtonType.get("label").toLowerCase();
 				var growth = this.comboButtonEconomy.get("label");
-				var defense = this.comboButtonDefense.get("label");
+				var defense = this.comboButtonDefense.get("value");
+				var geography = this.comboButtonGeographyDamages.get('value');
 				
 				//climate and asset are the same now
 				var asset = this.climateYearSliderDamages.get("value");
@@ -1518,6 +1769,7 @@ define([
 				var visibleLayers = [];
 				if(type == 'wind'){
 					this.comboButtonDefense.set('label', 'None');
+					this.comboButtonDefense.set('value', 'none');
 					this.comboButtonDefense.set('disabled', true);
 				} else {
 					this.comboButtonDefense.set('disabled', false);
@@ -1526,8 +1778,8 @@ define([
 				var inputString = growth + "-" + ((type == 'flood') ? defense + "-" : "") + asset + "-" + climate;
 				inputString = inputString.toLowerCase();
 				
-				if (_.has(this._data['damages'][type], inputString)) {
-					visibleLayers = [this._data['damages'][type][inputString][dataToggle]['layerIndex']];
+				if (_.has(this._data['damages'][type][geography], inputString)) {
+					visibleLayers = [this._data['damages'][type][geography][inputString][dataToggle]['layerIndex']];
 					this.updateLayer(visibleLayers);
 				}
 				
@@ -1536,9 +1788,9 @@ define([
 			}
 
 			this.getMeasureInputValues = function(){
-				var type = this.comboButtonTypeMeasures.get("label").toLowerCase();
+				var type = this.comboButtonTypeMeasures.get("value").toLowerCase();
 				var growth = this.comboButtonEconomyMeasures.get("label");
-				var defense = this.comboButtonDefenseMeasures.get("label");
+				var defense = this.comboButtonDefenseMeasures.get("value");
 				var climate = this.climateYearSliderMeasures.get("value");
 				
 				var inputString = type + "-" + growth + "-" + defense + "-" + climate;
@@ -1551,7 +1803,17 @@ define([
 				dojo.forEach(checkboxes, function(checkbox) {
 					var widget = registry.byId(checkbox.id);
 					if (widget.get("checked")) {
-						visibleLayers.push(self._data['measures']['layers'][widget.get("value")]['layerIndex']);
+						var growth = self.comboButtonEconomyMeasures.get("label");
+						var defense = self.comboButtonDefenseMeasures.get("value");
+						var climate = self.climateYearSliderMeasures.get("value");
+						var dataToggle = (self.measuresTotalRb.get("checked")) ? self.measuresTotalRb.get("value") : self.measuresPercentRb.get("value");
+						var inputString = growth + "-" + defense + "-" + climate;
+						inputString = inputString.toLowerCase();
+
+						dojo.forEach(self._data['measures']['layers'][widget.get("value")]['layers'], function(layer) {					
+							var index = self._data['measures']['layersData'][layer][inputString][dataToggle]['layerIndex'];
+							visibleLayers.push(index);
+						});
 					}
 				});
 				visibleLayers = (visibleLayers.length == 0) ? [-1] : visibleLayers;
@@ -1618,12 +1880,14 @@ define([
 				this.damagesChart.selectAll(".x.axis")
 					.selectAll(".tick text")
 					.text( function (d, i) { 
-						if (i == 0) {
+						if (d == "Today") {
 							return "2010"; 
-						} else if (i == 3) {
-							return year;
+						} else if (d == "Economic") {
+							return "Economic Growth";
+						} else if (d == "Climate") {
+							return "Climate Change";
 						} else {
-							return d;
+							return "Future Total";
 						}
 					});
 				
@@ -1752,18 +2016,23 @@ define([
 					switch(d.name) {
 						case "Today":
 							var className = "today";
+							var displayName = d.name;
 							break;
 						case "Economic":
 							var className = "economic";
+							var displayName = "Economic Growth";
 							break;
 						case "Climate":
 							var className = "climate";
+							var displayName = "Climate Change";
 							break;
 						case "Total":
 							var className = "total";
+							var displayName = "Future Total";
 							break;
 					}
 					d.class = className;
+					d.displayName = displayName;
 					d.start = (d.class == 'total') ? 0 : cumulative;
 					cumulative += (d.class == 'total') ? 0 : d.value;
 					d.percent = (d.class == 'total') ? d3.format("%")( (d.value - today) / today) : d3.format("%")(d.value / today);
@@ -1777,7 +2046,7 @@ define([
 				var config = this._data.measures.chartData.config;
 				var updatedData = [];
 				array.forEach(inData, function(item){
-					if(config[item.type].show) {
+					if(config[item.type] && config[item.type].show) {
 						var obj = lang.clone(item);
 						obj.class = config[item.type].class;
 						updatedData.push(obj);
@@ -1812,6 +2081,24 @@ define([
 				on(query("i.fa-info-circle.eca-" + this._map.id), "mouseout", function() {
 					self.hideMessageDialog();
 				});
+				
+				array.forEach(this.tc.tablist.getChildren(), function(node) {
+					var keys = _.keys(self._interface);
+					for (var i = 0; i < keys.length; i++) {
+						var index = node.id.toLowerCase().indexOf(keys[i]);
+						if (index >=0) {
+							on(node.domNode, "mouseover", function() {
+								var message = self._interface[keys[i]]['tooltips']['tab'];
+								var parent = self.tc.tablist.id;
+								self.showMessageDialog(parent, message.label, message.value);
+							})
+							on(node.domNode, "mouseout", function() {
+								self.hideMessageDialog();;
+							})
+							break;
+						}
+					}
+				});
 			}
 			
 			this.formatter = function(value,n) {
@@ -1827,8 +2114,12 @@ define([
                 this.removeMessageDialog() // remove old dialog if present
                 var template = this.getTemplate('template-eca-info-box');
                 var position = { "left": 20, "top": 0 };
-               
+				
                 this._$pluginDialog = $(template()).appendTo($('body')).offset(position);
+				this._infoBox = _.first(this._$pluginDialog);
+				console.log(this._infoBox.id);
+				this._infoBox.id = this._infoBox.id + "-" + this._map.id;
+				console.log(this._infoBox.id);
                 this._$pluginDialog.find('.close').click(function () {
                     self.hideMessageDialog();
                 });
@@ -1848,17 +2139,17 @@ define([
                 	var position = $(this._container).offset();
                     position.left += $(this._container).outerWidth() + 10;
 					position.top = $("#" + parent).offset().top;
-                    query(".pluginEca-info-box").style( {
+                    query("#" + this._infoBox.id).style( {
                     	"top": position.top + "px",
                     	"left": position.left + "px"
                     });
-                    $(".pluginEca-info-box").show();
+                    $("#" + this._infoBox.id).show();
                 }
             }
 
             this.hideMessageDialog = function() {
         		if (this._$pluginDialog) {
-            		$(".pluginEca-info-box").hide();
+            		$("#" + this._infoBox.id).hide();
             	}
             }
 
@@ -1869,11 +2160,39 @@ define([
 							value = value.replace(text, replaceObject[text]);
 						}
 					}
-                	_.first(query(".pluginEca-info-box > div.body > div.description > div.info-label")).innerHTML = label;
-					_.first(query(".pluginEca-info-box > div.body > div.description > div.info-value")).innerHTML = value;
+                	_.first(query("#" + this._infoBox.id + " > div.body > div.description > div.info-label")).innerHTML = label;
+					_.first(query("#" + this._infoBox.id + " > div.body > div.description > div.info-value")).innerHTML = value;
 					
                 }
             }
+			
+			this.adjustInterfaceControls = function(tab) {	
+				if (tab == "exposure") {
+					var geography = this.comboButtonGeography.get("label");
+					var exposure = this.comboButtonExposureType.get("label");
+					var marginLeft = (exposure == "Essential Facilities") ?  5 : 22;
+					dojo.style(self.comboButtonExposureType.domNode, { "marginLeft": marginLeft + "px" });
+					var marginLeft = (geography == "County" && exposure == "Essential Facilities") ?  107 : (geography == "County" && exposure == "Total") ? 77 : (geography == "Census Tract" && exposure == "Total") ? 62 :((geography == "County" && exposure != "Essential Facilities") ? 90 : (geography == "Census Tract" && exposure == "Essential Facilities")) ? 92 : 75;
+					dojo.style(self.comboButtonGeography.domNode, { "marginLeft": marginLeft + "px" });
+				} else if (tab == "damages") {
+					var geography =  this.comboButtonGeographyDamages.get("label");
+					var marginLeft = (geography == "County") ?  30 : 15;
+					dojo.style(self.comboButtonGeographyDamages.domNode, { "marginLeft": marginLeft + "px" });
+				} else if (tab == "measures") {
+					var type = this.comboButtonTypeMeasures.get("label");
+					var typeMarginLeft = (type == "Best") ?  15 : 0;
+					dojo.style(self.comboButtonTypeMeasures.domNode, { "marginLeft": typeMarginLeft + "px" });
+					
+					var economicMarginLeft = (type == "Best") ?  15 : 30;
+					dojo.style(self.comboButtonEconomyMeasures.domNode, { "marginLeft": economicMarginLeft + "px" });
+					
+					var typeMarginLeft = (type == "Best") ?  5 : 24;
+					dojo.style("measureTypeContainer-" + self._map.id, { "marginLeft": typeMarginLeft + "px" });
+					
+					var economicMarginLeft = (type == "Best") ?  14 : 9;
+					dojo.style("growthContainer-" + self._map.id, { "marginLeft": economicMarginLeft + "%" });
+				}
+			}
 
 
 		};// End ecaTool

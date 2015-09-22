@@ -1,5 +1,5 @@
 {
-	"service": "http://dev.services2.coastalresilience.org:6080/arcgis/rest/services/Cost_Benefit/Cost_Benefit_Gulfmex/MapServer",
+	"service": "http://dev.services2.coastalresilience.org/arcgis/rest/services/Gulf_of_Mexico/Cost_Benefit/MapServer",
 	"extents": {
 		"initial": {
 			"xmin":-108.85253906249325,
@@ -10,21 +10,36 @@
 	},
 	"exposure": {
 		"tooltips": {
-			"typeInfo": {"label" : "Assets", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"geographyInfo": {"label" : "Geography", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"valuesInfo":  {"label" : "Display map values by", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"y-axis":  {"label" : "Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+			"typeInfo": {"label" : "Assets", "value": "Represents the value of assets in U.S. dollars organized in four categories: residential, commercial, industrial and essential facilities. Information on types of assets and values were extracted from the FEMA-HAZUS database (Scawthorn et al. 2006)<br><br>Scawthorn, Charles, Paul Flores, Neil Blais, Hope Seligson, Eric Tate, Stephanie Chang, Edward Mifflin, et al. 2006. HAZUS-MH Flood Loss Estimation Methodology. II. Damage and Loss Assessment. Natural Hazards Review 7 (2) (May): 72–81. doi:10.1061/(ASCE)1527-6988(2006)7:2(72)."},
+			"geographyInfo": {"label" : "Geography", "value": "Values were originally obtained by block level and aggregated to census tracts and counties."},
+			"valuesInfo":  {"label" : "Display map values by", "value": "<i>Total Value</i>: Total U.S dollar value of the asset in the spatial unit, aggregated from the block level.<br><br><i>Percent Total</i>:  Represents percentage of change with respect to the total value taken as reference in the present day (2010)."},
+			"graphInfo": {"label" : "Distribution of Assets by Elevation Graph", "value": "Spatial distribution (map) and aggregates by ground height (graph) of value ($) of assets of each type of buildings: Residential, Commercial, Industrial and Essential Facilities. Data source: FEMA-HAZUS"},
+			"y-axis":  {"label" : "Graph Y-Axis", "value": "Represents the value of assets in U.S. dollars (billions)."},
+			"Residential": { "label":"Residential Assets",  "value": "Includes Homes, Apartments & Hotels."},
+			"Commercial": { "label":"Commercial Assets",  "value": "Includes Shops & Offices (Retail & Wholesale)."},
+			"Industrial": { "label":"Industrial Assets",  "value": "Includes Factories and Construction sites."},
+			"Other": { "label":"Essential Facilities",  "value": "Includes Schools, Farms, Government Offices, Fire and Police stations."},
+			"tab": { "label": "Exposure", "value": "This tab describes the current distribution of assets by building type and elevation across the Gulf of Mexico."}
 		},
 		"messages": {
 		
 		},
 		"controls": {
-			"type":[
-				{"value":"residential", "name":"Residential"},
-				{"value":"commercial", "name":"Commercial"},
-				{"value":"industrial", "name":"Industrial"},
-				{"value":"other", "name":"Other"}
-			],
+			"type": {
+				"percent":[
+					{"value":"residential", "name":"Residential"},
+					{"value":"commercial", "name":"Commercial"},
+					{"value":"industrial", "name":"Industrial"},
+					{"value":"other", "name":"Essential Facilities"}
+				],
+				"total":[
+					{"value":"residential", "name":"Residential"},
+					{"value":"commercial", "name":"Commercial"},
+					{"value":"industrial", "name":"Industrial"},
+					{"value":"other", "name":"Essential Facilities"},
+					{"value":"total", "name":"Total"}
+				]
+			},
 			"geography":[
 				{"value":"county", "name":"County"},
 				{"value":"censustract", "name":"Census Tract"}
@@ -37,22 +52,25 @@
 	},
 	"damages": {
 		"tooltips": {
-			"typeInfo": {"label" : "Hazard Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"growthInfo": {"label" : "Economic Growth Scenario", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"defenseInfo": {"label" : "Defense Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"assetInfo":  {"label" : "Reference Year for Assets", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"climateInfo":  {"label" : "Reference Year", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"protectionInfo":  {"label" : "Standard of Protection (year)", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"valuesInfo":  {"label" : "Display map values by", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"x-axis":  {"label" : "Risk Profile Graph X-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"y-axis":  {"label" : "Risk Profile Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+			"typeInfo": {"label" : "Hazard Type", "value": "Represents the expected damages associated with either a Flood or Wind event."},
+			"growthInfo": {"label" : "Economic Growth Scenario", "value": "Economic scenarios represent different future estimates of economic growth. For each future timeline (2030 and 2050), future values of assets are projected by:<br><br><i>Low</i> - 1% economic growth and 0.5% demographic growth.<br><br><i>High</i> - 2% economic growth and 1% deomgraphic growth.<br><br>These estimates were chosen considering (1) historical rates and (2) projections for the region."},
+			"defenseInfo": {"label" : "Landscape Protection", "value": "Consider the effects of existing coastal geomorphology features on reducing current and future storm damages by attenuating waves and storm surges. Choices are: <br><br><i>None</i> - assumes that features have no effect on waves or surge (i.e., if they disappeared); <br><br><i>Low</i> - assumes that features have low or conservatively-estimated effects on wave & surge; <br><br><i>Best</i> - assumes best (most accurate) estimates of the effects of these features on waves & surge."},
+			"geographyInfo": {"label" : "Geography", "value": "Values were originally obtained by block level and aggregated to census tracts and counties."},
+			"assetInfo":  {"label" : "Reference Year for Assets", "value": "Future timelines used for estimating Risks."},
+			"climateInfo":  {"label" : "Reference Year", "value": "Future timelines used for estimating Risks."},
+			"protectionInfo":  {"label" : "Storm Return Period (year)", "value": "Considers the type of storm based on models of past storms; storms with higher return periods are less frequent and more intense."},
+			"valuesInfo":  {"label" : "Display map values by", "value": "<i>Total Value</i>: Total U.S dollar of the average losses distributed on a yearly basis (Annual Expected Damages) in the spatial unit.<br><br><i>Percent Change</i>:  Represents percentage of change with respect to the total value taken as reference in the present day (2010)."},
+			"graphInfo": {"label" : "Risk Profile Graph", "value": "Risk evolution between 2010 and future conditions (2030 or 2050) for the different economic scenarios and landscape protection. Bars represent current risk (left) and future risks (right), distinguishing the contribution of economic growth and climate change."},
+			"y-axis":  {"label" : "Risk Profile Graph Y-Axis", "value": "Total amount of damages in U.S. dollars (billions)."},
+			"x-axis":  {"label" : "Risk Profile Graph X-Axis", "value": "Risk associated with the present day (2010), the contribution from economic growth alone, the contribution from future climate alone, and the future (including the combined increase from both economic growth and climate change) relative to expected damages in 2010."},
+			"tab": { "label": "Risk", "value": "This tab provides an assessment of risk values, now and in the future (years 2030 and 2050), from the contribution of economic development and changes in climate (sea level rise and storms)."}
 		},
 		"messages": {
 			"slider_error" : {"label" : "Invalid Information", "value": "Data with a combination of Assets in ASSETYEAR and Climate in CLIMATEYEAR does not exist. Sliders have been automatically adjusted to an allowable combination."},
 			"Today" : {"label" : "Expected Current Damages in 2010", "value": "<b>$VALUE (US)</b> in expected damages in 2010."},
 			"Economic" : {"label" : "Expected Future Damages from Economy", "value": "<b>$VALUE (US)</b> in expected damages in the future from economic growth alone representing a <b>PERCENT</b> increase relative to expected damages in 2010."},
 			"Climate" : {"label" : "Expected Future Damages from Climate", "value": "<b>$VALUE (US)</b> in expected damages in the future from climate change alone representing a <b>PERCENT</b> increase relative to expected damages in 2010."},
-			"Total" : {"label" : "Expected Future Damages in FUTUREYEAR", "value": "<b>$VALUE (US)</b> in total expected damages in the future (including increase from both economic growth and climate change) representing a <b>PERCENT</b> increase relative to  expected damages in 2010."}
+			"Total" : {"label" : "Expected Future Damages in FUTUREYEAR", "value": "<b>$VALUE (US)</b> in total expected damages in the future (including increase from both economic growth and climate change) representing a <b>PERCENT</b> increase relative to expected damages in 2010."}
 		},
 		"controls": {
 			"type":[
@@ -66,7 +84,11 @@
 			"defense":[
 				{"value":"none", "name":"None"},
 				{"value":"low", "name":"Low"},
-				{"value":"high", "name":"High"}
+				{"value":"high", "name":"Best"}
+			],
+			"geography":[
+				{"value":"county", "name":"County"},
+				{"value":"censustract", "name":"Census Tract"}
 			],
 			"protection": {
 				"discreteValues":5,
@@ -82,30 +104,34 @@
 	},
 	"measures": {
 		"tooltips": {
-			"typeInfo": {"label" : "Model Form", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"growthInfo": {"label" : "Economic Growth Scenario", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"defenseInfo": {"label" : "Defense Type", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"climateInfo":  {"label" : "Reference Year", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"x-axis":  {"label" : "Cost Curve Graph X-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"y-axis":  {"label" : "Cost Curve Graph Y-Axis", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"line":  {"label" : "Cost Curve Line", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-			"oysters": { "label":"Oyster Reef Restoration", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
-			"wetland": { "label":"Wetland Restoration",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
-			"barrier": { "label":"Barrier Island Restoration",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
-			"beach": { "label":"Beach Nourishment",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
-			"levees": { "label":"Levee or Floodwall",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
-			"sandbags": { "label":"Sandbag or Barrier",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."},
-			"other": { "label":"Home Elevation",  "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Click (or check the box) to show the counties with this measure in place."}
+			"typeInfo": {"label" : "Model Form", "value": "Alters the assumed cost and effectiveness of nature-based defenses (restored wetlands, reefs, beaches and barrier islands). Choices are: <br><br><i>Best</i> - assumes best (most accurate) estimates of the costs and effects of these nature-based defenses on waves & surge based on existing literature and engineering models; <br><br><i>More Conservative</i> - assumes that features have lower effects  on waves or surge than Best estimates above; <br><br><i>Most Conservative</i> - assumes that features have <u>both</u> lower effects (by 30-50%) and higher costs (by 20%) than Best estimates."},
+			"growthInfo": {"label" : "Economic Growth Scenario", "value": "Economic scenarios represent different future estimates of economic growth. For each future timeline (2030 and 2050), future values of assets are projected by:<br><br><i>Low</i> - 1% economic growth and 0.5% demographic growth.<br><br><i>High</i> - 2% economic growth and 1% deomgraphic growth.<br><br>These estimates were chosen considering (1) historical rates and (2) projections for the region."},
+			"defenseInfo": {"label" : "Landscape Protection", "value": "Consider the effects of existing coastal geomorphology features on reducing current and future storm damages by attenuating waves and storm surges. Choices are: <br><br><i>None</i> - assumes that features have no effect on waves or surge (i.e., if they disappeared); <br><br><i>Low</i> - assumes that features have low or conservatively-estimated effects on wave & surge; <br><br><i>Best</i> - assumes best (most accurate) estimates of the effects of these features on waves & surge."},
+			"climateInfo":  {"label" : "Reference Year", "value": "Future timelines used for estimating Adaptation and Risk Reduction."},
+			"valuesInfo":  {"label" : "Display map values by", "value": "<i>Total Value</i>: Total U.S dollar of the average losses distributed on a yearly basis (Annual Expected Damages) averted in the spatial unit.<br><br><i>Percent Total</i>:  Represents the percentage of the total Annual Expected Damages averted."},
+			"graphInfo": {"label" : "Cost : Benefit Curve Graph", "value": "Comparison of the costs and benefits of Risk Reduction measures for different scenarios. The vertical axis represents the benefit:cost ratio where the higher the bar, the more cost-effective of a solution. The horizontal axis notes the averted damage (i.e. benefit) and the width of the bars the benefit of each individual measure."},
+			"x-axis":  {"label" : "Cost : Benefit Curve Graph X-Axis", "value": "Represents total losses avoided in U.S. dollars. Note the wider the bar, the greater the amount of damages averted"},
+			"y-axis":  {"label" : "Cost : Benefit Curve Graph Y-Axis", "value": "Represents the benefit:cost ratio.  Note the higher the bar, the more cost-effective of a solution."},
+			"oysters": { "label":"Oyster Reef Restoration", "value": "Artificial construction of oyster reefs; restoration of 25 miles of oyster reefs in each of 24 counties with suitable habitat, for Tampa Bay 25 miles is divided among 3 counties.<br><br>Click (or check the box) to show the counties with this measure in place."},
+			"wetlandrisk": { "label":"Wetland Restoration - Risk Reduction Priority",  "value": "Salt marsh restoration built along shorelines in 0.5 sq mile units (1 mile x 0.5 mile) in the 6 counties with highest past asset damages & loss of > 25 sq miles of marsh.<br><br>Click (or check the box) to show the counties with this measure in place."},
+			"wetlandconservation": { "label":"Wetland Restoration - Conservation Priority",  "value": "Salt marsh restoration built along shorelines in 0.5 sq mile units (1 mile x 0.5 mile) in the 5 counties that have lost the most marsh in the last 2 decades.<br><br>Click (or check the box) to show the counties with this measure in place."},
+			"barrier": { "label":"Barrier Island Restoration",  "value": "Restoration of island barriers by increasing width; in Alabama and Louisiana counties.<br><br>Click (or check the box) to show the counties with this measure in place."},
+			"beach": { "label":"Beach Nourishment",  "value": "Artificial beach nourishment to increase beach width.<br><br><i>Western Gulf (TX)</i>: low risk area, all coastal beach front across Texas. <br><br><i>Eastern Gulf (FL)</i>: high risk area areas, counties with significant beach fronts across Florida.<br><br>Click (or check the box) to show the counties with this measure in place."},
+			"levees": { "label":"Local Levees & Dikes",  "value": "<i>Local Levees</i>: 6 foot levees built to protect houses; all houses in the counties in highest risk areas<br><br><i>Dikes</i>: 20 foot levees constructed along the shore; in high risk areas of Houma & New Orleans, LA.<br><br>Click (or check the box) to show the counties with this measure in place."},
+			"sandbags": { "label":"Sandbags",  "value": "Sandbags used around homes for Category 3 hurricanes or above; located in all counties around all houses in low-lying areas (below 10m).<br><br>Click (or check the box) to show the counties with this measure in place."},
+			"other": { "label":"Home Elevation",  "value": "Homes elevated by 10 feet.<br><br>Click (or check the box) to show the counties with this measure in place."},
+			"cb-ratio": { "label":"Benefit:Cost Line", "value":"Threshold where the benefits provided by a measure equal that of the cost to implement it, that is the benefit:cost ratio equals 1.  Benefit:cost ratios above a value of 1 represent particularly effective adaptation measures relative to their cost to implement."},
+			"tab": { "label": "Solutions", "value": "This tab provides the reduction in risk and the benefit:cost ratio of different adaptation measures in the Gulf of Mexico."}
 		},
 		"messages": {
-			"graph-bar": { "label" : "NAME", "value": "Benefit-cost ratio for avoided damages from present to FUTUREYEAR is <b>CBRATIO</b> with a total amount of <b>$CBDAMAGE (US)</b> in damages averted.<br><br>Note the height of the bar (the higher the bar, the more cost-effective of a measure) and the width (the larger the bar, the greater the amount of damages averted) relative to other measures. Cost-Benefit ratios below a value of 1 (the red dashed line) represent particularly ineffective adaptation measures relative to their cost to implement." }
+			"graph-bar": { "label" : "NAME", "value": "Benefit:cost ratio for avoided damages from present to FUTUREYEAR is <b>CBRATIO</b> with a total amount of <b>$CBDAMAGE (US)</b> in damages averted." }
 			
 		},
 		"controls": {
 			"type":[
-				{"value":"default", "name":"Default"},
-				{"value":"conservative", "name":"Conservative"},
-				{"value":"sensitivity", "name":"Sensitivity"}
+				{"value":"default", "name":"Best"},
+				{"value":"sensitivity", "name":"More Conservative"},
+				{"value":"conservative", "name":"Most Conservative"}
 			],
 			"growth":[
 				{"value":"low", "name":"Low"},
@@ -114,7 +140,7 @@
 			"defense":[
 				{"value":"none", "name":"None"},
 				{"value":"low", "name":"Low"},
-				{"value":"high", "name":"High"}
+				{"value":"high", "name":"Best"}
 			]
 		}
 	}
