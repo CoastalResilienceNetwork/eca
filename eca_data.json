@@ -425,8 +425,8 @@
 			"wetlandrisk": { "name":"Wetland Restoration - Risk Reduction", "layers": ["Wetland restoration - Risk Reduction"], "class": "wetlandrisk", "legendOrder": 1 },
 			"wetlandconservation": { "name":"Wetland Restoration - Conservation", "layers": ["Wetland restoration - Conservation"], "class": "wetlandconservation", "legendOrder": 2 },
 			"barrier": { "name":"Barrier Island Restoration", "layers": ["Barrier island restoration"], "class": "barrier", "legendOrder": 3 },
-			"beach": { "name":"Beach Nourishment", "layers": ["Beach Nourishment - low risk", "Beach Nourishment - high risk"], "class": "beach", "legendOrder": 5 },
-			"levees": { "name":"Levee", "layers": ["Local levees - homes - priority", "Shoreline Levees"], "class": "levees", "legendOrder": 8 },
+			"beach": { "name":"Beach Nourishment", "layers": ["Beach Nourishment - high risk"], "class": "beach", "legendOrder": 5 },
+			"levees": { "name":"Levee", "layers": ["Local levees - homes - priority"], "class": "levees", "legendOrder": 8 },
 			"sandbags": { "name":"Sandbag", "layers": ["Sandbags & temporal flood-barriers"], "class": "sandbags", "legendOrder": 7 },
 			"other": { "name":"Home Elevation", "layers": ["Home Elevation, existing homes - high risk"], "class": "other", "legendOrder": 6 }
 		},
@@ -1416,9 +1416,9 @@
 			  "config":{
 				"Local levees - homes - priority": { "class": "levees", "show": true, "display": "Local Levees" },
 				"Local levees - homes - remaining": { "class": "levees", "show": false, "display": "" },
-				"Shoreline Levees": { "class": "levees", "show": true, "display": "Dykes & Levees" },
+				"Shoreline Levees": { "class": "levees", "show": false, "display": "Dykes & Levees" },
 				"Sandbags & temporal flood-barriers": { "class": "sandbags", "show": true, "display": "Sandbags" },
-				"Beach Nourishment - low risk": { "class": "beach", "show": true, "display": "Beach Nourishment - Western Gulf (TX)" },
+				"Beach Nourishment - low risk": { "class": "beach", "show": false, "display": "Beach Nourishment - Western Gulf (TX)" },
 				"Local Floodwalls": { "class": "levees", "show": false, "display": "" },
 				"Home Elevation, new build, priority": { "class": "other", "show": false, "display": "" },
 				"Home Elevation, new builds, low risk": { "class": "other", "show": false, "display": "" },

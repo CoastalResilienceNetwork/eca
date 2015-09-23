@@ -695,8 +695,8 @@ define([
 						onClick: function(){
 							self.comboButtonDefense.set("label", this.label);
 							self.comboButtonDefense.set("value", this.value);
-							self.comboButtonDefenseMeasures.set("label", this.label);
-							self.comboButtonDefenseMeasures.set("value", this.label);
+							//self.comboButtonDefenseMeasures.set("label", this.label);
+							//self.comboButtonDefenseMeasures.set("value", this.label);
 							self.getDamageInputValues();
 						}
 					});
@@ -827,16 +827,22 @@ define([
 			    });
 				this.cpMeasures.domNode.appendChild(this.measureInputsPane.domNode);
 			    domStyle.set(this.measureInputsPane.containerNode, {"border": "1px dotted #ccc" });
+				
+				var labelContainerNode = domConstruct.create("div", {style: 'position:relative; width:  100%;'});
+				this.measureInputsPane.containerNode.appendChild(labelContainerNode);
 
 			    //dropdown labels
-				var measureTypeContainer = domConstruct.create("div", {id: "measureTypeContainer-" + this._map.id, style: 'width: 90px; display: inline-block; margin-left:5px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-typeInfo'></i>&nbsp;<b>Estimates:</b>"});
-				this.measureInputsPane.containerNode.appendChild(measureTypeContainer);
+				var measureTypeContainer = domConstruct.create("div", {id: "measureTypeContainer-" + this._map.id, style: 'width: 50%; display: inline-block; margin-left:25px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-typeInfo'></i>&nbsp;<b>Restoration Success:</b>"});
+				labelContainerNode.appendChild(measureTypeContainer);
 
-				var growthContainer = domConstruct.create("div", {id: "growthContainer-" + this._map.id, style: 'width:  90px; display: inline-block; margin-left: 14%;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-growthInfo'></i>&nbsp;<b>Economy:</b>"});
-				this.measureInputsPane.containerNode.appendChild(growthContainer);
+				var growthContainer = domConstruct.create("div", {id: "growthContainer-" + this._map.id, style: 'width:  90px; display: inline-block; margin-left: 12%;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-growthInfo'></i>&nbsp;<b>Economy:</b>"});
+				labelContainerNode.appendChild(growthContainer);
 
-				var defenseContainer = domConstruct.create("div", {style: 'width:  90px; display: inline-block; margin-left: 13%;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
-				this.measureInputsPane.containerNode.appendChild(defenseContainer);
+				var defenseContainer = domConstruct.create("div", {style: 'width:  90px; display: none; margin-left: 13%;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
+				labelContainerNode.appendChild(defenseContainer);
+				
+				var controlsContainerNode = domConstruct.create("div", {style: 'position:relative; width:  100%;'});
+				this.measureInputsPane.containerNode.appendChild(controlsContainerNode);
 
 				//measure type dropdown
 				var typeMeasuresDropdown = new DropDownMenu({ style: "display: none;" });
@@ -860,12 +866,11 @@ define([
 					label: _.first(this._interface.measures.controls.type).name,
 					value: _.first(this._interface.measures.controls.type).value,
 					name: "type",
-					style: "width: 125px; display: inline-block; margin-left: 15px;",
+					style: "width: 125px; display: inline-block; margin-left: 16%;",
 					dropDown: typeMeasuresDropdown
 				});
 
-				this.measureInputsPane.containerNode.appendChild(this.comboButtonTypeMeasures.domNode);				
-
+				controlsContainerNode.appendChild(this.comboButtonTypeMeasures.domNode);
 				
 				//growth scenario dropdown
 				var growthDropdown = new DropDownMenu({ style: "display: none;" });
@@ -886,11 +891,11 @@ define([
 				this.comboButtonEconomyMeasures = new ComboButton({
 					label: _.first(this._interface.measures.controls.growth).name,
 					name: "growth",
-					style: "width: 60px; display: inline-block; margin-left: 15px;",
+					style: "width: 60px; display: inline-block; margin-left: 22%;",
 					dropDown: growthDropdown
 				});
 			
-				this.measureInputsPane.containerNode.appendChild(this.comboButtonEconomyMeasures.domNode);
+				controlsContainerNode.appendChild(this.comboButtonEconomyMeasures.domNode);
 				//this.cpMeasures.addChild(growthDropdown);
 
 
@@ -905,8 +910,8 @@ define([
 						onClick: function(){
 							self.comboButtonDefenseMeasures.set("label", this.label);
 							self.comboButtonDefenseMeasures.set("value", this.value);
-							self.comboButtonDefense.set("label", this.label);
-							self.comboButtonDefense.set("value", this.value);
+							//self.comboButtonDefense.set("label", this.label);
+							//self.comboButtonDefense.set("value", this.value);
 							self.getMeasureInputValues();
 						}
 					});
@@ -914,14 +919,14 @@ define([
 				});
 
 				this.comboButtonDefenseMeasures = new ComboButton({
-					label: _.first(this._interface.measures.controls.defense).name,
-					value: _.first(this._interface.measures.controls.defense).value,
+					label: "Low",
+					value:"low",
 					name: "defense",
-					style: "width: 65px; display: inline-block; margin-left: 70px;",
+					style: "width: 65px; display: none; margin-left: 70px;",
 					dropDown: defenseDropdown
 				});
 			
-				this.measureInputsPane.containerNode.appendChild(this.comboButtonDefenseMeasures.domNode);
+				controlsContainerNode.appendChild(this.comboButtonDefenseMeasures.domNode);
 				//this.cpMeasures.addChild(defenseDropdown);
 
 			    //climate year slider
@@ -1427,7 +1432,7 @@ define([
 				this.measuresChartNote = domConstruct.create("div", { style: "position:absolute; text-align:center; font-size:12px; width:100%; top:5px; left:0px; color: #666666;", innerHTML: "hover over any chart element for more Results" });
 				this.measuresChartNode.appendChild(this.measuresChartNote);
 				
-				var data = this.processMeasuresChartData(this._data.measures.chartData["default-low-none-2030"]);
+				var data = this.processMeasuresChartData(this._data.measures.chartData["default-low-low-2030"]);
 				this.measuresChartData = data;
 
 				this.measuresChartX = d3.scale.linear()
@@ -1461,7 +1466,7 @@ define([
 				
 				var yMax = d3.max(data, function(d) { return d.costbenefit; });
 				var yRoundMax = d3.round(yMax, -1);
-				this.measuresChartY.domain([0, (yMax >= yRoundMax) ? yRoundMax + 10 : yRoundMax]);
+				this.measuresChartY.domain([0, (yMax >= yRoundMax) ? yRoundMax + 5 : yRoundMax]);
 
 				this.measuresChart.append("g")
 					.attr("class", "x axis cb")
@@ -1979,7 +1984,7 @@ define([
 				
 				var yMax = d3.max(data, function(d) { return d.costbenefit; });
 				var yRoundMax = d3.round(yMax, -1);
-				this.measuresChartY.domain([0, (yMax >= yRoundMax) ? yRoundMax + 10 : yRoundMax]);
+				this.measuresChartY.domain([0, (yMax >= yRoundMax) ? yRoundMax + 5 : yRoundMax]);
 				this.measuresChart.select(".y.axis.cb")
 					.transition()
 					.duration(500)
@@ -2180,17 +2185,17 @@ define([
 					dojo.style(self.comboButtonGeographyDamages.domNode, { "marginLeft": marginLeft + "px" });
 				} else if (tab == "measures") {
 					var type = this.comboButtonTypeMeasures.get("label");
-					var typeMarginLeft = (type == "Best") ?  15 : 0;
-					dojo.style(self.comboButtonTypeMeasures.domNode, { "marginLeft": typeMarginLeft + "px" });
+					var typeMarginLeft = (type == "Best") ?  16 : 8;
+					dojo.style(self.comboButtonTypeMeasures.domNode, { "marginLeft": typeMarginLeft + "%" });
 					
-					var economicMarginLeft = (type == "Best") ?  15 : 30;
-					dojo.style(self.comboButtonEconomyMeasures.domNode, { "marginLeft": economicMarginLeft + "px" });
+					var economicMarginLeft = (type == "Best") ?  22 : 30;
+					dojo.style(self.comboButtonEconomyMeasures.domNode, { "marginLeft": economicMarginLeft + "%" });
 					
-					var typeMarginLeft = (type == "Best") ?  5 : 24;
+					/* var typeMarginLeft = (type == "Best") ?  5 : 24;
 					dojo.style("measureTypeContainer-" + self._map.id, { "marginLeft": typeMarginLeft + "px" });
 					
 					var economicMarginLeft = (type == "Best") ?  14 : 9;
-					dojo.style("growthContainer-" + self._map.id, { "marginLeft": economicMarginLeft + "%" });
+					dojo.style("growthContainer-" + self._map.id, { "marginLeft": economicMarginLeft + "%" }); */
 				}
 			}
 
