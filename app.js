@@ -623,16 +623,16 @@ define([
 			    domStyle.set(this.damageInputsPane.containerNode, {"border": "1px dotted #ccc" });
 
 				//dropdown labels
-				var damageTypeContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block; margin-left:0px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-typeInfo'></i>&nbsp;<b>Hazard:</b>"});
+				var damageTypeContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block; margin-left:0px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-typeInfo'></i>&nbsp;<b>Hazard:</b>"});
 				this.damageInputsPane.containerNode.appendChild(damageTypeContainer);
 
-				var growthContainer = domConstruct.create("div", {style: 'width: 26%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-growthInfo'></i>&nbsp;<b>Economy:</b>"});
+				var growthContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-growthInfo'></i>&nbsp;<b>Economy:</b>"});
 				this.damageInputsPane.containerNode.appendChild(growthContainer);
 
-				var defenseContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
+				var defenseContainer = domConstruct.create("div", {style: 'width: 24%; display: none;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
 				this.damageInputsPane.containerNode.appendChild(defenseContainer);
 				
-				var geographyContainer = domConstruct.create("div", {style: 'width: 25%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
+				var geographyContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
 				this.damageInputsPane.containerNode.appendChild(geographyContainer);
 
 				//damage type dropdown
@@ -678,7 +678,7 @@ define([
 				this.comboButtonEconomy = new ComboButton({
 					label: _.first(this._interface.damages.controls.growth).name,
 					name: "growth",
-					style: "width: 60px; display: inline-block; margin-left:30px;",
+					style: "width: 60px; display: inline-block; margin-left:85px;",
 					dropDown: growthDropdown
 				});
 			
@@ -702,12 +702,15 @@ define([
 					});
 					defenseDropdown.addChild(menuItem);
 				});
-
+				
+				//set display none because defense is currently fixed to low (can be shown if we want to add inputs back in)
 				this.comboButtonDefense = new ComboButton({
-					label: _.first(this._interface.damages.controls.defense).name,
-					value: _.first(this._interface.damages.controls.defense).value,
+					//label: _.first(this._interface.damages.controls.defense).name,
+					//value: _.first(this._interface.damages.controls.defense).value,
+					label: "Low",
+					value: "low",
 					name: "defense",
-					style: "width: 65px; display: inline-block; margin-left: 30px;",
+					style: "width: 65px; display: none; margin-left: 30px;",
 					dropDown: defenseDropdown
 				});
 			
@@ -734,7 +737,7 @@ define([
 					label: _.first(this._interface.damages.controls.geography).name,
 					value: _.first(this._interface.damages.controls.geography).value,
 					name: "geography",
-					style: "width: 85px; display: inline-block; margin-left: 30px;",
+					style: "width: 85px; display: inline-block; margin-left: 75px;",
 					disabled: false,
 					dropDown: geographyDropdown
 				});
@@ -1632,7 +1635,7 @@ define([
 							
 							var checkBoxDiv = domConstruct.create("div", {id: d.class + "Checkbox-" + self._map.id, style: 'position: absolute; right: 0px; top: 0px;'});
 							self.measuresChartPane.containerNode.appendChild(checkBoxDiv);
-							var checkBox = new CheckBox({
+							var checkBox = new RadioButton({
 								name: "measuresCheckbox-" + self._map.id,
 								value: d.class,
 								checked: false,
@@ -2181,7 +2184,7 @@ define([
 					dojo.style(self.comboButtonGeography.domNode, { "marginLeft": marginLeft + "px" });
 				} else if (tab == "damages") {
 					var geography =  this.comboButtonGeographyDamages.get("label");
-					var marginLeft = (geography == "County") ?  30 : 15;
+					var marginLeft = (geography == "County") ?  75 : 65;
 					dojo.style(self.comboButtonGeographyDamages.domNode, { "marginLeft": marginLeft + "px" });
 				} else if (tab == "measures") {
 					var type = this.comboButtonTypeMeasures.get("label");
