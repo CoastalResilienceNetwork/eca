@@ -166,7 +166,7 @@ define([
 
 			this.hideTool = function(){
 				if (this.mapLayer && this.mapLayer.loaded) { 
-					this.mapLayer.hide();
+					//this.mapLayer.hide();
 				}
 			} //end this.hideTool
 			
