@@ -15,7 +15,7 @@ require({
         },
         {
             name: "underscore",
-            location: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4",
+            location: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3",
             main: "underscore-min"
         }
     ]
@@ -32,7 +32,7 @@ define([
 		"dojo/_base/array",
 		"dojo/query",
 		 "d3",
-		"use!underscore",
+		"underscore",
 		"./app",
 		"dojo/text!plugins/eca/eca_data.json",
 		"dojo/text!plugins/eca/eca_interface.json",
