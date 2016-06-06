@@ -1125,10 +1125,10 @@ define([
 						});
 						
 
-					var legend = self.exposureChart.selectAll(".legend")
+					var legend = self.exposureChart.selectAll(".eca-legend")
 						.data(color.domain().slice().reverse())
 						.enter().append("g")
-						.attr("class", function(d) { return "legend " + d; })
+						.attr("class", function(d) { return "eca-legend " + d; })
 						.attr("transform", function(d, i) { return "translate(0," + ((i * 20) - 20) + ")"; });
 
 					legend.append("rect")
@@ -1145,7 +1145,7 @@ define([
 							self.getExposureInputValues();						
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".legend." + d).parents(".dijitTitlePane")).id
+							var parent = _.last(query(".eca-legend." + d).parents(".dijitTitlePane")).id
 							var message = self._interface["exposure"]["tooltips"][d];
 							self.showMessageDialog(parent, message.label, message.value);
 						})
@@ -1626,10 +1626,10 @@ define([
 						}
 					}
 					legendData.sort(function(a,b) { return a.order - b.order });
-					var legend = self.measuresChart.selectAll(".legend")
+					var legend = self.measuresChart.selectAll(".eca-legend")
 						.data(legendData)
 						.enter().append("g")
-						.attr("class", function(d) { return "legend " + d.class; })
+						.attr("class", function(d) { return "eca-legend " + d.class; })
 						.attr("transform", function(d, i) { 
 							var y = i * 20 + legendOffset;
 							
@@ -1683,7 +1683,7 @@ define([
 							}
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".legend." + d.class).parents(".dijitTitlePane")).id
+							var parent = _.last(query(".eca-legend." + d.class).parents(".dijitTitlePane")).id
 							var message = self._interface["measures"]["tooltips"][d.class];
 							self.showMessageDialog(parent, message.label, message.value);
 						})
@@ -1709,7 +1709,7 @@ define([
 							}
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".legend." + d.class).parents(".dijitTitlePane")).id
+							var parent = _.last(query(".eca-legend." + d.class).parents(".dijitTitlePane")).id
 							var message = self._interface["measures"]["tooltips"][d.class];
 							self.showMessageDialog(parent, message.label, message.value);
 							d3.select(this).attr("text-decoration", "underline");
@@ -1721,9 +1721,9 @@ define([
 
 						this.measuresChart.append("g")
 							.attr("transform", "translate(0, " + (legendData.length*20 + legendOffset) + ")")
-							.attr("class", "legend cb-ratio")
+							.attr("class", "eca-legend cb-ratio")
 							.on("mouseover", function(d) {
-								var parent = _.last(query(".legend.cb-ratio").parents(".dijitTitlePane")).id
+								var parent = _.last(query(".eca-legend.cb-ratio").parents(".dijitTitlePane")).id
 								var message = self._interface["measures"]["tooltips"]["cb-ratio"];
 								self.showMessageDialog(parent, message.label, message.value);
 							})
@@ -1742,7 +1742,7 @@ define([
 							.attr("y", 10)
 							.attr("dy", ".35em")
 							.attr("text-decoration", "none")
-							.attr("class", "legend cb-ratio")
+							.attr("class", "eca-legend cb-ratio")
 							.style("text-anchor", "end")
 							.text("Benefit:Cost Line");
 				

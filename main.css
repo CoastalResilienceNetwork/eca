@@ -26,47 +26,47 @@ shape-rendering: crispEdges;
   stroke: #bbbbbb;
 }
 
-.bar.cb.beach rect, .legend.beach rect  {
+.bar.cb.beach rect, .eca-legend.beach rect  {
   fill: #F7F3CE;
   stroke: #aaaaaa;
 }
 
-.bar.cb.levees rect, .legend.levees rect  {
+.bar.cb.levees rect, .eca-legend.levees rect  {
   fill: #CED7DE;
   stroke: #bbbbbb;
 }
 
-.bar.cb.oysters rect, .legend.oysters rect  {
+.bar.cb.oysters rect, .eca-legend.oysters rect  {
   fill: #527D84;
   stroke: #bbbbbb;
 }
 
-.bar.cb.barrier rect, .legend.barrier rect  {
+.bar.cb.barrier rect, .eca-legend.barrier rect  {
   fill: #C2CFC0;
   stroke: #bbbbbb;
 }
 
-.bar.cb.sandbags rect, .legend.sandbags rect  {
+.bar.cb.sandbags rect, .eca-legend.sandbags rect  {
   fill: #666666;
   stroke: #bbbbbb;
 }
 
-.bar.cb.wetlandrisk rect, .legend.wetlandrisk rect  {
+.bar.cb.wetlandrisk rect, .eca-legend.wetlandrisk rect  {
   fill: #5F7287;
   stroke: #bbbbbb;
 }
 
-.bar.cb.wetlandconservation rect, .legend.wetlandconservation rect   {
+.bar.cb.wetlandconservation rect, .eca-legend.wetlandconservation rect   {
   fill: #86A1BE;
   stroke: #bbbbbb;
 }
 
-.bar.cb.wetland rect, .legend.wetland rect   {
+.bar.cb.wetland rect, .eca-legend.wetland rect   {
   fill: #7991AB;
   stroke: #bbbbbb;
 }
 
-.bar.cb.other rect, .legend.other rect {
+.bar.cb.other rect, .eca-legend.other rect {
   fill: #412A22;
   stroke: #bbbbbb;
 }
