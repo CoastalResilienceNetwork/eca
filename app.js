@@ -252,6 +252,7 @@ define([
 						useSlider: false,
 				    }, "tc1-prog");
 				domClass.add(this.tc.domNode, "claro");
+				domClass.add(this.tc.domNode, "plugin-eca");
 				this.tc.startup();
 				this.tc.resize();
 

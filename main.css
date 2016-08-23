@@ -247,6 +247,6 @@ font-size: 13px !important;
 top: 1px !important;
 position: relative !important;
 }
-.dijitRuleLabel, .dijitReset  {
+.plugin-eca .dijitRuleLabel, .plugin-eca  .dijitReset  {
 font-size: 13px !important;
 }
