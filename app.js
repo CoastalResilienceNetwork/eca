@@ -245,7 +245,7 @@ define([
 				domStyle.set(this._container, "overflow", "hidden");				
 				this.tc = new TabContainer({
 						isLayoutContainer: true,
-						style: "height: 100%; width: 100%; overflow: hidden",
+						style: "height: 100%; width: 100%; overflow: hidden;",
 						resize: function(){
 					},
 						useMenu: false,
@@ -261,7 +261,7 @@ define([
 					 style: "position:relative;width:100%;height:auto;overflow:hidden;",
 					 isLayoutContainer: true,
 					 onShow: function() {
-						 window.setTimeout(function(){ domStyle.set(self.cpOverview.domNode, "width", "100%") }, 5);
+						 window.setTimeout(function(){ domStyle.set(self.cpOverview.domNode, {"width":"100%", "height":"auto" }) }, 5);
 						 if (self.mapLayer && self.mapLayer.loaded) { self.mapLayer.setVisibleLayers([-1]); }
 					 }
 			    });
@@ -296,10 +296,10 @@ define([
 			    this.tabExposure = new ContentPane({
 			         id: "tabExposure-" + this._map.id,
 					 title: "Exposure",
-					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:0px;",
+					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:1px 0px 0px 0px;",
 			         isLayoutContainer: true,
 					 onShow: function() {
-						window.setTimeout(function(){ domStyle.set(self.cpExposure.domNode, "width", "100%") }, 5);
+						window.setTimeout(function(){ domStyle.set(self.cpExposure.domNode, {"width":"100%", "height":"auto" }) }, 5);
 						if (self.mapLayer && self.mapLayer.loaded) { self.getExposureInputValues(); }
 					 }
 			    });
@@ -311,10 +311,10 @@ define([
 			    this.tabDamages = new ContentPane({
 			         id: "tabDamages-" + this._map.id,
 					 title: "Risk",
-					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:0px;",
+					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:1px 0px 0px 0px;",
 					 isLayoutContainer: true,
 					 onShow: function() {
-						window.setTimeout(function(){ domStyle.set(self.cpDamages.domNode, "width", "100%") }, 5);
+						window.setTimeout(function(){ domStyle.set(self.cpDamages.domNode, {"width":"100%", "height":"auto" }) }, 5);
 						if (self.mapLayer && self.mapLayer.loaded) { self.getDamageInputValues(); }
 					 }
 			    });
@@ -326,10 +326,10 @@ define([
 			    this.tabMeasures = new ContentPane({
 			         id: "tabMeasures-" + this._map.id,
 					 title: "Solutions",
-					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:0px;",
+					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:1px 0px 0px 0px;",
 					 isLayoutContainer: true,
 					 onShow: function() {
-						window.setTimeout(function(){ domStyle.set(self.cpMeasures.domNode, "width", "100%") }, 10);
+						window.setTimeout(function(){ domStyle.set(self.cpMeasures.domNode, {"width":"100%", "height":"auto" }) }, 10);
 						if (self.mapLayer && self.mapLayer.loaded) { self.getMeasureInputValues(); }
 					 }
 			    });
@@ -386,7 +386,7 @@ define([
 				});
 				
 				on(this._map, "resize", function() {
-					window.setTimeout(function(){ domStyle.set(_.first(self.tc.selectedChildWidget.getChildren()).domNode, "width", "100%") }, 10);
+					window.setTimeout(function(){ domStyle.set(_.first(self.tc.selectedChildWidget.getChildren()).domNode, {"width":"100%", "height":"auto" }) }, 10);
 				});
 			}
 			
@@ -395,19 +395,18 @@ define([
 			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
 			    });
 				this.cpExposure.domNode.appendChild(this.exposureInputsPane.domNode);
-
-				var exposureTypeText = domConstruct.create("div", {style: 'width: 46%; display: inline-block; margin-left:35px;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-typeInfo'></i>&nbsp;<b>Assets:</b>"});
-				this.exposureInputsPane.containerNode.appendChild(exposureTypeText);
-
-				//set display none because elevation is currently fixed to 10M (can be shown if we want to add elevation inputs back in)
-				var elevationText = domConstruct.create("div", {style: 'width: 25%; display: none; margin-left:20px;', innerHTML: "<b>Elevation:</b>"});
-				this.exposureInputsPane.containerNode.appendChild(elevationText);
-
-				var geographyText = domConstruct.create("div", {style: 'width: 25%; display: inline-block; margin-left:20px;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
-				this.exposureInputsPane.containerNode.appendChild(geographyText);
+				
+				var exposureTypeDiv = domConstruct.create("div", {
+					style: 'width: 150px; display: inline-block; margin-left:35px;text-align:center;'
+				});
+				this.exposureInputsPane.containerNode.appendChild(exposureTypeDiv);
+				
+				var exposureTypeText = domConstruct.create("div", {
+					style: 'text-align:center;',
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-typeInfo'></i>&nbsp;<b>Assets:</b>"});
+				exposureTypeDiv.appendChild(exposureTypeText);
 
 				var exposureDropdown = new DropDownMenu({ style: "display: none;"});
-				
 				_.each(this._interface.exposure.controls.type.percent, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -428,7 +427,7 @@ define([
 					label: _.first(this._interface.exposure.controls.type.percent).name,
 					value: _.first(this._interface.exposure.controls.type.percent).value,
 					name: "type",
-					style: "display: inline-block; margin-left: 22px; width: 125px;",
+					style: "width: 150px;",
 					dropDown: exposureDropdown
 				});
 				on(this.comboButtonExposureType.domNode, "click", function(evt) {
@@ -451,12 +450,18 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
+				exposureTypeDiv.appendChild(this.comboButtonExposureType.domNode);
 
-				this.exposureInputsPane.containerNode.appendChild(this.comboButtonExposureType.domNode);
-
-				var elevationDropdown = new DropDownMenu({ style: "display: none;"});
-				domClass.add(elevationDropdown.domNode, "claro");
+				//set display none because elevation is currently fixed to 10M (can be shown if we want to add elevation inputs back in)
+				var elevationDiv = domConstruct.create("div", {
+					style: 'width: 150px; display: none; margin-left:35px; text-align:center;'
+				});
+				this.exposureInputsPane.containerNode.appendChild(elevationDiv);
 				
+				var elevationText = domConstruct.create("div", {style: 'width: 25%; display: none; margin-left:20px;', innerHTML: "<b>Elevation:</b>"});
+				elevationDiv.appendChild(elevationText);
+				
+				var elevationDropdown = new DropDownMenu({ style: "display: none;"});
 				_.each(this._interface.exposure.controls.elevation, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -501,11 +506,20 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
+				elevationDiv.appendChild(this.comboButtonElevation.domNode);
 
-				this.exposureInputsPane.containerNode.appendChild(this.comboButtonElevation.domNode);
-
-				var geographyDropdown = new DropDownMenu({ style: "display: none;"});
+				var geographyDiv = domConstruct.create("div", {
+					style: 'width: 150px; display: inline-block; margin-left:45px; text-align:center;'
+				});
+				this.exposureInputsPane.containerNode.appendChild(geographyDiv);
 				
+				var geographyText = domConstruct.create("div", {
+					style: 'text-align:center;',
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-geographyInfo'></i>&nbsp;<b>Geography:</b>"
+				});
+				geographyDiv.appendChild(geographyText);
+				
+				var geographyDropdown = new DropDownMenu({ style: "display: none;"});
 				_.each(this._interface.exposure.controls.geography, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -534,7 +548,7 @@ define([
 					label: _.first(this._interface.exposure.controls.geography).name,
 					value: _.first(this._interface.exposure.controls.geography).value,
 					name: "geography",
-					style: "display: inline-block; width: 110px; margin-left: 90px;",
+					style: "width: 125px;",
 					disabled: false,
 					onMouseDown: function(evt) {
 						var dropDown = this.dropDown.domNode.parentNode;
@@ -564,25 +578,30 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
-
-				this.exposureInputsPane.containerNode.appendChild(this.comboButtonGeography.domNode);
+				geographyDiv.appendChild(this.comboButtonGeography.domNode);
 				
-				var clearDiv = domConstruct.create("div", {style: 'height: 15px; position: relative; clear: both'});
-				this.exposureInputsPane.containerNode.appendChild(clearDiv);
 				
-				var dataTypeText = domConstruct.create("div", {style: 'width: 45%; display: inline-block; margin-left: 5px; float: left', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
-				this.exposureInputsPane.containerNode.appendChild(dataTypeText);
+				var dataTypeDiv = domConstruct.create("div", {
+					style: 'width: 400px; display: inline-block; margin-left:15px; margin-top:25px;margin-bottom:15px;'
+				});
+				this.exposureInputsPane.containerNode.appendChild(dataTypeDiv);
+				
+				var dataTypeText = domConstruct.create("div", {
+					style: 'width: 165px; display: inline-block;',
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"
+				});
+				dataTypeDiv.appendChild(dataTypeText);
 
-			    var radioButtonContainerPercent = domConstruct.create("div", {style: 'width: 27%; display: inline-block; position: relative; float: left'});
-				this.exposureInputsPane.containerNode.appendChild(radioButtonContainerPercent);
+			    var radioButtonContainerPercent = domConstruct.create("div", {style: 'width: 125px; display: inline-block; position: relative; margin-left: 5px;'});
+				dataTypeDiv.appendChild(radioButtonContainerPercent);
 
-				var radioButtonContainerTotal = domConstruct.create("div", {style: 'width: 24%; display: inline-block; position: relative; float: left'});
-				this.exposureInputsPane.containerNode.appendChild(radioButtonContainerTotal);
+				var radioButtonContainerTotal = domConstruct.create("div", {style: 'width: 100px; display: inline-block; position: relative; margin-left: 5px;'});
+				dataTypeDiv.appendChild(radioButtonContainerTotal);
 
 			    var exposurePercentInput = domConstruct.create("input", { id:"exposurePercentRb-" + this._map.id, "type": "radio", "name": "exposureRb",  "value": "percent", "checked": true});
-			    var exposurePercentLabel = domConstruct.create("label", {"for": "exposurePercentRb-" + this._map.id, innerHTML: "Percent Total", "class": "eca-labels", "style" : "float:left; margin: 1px 5px 0px 0px;"});
-			    radioButtonContainerPercent.appendChild(exposurePercentInput);
+			    var exposurePercentLabel = domConstruct.create("label", {"for": "exposurePercentRb-" + this._map.id, innerHTML: "Percent Total", "class": "eca-labels", "style" : "display: inline-block; margin-right: 5px;"});
 			    radioButtonContainerPercent.appendChild(exposurePercentLabel);
+				radioButtonContainerPercent.appendChild(exposurePercentInput);
 
 			    this.exposurePercentRb = new RadioButton({
 			    	"name": "exposureRb",
@@ -626,9 +645,9 @@ define([
 			    this.exposurePercentRb.startup();
 
 			    var exposureTotalInput = domConstruct.create("input", { id:"exposureTotalRb-" + this._map.id, "type": "radio", "name": "exposureRb",  "value": "total"});
-			    var exposureTotalLabel = domConstruct.create("label", {"for": "exposureTotalRb-" + this._map.id, innerHTML: "Total Value", "class": "eca-labels", "style" : "float:left; margin: 1px 5px 0px 0px;"});
-			    radioButtonContainerTotal.appendChild(exposureTotalInput);
+			    var exposureTotalLabel = domConstruct.create("label", {"for": "exposureTotalRb-" + this._map.id, innerHTML: "Total Value", "class": "eca-labels", "style" : "display: inline-block; margin-right: 5px;"});
 			    radioButtonContainerTotal.appendChild(exposureTotalLabel);
+				radioButtonContainerTotal.appendChild(exposureTotalInput);
 
 			    this.exposureTotalRb = new RadioButton({
 			    	"name": "exposureRb",
@@ -669,9 +688,7 @@ define([
 			    	}
 			    }, "exposureTotalRb-" + this._map.id);
 			    this.exposureTotalRb.startup();
-
-			    var clearDiv = domConstruct.create("div", {style: 'height: 8px; position: relative; clear: both'});
-				this.exposureInputsPane.containerNode.appendChild(clearDiv);
+				
 			}
 
 			this.createDamagesInputs = function(){
@@ -679,24 +696,20 @@ define([
 			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
 			    });
 			    this.cpDamages.domNode.appendChild(this.damageInputsPane.domNode);
-
-				//dropdown labels
-				var damageTypeContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block; margin-left:0px;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-typeInfo'></i>&nbsp;<b>Hazard:</b>"});
-				this.damageInputsPane.containerNode.appendChild(damageTypeContainer);
-
-				var growthContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-growthInfo'></i>&nbsp;<b>Economy:</b>"});
-				this.damageInputsPane.containerNode.appendChild(growthContainer);
-
-				var defenseContainer = domConstruct.create("div", {style: 'width: 24%; display: none;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
-				this.damageInputsPane.containerNode.appendChild(defenseContainer);
 				
-				var geographyContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
-				this.damageInputsPane.containerNode.appendChild(geographyContainer);
+				var damageTypeDiv = domConstruct.create("div", {
+					style: 'width: 100px; display: inline-block; margin-left:20px; text-align:center;'
+				});
+				this.damageInputsPane.containerNode.appendChild(damageTypeDiv);
+				
+				var damageTypeContainer = domConstruct.create("div", {
+					style: 'text-align:center;',
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-typeInfo'></i>&nbsp;<b>Hazard:</b>"
+				});
+				damageTypeDiv.appendChild(damageTypeContainer);
 
 				//damage type dropdown
 				var typeDropdown = new DropDownMenu({ style: "display: none;"});
-				domClass.add(typeDropdown.domNode, "claro");
-				
 				_.each(this._interface.damages.controls.type, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -713,7 +726,7 @@ define([
 				this.comboButtonType = new ComboButton({
 					label: _.first(this._interface.damages.controls.type).name,
 					name: "type",
-					style: "width: 68px; display: inline-block; margin-left: 0px;",
+					style: "width: 75px;",
 					dropDown: typeDropdown
 				});
 				on(this.comboButtonType.domNode, "click", function(evt) {
@@ -736,13 +749,21 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
-				this.damageInputsPane.containerNode.appendChild(this.comboButtonType.domNode);				
+				damageTypeDiv.appendChild(this.comboButtonType.domNode);				
 
+				var growthDiv = domConstruct.create("div", {
+					style: 'width: 100px; display: inline-block; margin-left:25px; text-align:center;'
+				});
+				this.damageInputsPane.containerNode.appendChild(growthDiv);
+				
+				var growthContainer = domConstruct.create("div", {
+					style: 'text-align:center;',
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-growthInfo'></i>&nbsp;<b>Economy:</b>"
+				});
+				growthDiv.appendChild(growthContainer);
 				
 				//growth scenario dropdown
 				var growthDropdown = new DropDownMenu({ style: "display: none;"});
-				domClass.add(growthDropdown.domNode, "claro");
-				
 				_.each(this._interface.damages.controls.growth, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -760,7 +781,7 @@ define([
 				this.comboButtonEconomy = new ComboButton({
 					label: _.first(this._interface.damages.controls.growth).name,
 					name: "growth",
-					style: "width: 60px; display: inline-block; margin-left:85px;",
+					style: "width: 75px;",
 					dropDown: growthDropdown
 				});
 				on(this.comboButtonEconomy.domNode, "click", function(evt) {
@@ -783,12 +804,21 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
-				this.damageInputsPane.containerNode.appendChild(this.comboButtonEconomy.domNode);
+				growthDiv.appendChild(this.comboButtonEconomy.domNode);
 
 				//defense scenario dropdown
-				var defenseDropdown = new DropDownMenu({ style: "display: none;"});
-				domClass.add(defenseDropdown.domNode, "claro");
+				var defenseDiv = domConstruct.create("div", {
+					style: 'width: 100px; display: none; margin-left:25px; text-align:center;'
+				});
+				this.damageInputsPane.containerNode.appendChild(defenseDiv);
 				
+				var defenseContainer = domConstruct.create("div", {
+					style: 'text-align:center;', 
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-defenseInfo'></i>&nbsp;<b>Defense:</b>"
+				});
+				defenseDiv.appendChild(defenseContainer);
+				
+				var defenseDropdown = new DropDownMenu({ style: "display: none;"});
 				_.each(this._interface.damages.controls.defense, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -813,7 +843,7 @@ define([
 					label: "Low",
 					value: "low",
 					name: "defense",
-					style: "width: 65px; display: none; margin-left: 30px;",
+					style: "width: 65px;",
 					dropDown: defenseDropdown
 				});
 				on(this.comboButtonDefense.domNode, "click", function(evt) {
@@ -836,11 +866,20 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
-				this.damageInputsPane.containerNode.appendChild(this.comboButtonDefense.domNode);
+				defenseDiv.appendChild(this.comboButtonDefense.domNode);
+
+				var geographyDiv = domConstruct.create("div", {
+					style: 'width: 125px; display: inline-block; margin-left:25px; text-align:center;'
+				});
+				this.damageInputsPane.containerNode.appendChild(geographyDiv);
+				
+				var geographyContainer = domConstruct.create("div", {
+					style: 'text-align:center;', 
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-geographyInfo'></i>&nbsp;<b>Geography:</b>"
+				});
+				geographyDiv.appendChild(geographyContainer);
 
 				var geographyDropdown = new DropDownMenu({ style: "display: none;"});
-				domClass.add(geographyDropdown.domNode, "claro");
-				
 				_.each(this._interface.damages.controls.geography, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -861,7 +900,7 @@ define([
 					label: _.first(this._interface.damages.controls.geography).name,
 					value: _.first(this._interface.damages.controls.geography).value,
 					name: "geography",
-					style: "width: 85px; display: inline-block; margin-left: 75px;",
+					style: "width: 125px;",
 					disabled: false,
 					dropDown: geographyDropdown
 				});
@@ -885,11 +924,19 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
-				this.damageInputsPane.containerNode.appendChild(this.comboButtonGeographyDamages.domNode);
+				geographyDiv.appendChild(this.comboButtonGeographyDamages.domNode);
 
 				//climate year slider
-			    var climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-climateInfo'></i>&nbsp;<b>Reference Year: </b>", style:"position:relative; width: 120px; top:-7px; margin-top:25px; display: inline-block"});
-				this.damageInputsPane.containerNode.appendChild(climateYearSliderLabel);
+				var climateSliderDiv = domConstruct.create("div", {
+					style: 'width: 400px; display: inline-block; margin-left:15px; margin-top:30px;'
+				});
+				this.damageInputsPane.containerNode.appendChild(climateSliderDiv);
+				
+			    var climateYearSliderLabel = domConstruct.create("div", {
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-climateInfo'></i>&nbsp;<b>Reference Year: </b>",
+					style:"position:relative; width: 120px; top:-7px; display: inline-block;"
+				});
+				climateSliderDiv.appendChild(climateYearSliderLabel);
 				this.climateYearSliderDamages = new HorizontalSlider({
 			        name: "climateYearSlider",
 			        value: 2030,
@@ -897,7 +944,7 @@ define([
 			        maximum: 2050,
 			        discreteValues: 2,
 			        showButtons: false,
-			        style: "width: 250px; display: inline-block",
+			        style: "width: 275px; display: inline-block",
 			        onChange: function(value){
 			           self.climateYearSliderMeasures.set("value", value);
 			           if(self.tc.selectedChildWidget.id == ("tabDamages-" + self._map.id)) {
@@ -905,7 +952,7 @@ define([
 			           }
 			        }
 			    });
-			    this.damageInputsPane.containerNode.appendChild(this.climateYearSliderDamages.domNode);
+			    climateSliderDiv.appendChild(this.climateYearSliderDamages.domNode);
 
 			    var climateYearSliderLabels = new HorizontalRuleLabels({
 			    	container: 'bottomDecoration',
@@ -914,24 +961,42 @@ define([
 			    	style: "margin-top: 5px;"
 			    });
 			    this.climateYearSliderDamages.addChild(climateYearSliderLabels);
-
-
-				var clearDiv = domConstruct.create("div", {style: 'height: 25px; position: relative; clear: both'});
-				this.damageInputsPane.containerNode.appendChild(clearDiv);
 				
-				var dataTypeText = domConstruct.create("div", {style: 'width: 44%; display: inline-block; margin-left: 0px; float: left', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
-				this.damageInputsPane.containerNode.appendChild(dataTypeText);
+				var dataTypeDiv = domConstruct.create("div", {
+					style: 'width: 400px; display: inline-block; margin-left:15px; margin-top:30px;margin-bottom:15px;'
+				});
+				this.damageInputsPane.containerNode.appendChild(dataTypeDiv);
+				
+				var dataTypeText = domConstruct.create("div", {
+					style: 'width: 165px; display:inline-block;',
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"
+				});
+				dataTypeDiv.appendChild(dataTypeText);
 
-			    var radioButtonContainerPercent = domConstruct.create("div", {style: 'width: 32%; display: inline-block; position: relative; float: left'});
-				this.damageInputsPane.containerNode.appendChild(radioButtonContainerPercent);
+			    var radioButtonContainerPercent = domConstruct.create("div", {
+					style: 'width: 125px; display: inline-block; position: relative; margin-left: 5px;'
+				});
+				dataTypeDiv.appendChild(radioButtonContainerPercent);
 
-				var radioButtonContainerTotal = domConstruct.create("div", {style: 'width: 23%; display: inline-block; position: relative; float: left'});
-				this.damageInputsPane.containerNode.appendChild(radioButtonContainerTotal);
+				var radioButtonContainerTotal = domConstruct.create("div", {
+					style: 'width: 100px; display: inline-block; position: relative; margin-left: 5px;'
+				});
+				dataTypeDiv.appendChild(radioButtonContainerTotal);
 
-			    var damagesPercentInput = domConstruct.create("input", { id:"damagesPercentRb-" + this._map.id, "type": "radio", "name": "damagesRb",  "value": "percent", "checked": true});
-			    var damagesPercentLabel = domConstruct.create("label", {"for": "damagesPercentRb-" + this._map.id, innerHTML: "Percent Change", "class": "eca-labels", "style" : "float:left; margin: 1px 5px 0px 0px;"});
-			    radioButtonContainerPercent.appendChild(damagesPercentInput);
+			    var damagesPercentLabel = domConstruct.create("label", {
+					for: "damagesPercentRb-" + this._map.id, 
+					innerHTML: "Percent Change", "class": "eca-labels", 
+					style: "display:inline-block; margin-right: 5px;"
+				});
+				var damagesPercentInput = domConstruct.create("input", {
+					id:"damagesPercentRb-" + this._map.id,
+					"type": "radio",
+					"name": "damagesRb", 
+					"value": "percent",
+					"checked": true
+				});
 			    radioButtonContainerPercent.appendChild(damagesPercentLabel);
+				radioButtonContainerPercent.appendChild(damagesPercentInput);
 
 			    this.damagesPercentRb = new RadioButton({
 			    	"name": "damagesRb",
@@ -943,10 +1008,10 @@ define([
 			    }, "damagesPercentRb-" + this._map.id);
 			    this.damagesPercentRb.startup();
 
-			    var damagesTotalInput = domConstruct.create("input", { id:"damagesTotalRb-" + this._map.id, "type": "radio", "name": "damagesRb",  "value": "total"});
-			    var damagesTotalLabel = domConstruct.create("label", {"for": "damagesTotalRb-" + this._map.id, innerHTML: "Total Value", "class": "eca-labels", "style" : "float:left; margin: 1px 5px 0px 0px;"});
-			    radioButtonContainerTotal.appendChild(damagesTotalInput);
+			    var damagesTotalLabel = domConstruct.create("label", {"for": "damagesTotalRb-" + this._map.id, innerHTML: "Total Value", "class": "eca-labels", "style" : "display:inline-block; margin-right: 5px;"});
+				var damagesTotalInput = domConstruct.create("input", { id:"damagesTotalRb-" + this._map.id, "type": "radio", "name": "damagesRb",  "value": "total"});
 			    radioButtonContainerTotal.appendChild(damagesTotalLabel);
+				radioButtonContainerTotal.appendChild(damagesTotalInput);
 
 			    this.damagesTotalRb = new RadioButton({
 			    	"name": "damagesRb",
@@ -958,9 +1023,6 @@ define([
 			    }, "damagesTotalRb-" + this._map.id);
 			    this.damagesTotalRb.startup();
 
-			    var clearDiv = domConstruct.create("div", {style: 'height: 10px; position: relative; clear: both'});
-				this.damageInputsPane.containerNode.appendChild(clearDiv);
-
 				//chart data toggle
 
 			}
@@ -970,27 +1032,21 @@ define([
 			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
 			    });
 				this.cpMeasures.domNode.appendChild(this.measureInputsPane.domNode);
-				
-				var labelContainerNode = domConstruct.create("div", {style: 'position:relative; width:  100%;'});
-				this.measureInputsPane.containerNode.appendChild(labelContainerNode);
-
-			    //dropdown labels
-				var measureTypeContainer = domConstruct.create("div", {id: "measureTypeContainer-" + this._map.id, style: 'width: 50%; display: inline-block; margin-left:25px;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-typeInfo'></i>&nbsp;<b>Restoration Success:</b>"});
-				labelContainerNode.appendChild(measureTypeContainer);
-
-				var growthContainer = domConstruct.create("div", {id: "growthContainer-" + this._map.id, style: 'width:  90px; display: inline-block; margin-left: 12%;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-growthInfo'></i>&nbsp;<b>Economy:</b>"});
-				labelContainerNode.appendChild(growthContainer);
-
-				var defenseContainer = domConstruct.create("div", {style: 'width:  90px; display: none; margin-left: 13%;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
-				labelContainerNode.appendChild(defenseContainer);
-				
-				var controlsContainerNode = domConstruct.create("div", {style: 'position:relative; width:  100%;'});
-				this.measureInputsPane.containerNode.appendChild(controlsContainerNode);
 
 				//measure type dropdown
-				var typeMeasuresDropdown = new DropDownMenu({ style: "display: none;" });
-				domClass.add(typeMeasuresDropdown.domNode, "claro");
+				var typeMeasuresDiv = domConstruct.create("div", {
+					style: 'width: 150px; display: inline-block; margin-left:50px; text-align:center;'
+				});
+				this.measureInputsPane.containerNode.appendChild(typeMeasuresDiv);
 				
+				var measureTypeContainer = domConstruct.create("div", {
+					id: "measureTypeContainer-" + this._map.id, 
+					style: 'text-align:center;', 
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-typeInfo'></i>&nbsp;<b>Restoration Success:</b>"
+				});
+				typeMeasuresDiv.appendChild(measureTypeContainer);
+				
+				var typeMeasuresDropdown = new DropDownMenu({ style: "display: none;" });
 				_.each(this._interface.measures.controls.type, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -1011,7 +1067,7 @@ define([
 					label: _.first(this._interface.measures.controls.type).name,
 					value: _.first(this._interface.measures.controls.type).value,
 					name: "type",
-					style: "width: 125px; display: inline-block; margin-left: 16%;",
+					style: "width: 125px;",
 					dropDown: typeMeasuresDropdown
 				});
 				on(this.comboButtonTypeMeasures.domNode, "click", function(evt) {
@@ -1034,12 +1090,22 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
-				controlsContainerNode.appendChild(this.comboButtonTypeMeasures.domNode);
+				typeMeasuresDiv.appendChild(this.comboButtonTypeMeasures.domNode);
 				
 				//growth scenario dropdown
-				var growthDropdown = new DropDownMenu({ style: "display: none;" });
-				domClass.add(growthDropdown.domNode, "claro");
+				var growthDiv = domConstruct.create("div", {
+					style: 'width: 100px; display: inline-block; margin-left:60px; text-align:center;'
+				});
+				this.measureInputsPane.containerNode.appendChild(growthDiv);
 				
+				var growthContainer = domConstruct.create("div", {
+					id: "growthContainer-" + this._map.id, 
+					style: 'text-align:center;', 
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-growthInfo'></i>&nbsp;<b>Economy:</b>"
+				});
+				growthDiv.appendChild(growthContainer);
+				
+				var growthDropdown = new DropDownMenu({ style: "display: none;" });
 				_.each(this._interface.measures.controls.growth, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -1057,7 +1123,7 @@ define([
 				this.comboButtonEconomyMeasures = new ComboButton({
 					label: _.first(this._interface.measures.controls.growth).name,
 					name: "growth",
-					style: "width: 60px; display: inline-block; margin-left: 22%;",
+					style: "width: 75px;",
 					dropDown: growthDropdown
 				});
 				on(this.comboButtonEconomyMeasures.domNode, "click", function(evt) {
@@ -1080,14 +1146,18 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
-				controlsContainerNode.appendChild(this.comboButtonEconomyMeasures.domNode);
-				//this.cpMeasures.addChild(growthDropdown);
-
+				growthDiv.appendChild(this.comboButtonEconomyMeasures.domNode);
 
 				//defense scenario dropdown
-				var defenseDropdown = new DropDownMenu({ style: "display: none;"});
-				domClass.add(defenseDropdown.domNode, "claro");
+				var defenseDiv = domConstruct.create("div", {
+					style: 'width: 100px; display: none; margin-left:25px; text-align:center;'
+				});
+				this.measureInputsPane.containerNode.appendChild(defenseDiv);
 				
+				var defenseContainer = domConstruct.create("div", {style: 'text-align:center;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
+				defenseDiv.appendChild(defenseContainer);
+				
+				var defenseDropdown = new DropDownMenu({ style: "display: none;"});
 				_.each(this._interface.measures.controls.defense, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -1109,7 +1179,7 @@ define([
 					label: "Low",
 					value:"low",
 					name: "defense",
-					style: "width: 65px; display: none; margin-left: 70px;",
+					style: "width: 75px;",
 					dropDown: defenseDropdown
 				});
 				on(this.comboButtonDefenseMeasures.domNode, "click", function(evt) {
@@ -1132,12 +1202,17 @@ define([
 					var dropDown = this.dropDown.domNode.parentNode;
 					domStyle.set(dropDown, { "display":"none" });
 				});
-				controlsContainerNode.appendChild(this.comboButtonDefenseMeasures.domNode);
-				//this.cpMeasures.addChild(defenseDropdown);
-
+				defenseDiv.appendChild(this.comboButtonDefenseMeasures.domNode);
+				
+				
 			    //climate year slider
-			    var climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-climateInfo'></i>&nbsp;<b>Reference Year:</b>", style:"position:relative; width: 120px; top:-7px; margin-top:25px; display: inline-block"});
-				this.measureInputsPane.containerNode.appendChild(climateYearSliderLabel);
+			    var climateSliderDiv = domConstruct.create("div", {
+					style: 'width: 400px; display: inline-block; margin-left:15px; margin-top:30px;'
+				});
+				this.measureInputsPane.containerNode.appendChild(climateSliderDiv);
+				
+				var climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-climateInfo'></i>&nbsp;<b>Reference Year:</b>", style:"position:relative; width: 120px; top:-7px; display: inline-block"});
+				climateSliderDiv.appendChild(climateYearSliderLabel);
 				this.climateYearSliderMeasures = new HorizontalSlider({
 			        name: "climateYearSlider",
 			        value: 2030,
@@ -1145,7 +1220,7 @@ define([
 			        maximum: 2050,
 			        discreteValues: 2,
 			        showButtons: false,
-			        style: "width: 250px; display: inline-block",
+			        style: "width: 275px; display: inline-block",
 			        onChange: function(value){
 			           self.climateYearSliderDamages.set("value", value);
 			           if(self.tc.selectedChildWidget.id == ("tabMeasures-" + self._map.id)) {
@@ -1153,7 +1228,7 @@ define([
 				       }
 			        }
 			    });
-			    this.measureInputsPane.containerNode.appendChild(this.climateYearSliderMeasures.domNode);
+			    climateSliderDiv.appendChild(this.climateYearSliderMeasures.domNode);
 
 			    var climateYearSliderLabels = new HorizontalRuleLabels({
 			    	container: 'bottomDecoration',
@@ -1163,22 +1238,32 @@ define([
 			    });
 			    this.climateYearSliderMeasures.addChild(climateYearSliderLabels);
 
-			    var clearDiv = domConstruct.create("div", {style: 'height: 25px; position: relative; clear: both'});
-				this.measureInputsPane.containerNode.appendChild(clearDiv);
+			    
+				var dataTypeDiv = domConstruct.create("div", {
+					style: 'width: 400px; display: inline-block; margin-left:15px; margin-top:30px;margin-bottom:15px;'
+				});
+				this.measureInputsPane.containerNode.appendChild(dataTypeDiv);
 				
-				var dataTypeText = domConstruct.create("div", {style: 'width: 44%; display: inline-block; margin-left: 0px; float: left', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
-				this.measureInputsPane.containerNode.appendChild(dataTypeText);
+				var dataTypeText = domConstruct.create("div", {
+					style: 'width: 165px; display:inline-block;',
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"
+				});
+				dataTypeDiv.appendChild(dataTypeText);
 
-			    var radioButtonContainerPercent = domConstruct.create("div", {style: 'width: 32%; display: inline-block; position: relative; float: left'});
-				this.measureInputsPane.containerNode.appendChild(radioButtonContainerPercent);
+			    var radioButtonContainerPercent = domConstruct.create("div", {
+					style: 'width: 125px; display: inline-block; position: relative; margin-left: 5px;'
+				});
+				dataTypeDiv.appendChild(radioButtonContainerPercent);
 
-				var radioButtonContainerTotal = domConstruct.create("div", {style: 'width: 23%; display: inline-block; position: relative; float: left'});
-				this.measureInputsPane.containerNode.appendChild(radioButtonContainerTotal);
+				var radioButtonContainerTotal = domConstruct.create("div", {
+					style: 'width: 100px; display: inline-block; position: relative; margin-left: 5px;'
+				});
+				dataTypeDiv.appendChild(radioButtonContainerTotal);
 
 			    var measuresPercentInput = domConstruct.create("input", { id:"measuresPercentRb-" + this._map.id, "type": "radio", "name": "damagesRb",  "value": "percent", "checked": true});
-			    var measuresPercentLabel = domConstruct.create("label", {"for": "measuresPercentRb-" + this._map.id, innerHTML: "Percent Value", "class": "eca-labels", "style" : "float:left; margin: 1px 5px 0px 0px;"});
-			    radioButtonContainerPercent.appendChild(measuresPercentInput);
+			    var measuresPercentLabel = domConstruct.create("label", {"for": "measuresPercentRb-" + this._map.id, innerHTML: "Percent Value", "class": "eca-labels", "style" : "display:inline-block; margin-right: 5px;"});
 			    radioButtonContainerPercent.appendChild(measuresPercentLabel);
+				radioButtonContainerPercent.appendChild(measuresPercentInput);
 
 			    this.measuresPercentRb = new RadioButton({
 			    	"name": "measuresRb",
@@ -1191,10 +1276,10 @@ define([
 			    this.measuresPercentRb.startup();
 
 			    var measuresTotalInput = domConstruct.create("input", { id:"measuresTotalRb-" + this._map.id, "type": "radio", "name": "damagesRb",  "value": "total"});
-			    var measuresTotalLabel = domConstruct.create("label", {"for": "measuresTotalRb-" + this._map.id, innerHTML: "Total Value", "class": "eca-labels", "style" : "float:left; margin: 1px 5px 0px 0px;"});
-			    radioButtonContainerTotal.appendChild(measuresTotalInput);
+			    var measuresTotalLabel = domConstruct.create("label", {"for": "measuresTotalRb-" + this._map.id, innerHTML: "Total Value", "class": "eca-labels", "style" : "display:inline-block; margin-right: 5px;"});
 			    radioButtonContainerTotal.appendChild(measuresTotalLabel);
-
+				radioButtonContainerTotal.appendChild(measuresTotalInput);
+				
 			    this.measuresTotalRb = new RadioButton({
 			    	"name": "measuresRb",
 			    	"value": "total",
@@ -1205,15 +1290,12 @@ define([
 			    }, "measuresTotalRb-" + this._map.id);
 			    this.measuresTotalRb.startup();
 
-			    var clearDiv = domConstruct.create("div", {style: 'height: 10px; position: relative; clear: both'});
-				this.measureInputsPane.containerNode.appendChild(clearDiv);
-
 			}
 
 			this.createExposureChart = function(){
-				var margin = {top: 20, right: 0, bottom: 40, left: 35}
-				var width = 340;
-				var height = 273;
+				var margin = {top: 20, right: 0, bottom: 40, left: 50}
+				var width = 350;
+				var height = 275;
 				var padding = 0.25;
 				
 				this.parameters.exposureChart = { height: height, width: width, margin: margin }
@@ -1292,12 +1374,12 @@ define([
 						.append("text")
 						.attr("transform", "rotate(-90)")
 						.attr("x", 0 - (height/2))
-						.attr("y", 0 - margin.left)
+						.attr("y", 0 - margin.left + 10)
 						.attr("dy", ".7em")
 						.style("text-anchor", "middle")
 						.text("Asset Values ($US Billion)")
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".y.axis.e").parents(".dijitContentPane")).id
+							var parent = _.first(query(".y.axis.e").parents(".dijitContentPane")).id
 							var message = self._interface["exposure"]["tooltips"]["y-axis"];
 							self.showMessageDialog(parent, message.label, message.value);
 						})
@@ -1347,7 +1429,7 @@ define([
 							self.getExposureInputValues();						
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".eca-legend." + d).parents(".dijitContentPane")).id
+							var parent = _.first(query(".eca-legend." + d).parents(".dijitContentPane")).id
 							var message = self._interface["exposure"]["tooltips"][d];
 							self.showMessageDialog(parent, message.label, message.value);
 						})
@@ -1375,9 +1457,9 @@ define([
 			}
 
 			this.createDamagesChart = function(){
-				var margin = {top: 15, right: 0, bottom: 30, left: 40}
-				var width = 340;
-				var height = 190;
+				var margin = {top: 15, right: 0, bottom: 30, left: 50}
+				var width = 350;
+				var height = 275;
 				var padding = 0.45;
 				
 				this.parameters.damagesChart = { height: height, width: width, margin: margin }
@@ -1478,12 +1560,12 @@ define([
 					.append("text")
 					.attr("transform", "rotate(-90)")
 					.attr("x", 0 - (height/2))
-					.attr("y", 0 - margin.left)
+					.attr("y", 0 - margin.left + 10)
 					.attr("dy", ".7em")
 					.style("text-anchor", "middle")
 					.text("Damages ($US Billion)")
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".y.axis.d").parents(".dijitContentPane")).id
+						var parent = _.first(query(".y.axis.d").parents(".dijitContentPane")).id
 						var message = self._interface["damages"]["tooltips"]["y-axis"];
 						self.showMessageDialog(parent, message.label, message.value);
 					})
@@ -1504,7 +1586,7 @@ define([
 					.attr("height", function (d) { return Math.abs( self.damagesChartY(d.start) - self.damagesChartY(d.end) ); })
 					.attr("cursor", "pointer")
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".bar." + d.class).parents(".dijitContentPane")).id
+						var parent = _.first(query(".bar." + d.class).parents(".dijitContentPane")).id
 						var message = self._interface["damages"]["messages"][d.name];
 						
 						var value = self.formatter(d.value, 1000000000) + " billion";
@@ -1579,9 +1661,16 @@ define([
 				/* this.damagesChartYaxisTitle = domConstruct.create("div", {innerHTML: "1e9(US$)", style:"width: 20px; font-size:10px; position: absolute; top: 10px; left:20px;"});
 				this.damagesChartPane.containerNode.appendChild(this.damagesChartYaxisTitle); */
 				
+				var returnPeriodSliderDiv = domConstruct.create("div", {
+					style: 'width: 400px; display: inline-block; margin-left:15px; margin-top:15px;'
+				});
+				this.damagesChartPane.containerNode.appendChild(returnPeriodSliderDiv);
 				
-				var returnPeriodSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-protectionInfo'></i>&nbsp;<b>Storm Return Period (yr) :</b>", style:"position:relative; width:175px; top:-7px; margin-top:10px; margin-left:0px; display:inline-block;"});
-				this.damagesChartPane.containerNode.appendChild(returnPeriodSliderLabel);
+				var returnPeriodSliderLabel = domConstruct.create("div", {
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-protectionInfo'></i>&nbsp;<b>Storm Return Period (yr) :</b>", 
+					style:"position:relative; width:175px; top:-7px; display:inline-block;"
+				});
+				returnPeriodSliderDiv.appendChild(returnPeriodSliderLabel);
 				this.returnPeriodSlider = new HorizontalSlider({
 			        name: "returnPeriodSlider",
 			        value: 1,
@@ -1589,12 +1678,12 @@ define([
 			        maximum: this._interface.damages.controls.protection.discreteValues,
 			        discreteValues: this._interface.damages.controls.protection.discreteValues,
 			        showButtons: false,
-			        style: "width:200px;display: inline-block;",
+			        style: "width:210px;display:inline-block;",
 			        onChange: function(value){
 					   self.getDamageInputValues();
 			        }
 			    });
-			    this.damagesChartPane.containerNode.appendChild(this.returnPeriodSlider.domNode);
+			    returnPeriodSliderDiv.appendChild(this.returnPeriodSlider.domNode);
 
 			    var returnPeriodSliderLabels = new HorizontalRuleLabels({
 			    	container: 'bottomDecoration',
@@ -1611,9 +1700,9 @@ define([
 			}
 		
 			this.createMeasuresChart = function(){
-				var margin = {top: 10, right: 20, bottom: 40, left: 35}
-				var width = 340;
-				var height = 225;
+				var margin = {top: 10, right: 20, bottom: 40, left: 50}
+				var width = 350;
+				var height = 275;
 				var padding = 0.25;
 				var tooltip = {width: 100, height: 50}
 				
@@ -1683,7 +1772,7 @@ define([
 					.style("text-anchor", "middle")
 					.text("Averted Damages over 21 yrs ($US 10 Billion)")
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".y.axis.cb").parents(".dijitContentPane")).id
+						var parent = _.first(query(".y.axis.cb").parents(".dijitContentPane")).id
 						var message = self._interface["measures"]["tooltips"]["x-axis"];
 						self.showMessageDialog(parent, message.label, message.value);
 					})
@@ -1697,13 +1786,13 @@ define([
 					.append("text")
 					.attr("transform", "rotate(-90)")
 					.attr("x", 0 - (height/2))
-					.attr("y", 0 - margin.left)
+					.attr("y", 0 - margin.left + 10)
 					.attr("dy", ".7em")
 					.attr("cursor", "pointer")
 					.style("text-anchor", "middle")
 					.text("Benefit:Cost Ratio")
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".y.axis.cb").parents(".dijitContentPane")).id
+						var parent = _.first(query(".y.axis.cb").parents(".dijitContentPane")).id
 						var message = self._interface["measures"]["tooltips"]["y-axis"];
 						self.showMessageDialog(parent, message.label, message.value);
 					})
@@ -1752,7 +1841,7 @@ define([
 							"top": top + "px"
 						}); */
 						
-						var parent = _.last(query(".bar." + d.class).parents(".dijitContentPane")).id
+						var parent = _.first(query(".bar." + d.class).parents(".dijitContentPane")).id
 						var message = self._interface["measures"]["messages"]["graph-bar"];
 						
 						var ratio = d3.round(d.costbenefit, 2);
@@ -1808,7 +1897,7 @@ define([
 					.attr("x2", width)
 					.attr("y2", self.measuresChartY(1) )
 					.on("mouseover", function(d) {
-						/* var parent = _.last(query(".line-cb").parents(".dijitTitlePane")).id
+						/* var parent = _.first(query(".line-cb").parents(".dijitTitlePane")).id
 						var message = self._interface["measures"]["tooltips"]["line"];
 						self.showMessageDialog(parent, message.label, message.value);
 						window.setTimeout(function(){ self.hideMessageDialog(); }, 4000); */
@@ -1839,7 +1928,7 @@ define([
 								name: "measuresCheckbox-" + self._map.id,
 								value: d.class,
 								checked: false,
-								style: 'position: absolute; right: 5px; top: ' + (y + 31) + 'px;',
+								style: 'position: absolute; right: 25px; top: ' + (y + 31) + 'px;',
 								onChange: function(b){
 									var checkboxes = query("[name=measuresCheckbox-" + self._map.id + "]");
 									var visibleLayers = [];
@@ -1883,7 +1972,7 @@ define([
 							}
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".eca-legend." + d.class).parents(".dijitContentPane")).id
+							var parent = _.first(query(".eca-legend." + d.class).parents(".dijitContentPane")).id
 							var message = self._interface["measures"]["tooltips"][d.class];
 							self.showMessageDialog(parent, message.label, message.value);
 						})
@@ -1909,7 +1998,7 @@ define([
 							}
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".eca-legend." + d.class).parents(".dijitContentPane")).id
+							var parent = _.first(query(".eca-legend." + d.class).parents(".dijitContentPane")).id
 							var message = self._interface["measures"]["tooltips"][d.class];
 							self.showMessageDialog(parent, message.label, message.value);
 							d3.select(this).attr("text-decoration", "underline");
@@ -1923,7 +2012,7 @@ define([
 							.attr("transform", "translate(0, " + (legendData.length*20 + legendOffset) + ")")
 							.attr("class", "eca-legend cb-ratio")
 							.on("mouseover", function(d) {
-								var parent = _.last(query(".eca-legend.cb-ratio").parents(".dijitContentPane")).id
+								var parent = _.first(query(".eca-legend.cb-ratio").parents(".dijitContentPane")).id
 								var message = self._interface["measures"]["tooltips"]["cb-ratio"];
 								self.showMessageDialog(parent, message.label, message.value);
 							})
@@ -2281,7 +2370,7 @@ define([
 					var tab = _.first(cssClass.split("-"));
 					var control = _.last(cssClass.split("-"));
 					var message = self._interface[tab]['tooltips'][control];
-					var parent = _.last(query("." + cssClass).parents(".dijitContentPane")).id;
+					var parent = _.first(query("." + cssClass).parents(".dijitContentPane")).id;
 					self.showMessageDialog(parent, message.label, message.value);
 				});
 				
@@ -2324,9 +2413,7 @@ define([
 				
                 this._$pluginDialog = $(template()).appendTo($('body')).offset(position);
 				this._infoBox = _.first(this._$pluginDialog);
-				console.log(this._infoBox.id);
 				this._infoBox.id = this._infoBox.id + "-" + this._map.id;
-				console.log(this._infoBox.id);
                 this._$pluginDialog.find('.close').click(function () {
                     self.hideMessageDialog();
                 });
@@ -2374,7 +2461,7 @@ define([
             }
 			
 			this.adjustInterfaceControls = function(tab) {	
-				if (tab == "exposure") {
+				/* if (tab == "exposure") {
 					var geography = this.comboButtonGeography.get("label");
 					var exposure = this.comboButtonExposureType.get("label");
 					var marginLeft = (exposure == "Essential Facilities") ?  5 : 22;
@@ -2392,13 +2479,7 @@ define([
 					
 					var economicMarginLeft = (type == "Best") ?  22 : 30;
 					dojo.style(self.comboButtonEconomyMeasures.domNode, { "marginLeft": economicMarginLeft + "%" });
-					
-					/* var typeMarginLeft = (type == "Best") ?  5 : 24;
-					dojo.style("measureTypeContainer-" + self._map.id, { "marginLeft": typeMarginLeft + "px" });
-					
-					var economicMarginLeft = (type == "Best") ?  14 : 9;
-					dojo.style("growthContainer-" + self._map.id, { "marginLeft": economicMarginLeft + "%" }); */
-				}
+				} */
 			}
 
 
