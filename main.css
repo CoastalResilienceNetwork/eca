@@ -1,3 +1,7 @@
+.plugin-eca {
+color:#000000;
+}
+	
 .fi-info {
   font-size: 20px;
   position: relative;
@@ -249,4 +253,25 @@ position: relative !important;
 }
 .plugin-eca .dijitRuleLabel, .plugin-eca  .dijitReset  {
 font-size: 13px !important;
+}
+
+.overviewHeader {
+font-size: 16px;
+}
+.eca-overview {
+line-height: 1 !important;
+}
+.eca-overview ul {
+list-style-type: circle;
+line-height: 1 !important;
+padding-left: 25px;
+margin-top: 20px;
+}
+.eca-overview .a li {
+list-style-type: disc;
+margin-bottom: 10px;
+}
+.eca-overview .b li {
+list-style-type: lower-roman;
+margin-bottom: 10px;
 }

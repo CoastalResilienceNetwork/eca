@@ -258,7 +258,7 @@ define([
 				this.tabOverview = new ContentPane({
 			         id: "tabOverview-" + this._map.id,
 					 title: "Overview",
-					 style: "position:relative;width:100%;height:558px;overflow:hidden;",
+					 style: "position:relative;width:100%;height:auto;overflow:hidden;",
 					 isLayoutContainer: true,
 					 onShow: function() {
 						 window.setTimeout(function(){ domStyle.set(self.cpOverview.domNode, "width", "100%") }, 5);
@@ -269,12 +269,12 @@ define([
 			    this.tc.addChild(this.tabOverview);
 				
 				this.cpOverview = new ContentPane({
-					style: "position:relative; width:100%; height:100%;overflow:hidden;",
+					style: "position:relative; width:100%; height:100%;overflow:visible;",
 					content: "",
 					onDownloadEnd: function(){
 						var methodsButtonDiv  = domConstruct.create("div", {
 							id:"methodsButtonDiv-" + self._map.id,
-							style:"width: 70px; position:absolute; right: 10px; bottom:10px"
+							style:"width:100%; text-align:right;"
 						});
 						this.domNode.appendChild(methodsButtonDiv);			
 
@@ -296,7 +296,7 @@ define([
 			    this.tabExposure = new ContentPane({
 			         id: "tabExposure-" + this._map.id,
 					 title: "Exposure",
-					 style: "position:relative;width:100%;height:558px;overflow:hidden;",
+					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:0px;",
 			         isLayoutContainer: true,
 					 onShow: function() {
 						window.setTimeout(function(){ domStyle.set(self.cpExposure.domNode, "width", "100%") }, 5);
@@ -311,7 +311,7 @@ define([
 			    this.tabDamages = new ContentPane({
 			         id: "tabDamages-" + this._map.id,
 					 title: "Risk",
-					 style: "position:relative;width:100%;height:558px;overflow:hidden;",
+					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:0px;",
 					 isLayoutContainer: true,
 					 onShow: function() {
 						window.setTimeout(function(){ domStyle.set(self.cpDamages.domNode, "width", "100%") }, 5);
@@ -326,7 +326,7 @@ define([
 			    this.tabMeasures = new ContentPane({
 			         id: "tabMeasures-" + this._map.id,
 					 title: "Solutions",
-					 style: "position:relative;width:100%;height:558px;overflow:hidden;",
+					 style: "position:relative;width:100%;height:auto;overflow:hidden;padding:0px;",
 					 isLayoutContainer: true,
 					 onShow: function() {
 						window.setTimeout(function(){ domStyle.set(self.cpMeasures.domNode, "width", "100%") }, 10);
@@ -340,7 +340,7 @@ define([
 				//empty layout containers
 			    this.cpExposure = new ContentPane({
 					title: 'eca-top-pane',
-					style: 'overflow: visible; width:100%;'
+					style: 'overflow: visible; width:100%;padding:0px;'
 			    });
 			    this.cpExposure.startup();
 				
@@ -349,7 +349,7 @@ define([
 			    //empty layout containers
 			    this.cpDamages = new ContentPane({
 					title: 'eca-top-pane',
-					style: 'overflow: visible; width:100%;'
+					style: 'overflow: visible; width:100%;padding:0px;'
 			    });
 			    this.cpDamages.startup();
 				
@@ -358,7 +358,7 @@ define([
 				//empty layout containers
 			    this.cpMeasures = new ContentPane({
 					title: 'eca-top-pane',
-					style: 'overflow: visible; width:100%;'
+					style: 'overflow: visible; width:100%;padding:0px;'
 			    });
 			    this.cpMeasures.startup();
 				
@@ -391,26 +391,22 @@ define([
 			}
 			
 			this.createExposureInputs = function(){
-				this.exposureInputsPane = new TitlePane({
-			    	title: 'Distribution of Assets',
-			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%;display:inline-block;',
-			    	toggleable: false,
+				this.exposureInputsPane = new ContentPane({
+			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
 			    });
 				this.cpExposure.domNode.appendChild(this.exposureInputsPane.domNode);
-			    domStyle.set(this.exposureInputsPane.containerNode, {"border": "1px dotted #ccc" });
 
-				var exposureTypeText = domConstruct.create("div", {style: 'width: 46%; display: inline-block; margin-left:35px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " exposure-typeInfo'></i>&nbsp;<b>Assets:</b>"});
+				var exposureTypeText = domConstruct.create("div", {style: 'width: 46%; display: inline-block; margin-left:35px;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-typeInfo'></i>&nbsp;<b>Assets:</b>"});
 				this.exposureInputsPane.containerNode.appendChild(exposureTypeText);
 
 				//set display none because elevation is currently fixed to 10M (can be shown if we want to add elevation inputs back in)
 				var elevationText = domConstruct.create("div", {style: 'width: 25%; display: none; margin-left:20px;', innerHTML: "<b>Elevation:</b>"});
 				this.exposureInputsPane.containerNode.appendChild(elevationText);
 
-				var geographyText = domConstruct.create("div", {style: 'width: 25%; display: inline-block; margin-left:20px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " exposure-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
+				var geographyText = domConstruct.create("div", {style: 'width: 25%; display: inline-block; margin-left:20px;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
 				this.exposureInputsPane.containerNode.appendChild(geographyText);
 
 				var exposureDropdown = new DropDownMenu({ style: "display: none;"});
-				domClass.add(exposureDropdown.domNode, "claro");
 				
 				_.each(this._interface.exposure.controls.type.percent, function(value, key){
 					var menuItem = new MenuItem({
@@ -419,12 +415,8 @@ define([
 						onClick: function(){
 							self.comboButtonExposureType.set("label", this.label);
 							self.comboButtonExposureType.set("value", this.value);
-							/*if (self.comboButtonElevation.get("value") == "under20") {
-								self.comboButtonElevation.set("label","Under 10 (meters)");
-								self.comboButtonElevation.set("value","under10");
-								self.updateExposureChart();
-							}
-							self.comboButtonElevation.set("disabled", true);*/
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.adjustInterfaceControls("exposure");
 							self.getExposureInputValues();
 						}
@@ -437,10 +429,27 @@ define([
 					value: _.first(this._interface.exposure.controls.type.percent).value,
 					name: "type",
 					style: "display: inline-block; margin-left: 22px; width: 125px;",
-					onChange: function(value) {
-						console.log(value);
-					},
 					dropDown: exposureDropdown
+				});
+				on(this.comboButtonExposureType.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonExposureType.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonExposureType.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonExposureType.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonExposureType, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
 				});
 
 				this.exposureInputsPane.containerNode.appendChild(this.comboButtonExposureType.domNode);
@@ -455,6 +464,8 @@ define([
 						onClick: function(){
 							self.comboButtonElevation.set("label", this.label);
 							self.comboButtonElevation.set("value", this.value);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.getExposureInputValues();
 							self.updateExposureChart();
 						}
@@ -470,11 +481,30 @@ define([
 					style: "width: 40%; display: none;",
 					dropDown: elevationDropdown
 				});
+				on(this.comboButtonElevation.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonElevation.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonElevation.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonElevation.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonExposureType, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
+				});
 
 				this.exposureInputsPane.containerNode.appendChild(this.comboButtonElevation.domNode);
 
 				var geographyDropdown = new DropDownMenu({ style: "display: none;"});
-				domClass.add(geographyDropdown.domNode, "claro");
 				
 				_.each(this._interface.exposure.controls.geography, function(value, key){
 					var menuItem = new MenuItem({
@@ -483,9 +513,10 @@ define([
 						onClick: function(){
 							self.comboButtonGeography.set("label", this.label);
 							self.comboButtonGeography.set("value", this.value);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.adjustInterfaceControls("exposure");
-						
-							if(geography == "County"){
+							if(this.value == "county"){
 								self.exposurePercentRb.set("disabled", false);
 							} else {
 								self.exposurePercentRb.set("disabled", true);
@@ -493,6 +524,7 @@ define([
 							}
 							self.getExposureInputValues();
 							self.updateExposureChart();
+							
 						}
 					});
 					geographyDropdown.addChild(menuItem);
@@ -504,7 +536,33 @@ define([
 					name: "geography",
 					style: "display: inline-block; width: 110px; margin-left: 90px;",
 					disabled: false,
+					onMouseDown: function(evt) {
+						var dropDown = this.dropDown.domNode.parentNode;
+						window.setTimeout(function() {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}, 100);
+					},
 					dropDown: geographyDropdown
+				});
+				on(this.comboButtonGeography.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonGeography.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonGeography.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonGeography.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonGeography, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
 				});
 
 				this.exposureInputsPane.containerNode.appendChild(this.comboButtonGeography.domNode);
@@ -512,7 +570,7 @@ define([
 				var clearDiv = domConstruct.create("div", {style: 'height: 15px; position: relative; clear: both'});
 				this.exposureInputsPane.containerNode.appendChild(clearDiv);
 				
-				var dataTypeText = domConstruct.create("div", {style: 'width: 45%; display: inline-block; margin-left: 5px; float: left', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " exposure-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
+				var dataTypeText = domConstruct.create("div", {style: 'width: 45%; display: inline-block; margin-left: 5px; float: left', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
 				this.exposureInputsPane.containerNode.appendChild(dataTypeText);
 
 			    var radioButtonContainerPercent = domConstruct.create("div", {style: 'width: 27%; display: inline-block; position: relative; float: left'});
@@ -547,6 +605,8 @@ define([
 									onClick: function(){
 										self.comboButtonExposureType.set("label", this.label);
 										self.comboButtonExposureType.set("value", this.value);
+										domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+										
 										self.adjustInterfaceControls("exposure");
 										self.getExposureInputValues();
 									}
@@ -590,6 +650,8 @@ define([
 									onClick: function(){
 										self.comboButtonExposureType.set("label", this.label);
 										self.comboButtonExposureType.set("value", this.value);
+										domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+										
 										self.adjustInterfaceControls("exposure");
 										self.getExposureInputValues();
 									}
@@ -613,26 +675,22 @@ define([
 			}
 
 			this.createDamagesInputs = function(){
-				this.damageInputsPane = new TitlePane({
-			    	title: 'Select Model Settings',
-			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%',
-			    	toggleable: false,
+				this.damageInputsPane = new ContentPane({
+			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
 			    });
-
 			    this.cpDamages.domNode.appendChild(this.damageInputsPane.domNode);
-			    domStyle.set(this.damageInputsPane.containerNode, {"border": "1px dotted #ccc" });
 
 				//dropdown labels
-				var damageTypeContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block; margin-left:0px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-typeInfo'></i>&nbsp;<b>Hazard:</b>"});
+				var damageTypeContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block; margin-left:0px;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-typeInfo'></i>&nbsp;<b>Hazard:</b>"});
 				this.damageInputsPane.containerNode.appendChild(damageTypeContainer);
 
-				var growthContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-growthInfo'></i>&nbsp;<b>Economy:</b>"});
+				var growthContainer = domConstruct.create("div", {style: 'width: 38%; display: inline-block;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-growthInfo'></i>&nbsp;<b>Economy:</b>"});
 				this.damageInputsPane.containerNode.appendChild(growthContainer);
 
-				var defenseContainer = domConstruct.create("div", {style: 'width: 24%; display: none;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
+				var defenseContainer = domConstruct.create("div", {style: 'width: 24%; display: none;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
 				this.damageInputsPane.containerNode.appendChild(defenseContainer);
 				
-				var geographyContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
+				var geographyContainer = domConstruct.create("div", {style: 'width: 24%; display: inline-block;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-geographyInfo'></i>&nbsp;<b>Geography:</b>"});
 				this.damageInputsPane.containerNode.appendChild(geographyContainer);
 
 				//damage type dropdown
@@ -644,6 +702,8 @@ define([
 						label: value.name,
 						onClick: function(){
 							self.comboButtonType.set("label", this.label);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.getDamageInputValues();
 						}
 					});
@@ -655,6 +715,26 @@ define([
 					name: "type",
 					style: "width: 68px; display: inline-block; margin-left: 0px;",
 					dropDown: typeDropdown
+				});
+				on(this.comboButtonType.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonType.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonType.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonType.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonType, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
 				});
 				this.damageInputsPane.containerNode.appendChild(this.comboButtonType.domNode);				
 
@@ -669,6 +749,8 @@ define([
 						onClick: function(){
 							self.comboButtonEconomy.set("label", this.label);
 							self.comboButtonEconomyMeasures.set("label", this.label);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.getDamageInputValues();
 						}
 					});
@@ -681,7 +763,26 @@ define([
 					style: "width: 60px; display: inline-block; margin-left:85px;",
 					dropDown: growthDropdown
 				});
-			
+				on(this.comboButtonEconomy.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonEconomy.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonEconomy.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonEconomy.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonEconomy, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
+				});
 				this.damageInputsPane.containerNode.appendChild(this.comboButtonEconomy.domNode);
 
 				//defense scenario dropdown
@@ -697,6 +798,8 @@ define([
 							self.comboButtonDefense.set("value", this.value);
 							//self.comboButtonDefenseMeasures.set("label", this.label);
 							//self.comboButtonDefenseMeasures.set("value", this.label);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.getDamageInputValues();
 						}
 					});
@@ -713,7 +816,26 @@ define([
 					style: "width: 65px; display: none; margin-left: 30px;",
 					dropDown: defenseDropdown
 				});
-			
+				on(this.comboButtonDefense.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonDefense.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonDefense.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonDefense.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonDefense, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
+				});
 				this.damageInputsPane.containerNode.appendChild(this.comboButtonDefense.domNode);
 
 				var geographyDropdown = new DropDownMenu({ style: "display: none;"});
@@ -726,6 +848,8 @@ define([
 						onClick: function(){						
 							self.comboButtonGeographyDamages.set("label", this.label);
 							self.comboButtonGeographyDamages.set("value", this.value);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.adjustInterfaceControls("damages");
 							self.getDamageInputValues();
 						}
@@ -741,11 +865,30 @@ define([
 					disabled: false,
 					dropDown: geographyDropdown
 				});
-
+				on(this.comboButtonGeographyDamages.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonGeographyDamages.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonGeographyDamages.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonGeographyDamages.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonGeographyDamages, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
+				});
 				this.damageInputsPane.containerNode.appendChild(this.comboButtonGeographyDamages.domNode);
 
 				//climate year slider
-			    var climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-climateInfo'></i>&nbsp;<b>Reference Year: </b>", style:"position:relative; width: 120px; top:-7px; margin-top:25px; display: inline-block"});
+			    var climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-climateInfo'></i>&nbsp;<b>Reference Year: </b>", style:"position:relative; width: 120px; top:-7px; margin-top:25px; display: inline-block"});
 				this.damageInputsPane.containerNode.appendChild(climateYearSliderLabel);
 				this.climateYearSliderDamages = new HorizontalSlider({
 			        name: "climateYearSlider",
@@ -776,7 +919,7 @@ define([
 				var clearDiv = domConstruct.create("div", {style: 'height: 25px; position: relative; clear: both'});
 				this.damageInputsPane.containerNode.appendChild(clearDiv);
 				
-				var dataTypeText = domConstruct.create("div", {style: 'width: 44%; display: inline-block; margin-left: 0px; float: left', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
+				var dataTypeText = domConstruct.create("div", {style: 'width: 44%; display: inline-block; margin-left: 0px; float: left', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
 				this.damageInputsPane.containerNode.appendChild(dataTypeText);
 
 			    var radioButtonContainerPercent = domConstruct.create("div", {style: 'width: 32%; display: inline-block; position: relative; float: left'});
@@ -823,25 +966,22 @@ define([
 			}
 			
 			this.createMeasuresInputs = function(){
-				this.measureInputsPane = new TitlePane({
-			    	title: 'Select Model Settings',
-			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%;',
-			    	toggleable: false,
+				this.measureInputsPane = new ContentPane({
+			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
 			    });
 				this.cpMeasures.domNode.appendChild(this.measureInputsPane.domNode);
-			    domStyle.set(this.measureInputsPane.containerNode, {"border": "1px dotted #ccc" });
 				
 				var labelContainerNode = domConstruct.create("div", {style: 'position:relative; width:  100%;'});
 				this.measureInputsPane.containerNode.appendChild(labelContainerNode);
 
 			    //dropdown labels
-				var measureTypeContainer = domConstruct.create("div", {id: "measureTypeContainer-" + this._map.id, style: 'width: 50%; display: inline-block; margin-left:25px;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-typeInfo'></i>&nbsp;<b>Restoration Success:</b>"});
+				var measureTypeContainer = domConstruct.create("div", {id: "measureTypeContainer-" + this._map.id, style: 'width: 50%; display: inline-block; margin-left:25px;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-typeInfo'></i>&nbsp;<b>Restoration Success:</b>"});
 				labelContainerNode.appendChild(measureTypeContainer);
 
-				var growthContainer = domConstruct.create("div", {id: "growthContainer-" + this._map.id, style: 'width:  90px; display: inline-block; margin-left: 12%;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-growthInfo'></i>&nbsp;<b>Economy:</b>"});
+				var growthContainer = domConstruct.create("div", {id: "growthContainer-" + this._map.id, style: 'width:  90px; display: inline-block; margin-left: 12%;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-growthInfo'></i>&nbsp;<b>Economy:</b>"});
 				labelContainerNode.appendChild(growthContainer);
 
-				var defenseContainer = domConstruct.create("div", {style: 'width:  90px; display: none; margin-left: 13%;', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
+				var defenseContainer = domConstruct.create("div", {style: 'width:  90px; display: none; margin-left: 13%;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
 				labelContainerNode.appendChild(defenseContainer);
 				
 				var controlsContainerNode = domConstruct.create("div", {style: 'position:relative; width:  100%;'});
@@ -858,6 +998,8 @@ define([
 						onClick: function(){
 							self.comboButtonTypeMeasures.set("label", this.label);
 							self.comboButtonTypeMeasures.set("value", this.value);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.adjustInterfaceControls("measures");
 							self.getMeasureInputValues();
 						}
@@ -872,7 +1014,26 @@ define([
 					style: "width: 125px; display: inline-block; margin-left: 16%;",
 					dropDown: typeMeasuresDropdown
 				});
-
+				on(this.comboButtonTypeMeasures.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonTypeMeasures.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonTypeMeasures.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonTypeMeasures.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonTypeMeasures, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
+				});
 				controlsContainerNode.appendChild(this.comboButtonTypeMeasures.domNode);
 				
 				//growth scenario dropdown
@@ -885,6 +1046,8 @@ define([
 						onClick: function(){
 							self.comboButtonEconomyMeasures.set("label", this.label);
 							self.comboButtonEconomy.set("label", this.label);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							self.getMeasureInputValues();
 						}
 					});
@@ -897,7 +1060,26 @@ define([
 					style: "width: 60px; display: inline-block; margin-left: 22%;",
 					dropDown: growthDropdown
 				});
-			
+				on(this.comboButtonEconomyMeasures.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonEconomyMeasures.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonEconomyMeasures.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonEconomyMeasures.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonEconomyMeasures, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
+				});
 				controlsContainerNode.appendChild(this.comboButtonEconomyMeasures.domNode);
 				//this.cpMeasures.addChild(growthDropdown);
 
@@ -913,6 +1095,8 @@ define([
 						onClick: function(){
 							self.comboButtonDefenseMeasures.set("label", this.label);
 							self.comboButtonDefenseMeasures.set("value", this.value);
+							domStyle.set(this.getParent().domNode.parentNode, { "display":"none" });
+							
 							//self.comboButtonDefense.set("label", this.label);
 							//self.comboButtonDefense.set("value", this.value);
 							self.getMeasureInputValues();
@@ -928,12 +1112,31 @@ define([
 					style: "width: 65px; display: none; margin-left: 70px;",
 					dropDown: defenseDropdown
 				});
-			
+				on(this.comboButtonDefenseMeasures.domNode, "click", function(evt) {
+					var dropDown = self.comboButtonDefenseMeasures.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonDefenseMeasures.focusNode, "mousedown", function(evt) {
+					var dropDown = self.comboButtonDefenseMeasures.dropDown.domNode.parentNode;
+					window.setTimeout(function() {
+						if(dropDown) {
+							domStyle.set(dropDown, { "display":"block", "z-index": 10000 });
+						}
+					}, 100);
+				});
+				on(this.comboButtonDefenseMeasures, "blur", function(evt) {
+					var dropDown = this.dropDown.domNode.parentNode;
+					domStyle.set(dropDown, { "display":"none" });
+				});
 				controlsContainerNode.appendChild(this.comboButtonDefenseMeasures.domNode);
 				//this.cpMeasures.addChild(defenseDropdown);
 
 			    //climate year slider
-			    var climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-climateInfo'></i>&nbsp;<b>Reference Year:</b>", style:"position:relative; width: 120px; top:-7px; margin-top:25px; display: inline-block"});
+			    var climateYearSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-climateInfo'></i>&nbsp;<b>Reference Year:</b>", style:"position:relative; width: 120px; top:-7px; margin-top:25px; display: inline-block"});
 				this.measureInputsPane.containerNode.appendChild(climateYearSliderLabel);
 				this.climateYearSliderMeasures = new HorizontalSlider({
 			        name: "climateYearSlider",
@@ -963,7 +1166,7 @@ define([
 			    var clearDiv = domConstruct.create("div", {style: 'height: 25px; position: relative; clear: both'});
 				this.measureInputsPane.containerNode.appendChild(clearDiv);
 				
-				var dataTypeText = domConstruct.create("div", {style: 'width: 44%; display: inline-block; margin-left: 0px; float: left', innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
+				var dataTypeText = domConstruct.create("div", {style: 'width: 44%; display: inline-block; margin-left: 0px; float: left', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-valuesInfo'></i>&nbsp;<b>Display map values by:</b>"});
 				this.measureInputsPane.containerNode.appendChild(dataTypeText);
 
 			    var radioButtonContainerPercent = domConstruct.create("div", {style: 'width: 32%; display: inline-block; position: relative; float: left'});
@@ -1015,14 +1218,13 @@ define([
 				
 				this.parameters.exposureChart = { height: height, width: width, margin: margin }
 				
-				this.exposureChartPane = new TitlePane({
-			    	title: "<i class='fa fa-info-circle eca-" + this._map.id + " exposure-graphInfo'></i>&nbsp;Distribution of Assets by Elevation",
-			    	style: 'overflow:visible; position: relative;',
-			    	toggleable: false,
+				this.exposureChartPane = new ContentPane({
+			    	//title: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-graphInfo'></i>&nbsp;Distribution of Assets by Elevation",
+			    	style: 'overflow:visible; position: relative;'
 			    });
 
 				this.cpExposure.domNode.appendChild(this.exposureChartPane.domNode);
-				domStyle.set(this.exposureChartPane.containerNode, {"position": "relative", "border": "1px dotted #ccc", "padding-bottom": "10px", "padding-top": "20px"});
+				domStyle.set(this.exposureChartPane.containerNode, {"position": "relative", "padding-bottom": "10px", "padding-top": "20px"});
 				this.exposureChartNode = domConstruct.create("div", { "style": "height:" + (height + 50) + "px;", "class": "exposureChartNode-" + this._map.id });
 				this.exposureChartPane.containerNode.appendChild(this.exposureChartNode);
 
@@ -1095,7 +1297,7 @@ define([
 						.style("text-anchor", "middle")
 						.text("Asset Values ($US Billion)")
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".y.axis.e").parents(".dijitTitlePane")).id
+							var parent = _.last(query(".y.axis.e").parents(".dijitContentPane")).id
 							var message = self._interface["exposure"]["tooltips"]["y-axis"];
 							self.showMessageDialog(parent, message.label, message.value);
 						})
@@ -1145,7 +1347,7 @@ define([
 							self.getExposureInputValues();						
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".eca-legend." + d).parents(".dijitTitlePane")).id
+							var parent = _.last(query(".eca-legend." + d).parents(".dijitContentPane")).id
 							var message = self._interface["exposure"]["tooltips"][d];
 							self.showMessageDialog(parent, message.label, message.value);
 						})
@@ -1180,15 +1382,14 @@ define([
 				
 				this.parameters.damagesChart = { height: height, width: width, margin: margin }
 				
-				this.damagesChartPane = new TitlePane({
+				this.damagesChartPane = new ContentPane({
 			    	id: "damagesChartPane-" + this._map.id,
-					title: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-graphInfo'></i>&nbsp;Risk Profile",
-			    	style: 'overflow:visible; position: relative;',
-			    	toggleable: false,
+					//title: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-graphInfo'></i>&nbsp;Risk Profile",
+			    	style: 'overflow:visible; position: relative;'
 			    });
 
 				this.cpDamages.domNode.appendChild(this.damagesChartPane.domNode);
-				domStyle.set(this.damagesChartPane.containerNode, {"position": "relative", "border": "1px dotted #ccc", "padding-bottom": "20px", "padding-top": "20px"});
+				domStyle.set(this.damagesChartPane.containerNode, {"position": "relative","padding-bottom": "20px", "padding-top": "20px"});
 				this.damagesChartNode = domConstruct.create("div", { "style": "height:" + (height + 40) + "px;", "class": "damagesChartNode-" + this._map.id });
 				this.damagesChartPane.containerNode.appendChild(this.damagesChartNode);
 				
@@ -1282,7 +1483,7 @@ define([
 					.style("text-anchor", "middle")
 					.text("Damages ($US Billion)")
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".y.axis.d").parents(".dijitTitlePane")).id
+						var parent = _.last(query(".y.axis.d").parents(".dijitContentPane")).id
 						var message = self._interface["damages"]["tooltips"]["y-axis"];
 						self.showMessageDialog(parent, message.label, message.value);
 					})
@@ -1303,7 +1504,7 @@ define([
 					.attr("height", function (d) { return Math.abs( self.damagesChartY(d.start) - self.damagesChartY(d.end) ); })
 					.attr("cursor", "pointer")
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".bar." + d.class).parents(".dijitTitlePane")).id
+						var parent = _.last(query(".bar." + d.class).parents(".dijitContentPane")).id
 						var message = self._interface["damages"]["messages"][d.name];
 						
 						var value = self.formatter(d.value, 1000000000) + " billion";
@@ -1379,7 +1580,7 @@ define([
 				this.damagesChartPane.containerNode.appendChild(this.damagesChartYaxisTitle); */
 				
 				
-				var returnPeriodSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-info-circle eca-" + this._map.id + " damages-protectionInfo'></i>&nbsp;<b>Storm Return Period (yr) :</b>", style:"position:relative; width:175px; top:-7px; margin-top:10px; margin-left:0px; display:inline-block;"});
+				var returnPeriodSliderLabel = domConstruct.create("div", {innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-protectionInfo'></i>&nbsp;<b>Storm Return Period (yr) :</b>", style:"position:relative; width:175px; top:-7px; margin-top:10px; margin-left:0px; display:inline-block;"});
 				this.damagesChartPane.containerNode.appendChild(returnPeriodSliderLabel);
 				this.returnPeriodSlider = new HorizontalSlider({
 			        name: "returnPeriodSlider",
@@ -1418,14 +1619,13 @@ define([
 				
 				this.parameters.measuresChart = { height: height, width: width, margin: margin }
 				
-				this.measuresChartPane = new TitlePane({
-			    	title: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-graphInfo'></i>&nbsp;Cost : Benefit Curve",
-			    	style: 'overflow:visible; position: relative;',
-			    	toggleable: false,
+				this.measuresChartPane = new ContentPane({
+			    	//title: "<i class='fa fa-info-circle eca-" + this._map.id + " measures-graphInfo'></i>&nbsp;Cost : Benefit Curve",
+			    	style: 'overflow:visible; position: relative;'
 			    });
 				
 				this.cpMeasures.domNode.appendChild(this.measuresChartPane.domNode);
-				domStyle.set(this.measuresChartPane.containerNode, {"position": "relative", "border": "1px dotted #ccc", "padding-bottom": "10px", "padding-top": "20px"});
+				domStyle.set(this.measuresChartPane.containerNode, {"position": "relative", "padding-bottom": "10px", "padding-top": "20px"});
 				this.measuresChartNode = domConstruct.create("div", { "style": "height:" + (height + 45) + "px;", "id": "measuresChartNode-" + this._map.id, "class": "measuresChartNode-" + this._map.id });
 				this.measuresChartPane.containerNode.appendChild(this.measuresChartNode);
 				
@@ -1483,7 +1683,7 @@ define([
 					.style("text-anchor", "middle")
 					.text("Averted Damages over 21 yrs ($US 10 Billion)")
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".y.axis.cb").parents(".dijitTitlePane")).id
+						var parent = _.last(query(".y.axis.cb").parents(".dijitContentPane")).id
 						var message = self._interface["measures"]["tooltips"]["x-axis"];
 						self.showMessageDialog(parent, message.label, message.value);
 					})
@@ -1503,7 +1703,7 @@ define([
 					.style("text-anchor", "middle")
 					.text("Benefit:Cost Ratio")
 					.on("mouseover", function(d) {
-						var parent = _.last(query(".y.axis.cb").parents(".dijitTitlePane")).id
+						var parent = _.last(query(".y.axis.cb").parents(".dijitContentPane")).id
 						var message = self._interface["measures"]["tooltips"]["y-axis"];
 						self.showMessageDialog(parent, message.label, message.value);
 					})
@@ -1552,7 +1752,7 @@ define([
 							"top": top + "px"
 						}); */
 						
-						var parent = _.last(query(".bar." + d.class).parents(".dijitTitlePane")).id
+						var parent = _.last(query(".bar." + d.class).parents(".dijitContentPane")).id
 						var message = self._interface["measures"]["messages"]["graph-bar"];
 						
 						var ratio = d3.round(d.costbenefit, 2);
@@ -1683,7 +1883,7 @@ define([
 							}
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".eca-legend." + d.class).parents(".dijitTitlePane")).id
+							var parent = _.last(query(".eca-legend." + d.class).parents(".dijitContentPane")).id
 							var message = self._interface["measures"]["tooltips"][d.class];
 							self.showMessageDialog(parent, message.label, message.value);
 						})
@@ -1709,7 +1909,7 @@ define([
 							}
 						})
 						.on("mouseover", function(d) {
-							var parent = _.last(query(".eca-legend." + d.class).parents(".dijitTitlePane")).id
+							var parent = _.last(query(".eca-legend." + d.class).parents(".dijitContentPane")).id
 							var message = self._interface["measures"]["tooltips"][d.class];
 							self.showMessageDialog(parent, message.label, message.value);
 							d3.select(this).attr("text-decoration", "underline");
@@ -1723,7 +1923,7 @@ define([
 							.attr("transform", "translate(0, " + (legendData.length*20 + legendOffset) + ")")
 							.attr("class", "eca-legend cb-ratio")
 							.on("mouseover", function(d) {
-								var parent = _.last(query(".eca-legend.cb-ratio").parents(".dijitTitlePane")).id
+								var parent = _.last(query(".eca-legend.cb-ratio").parents(".dijitContentPane")).id
 								var message = self._interface["measures"]["tooltips"]["cb-ratio"];
 								self.showMessageDialog(parent, message.label, message.value);
 							})
@@ -2071,22 +2271,21 @@ define([
 			}
 
 			this.createTooltips = function() {
-				query(".fa-info-circle.eca-" + this._map.id).style({
-					"color":"#5C8BAA",
+				query(".fa-question-circle.eca-" + this._map.id).style({
 					"margin-right": "1px",
 					"cursor":"pointer"
 				});
 				
-				on(query("i.fa-info-circle.eca-" + this._map.id), "mouseover", function() {
+				on(query("i.fa-question-circle.eca-" + this._map.id), "mouseover", function() {
 					var cssClass = _.last(domAttr.get(this, "class").split(" "));
 					var tab = _.first(cssClass.split("-"));
 					var control = _.last(cssClass.split("-"));
 					var message = self._interface[tab]['tooltips'][control];
-					var parent = _.last(query("." + cssClass).parents(".dijitTitlePane")).id;
+					var parent = _.last(query("." + cssClass).parents(".dijitContentPane")).id;
 					self.showMessageDialog(parent, message.label, message.value);
 				});
 				
-				on(query("i.fa-info-circle.eca-" + this._map.id), "mouseout", function() {
+				on(query("i.fa-question-circle.eca-" + this._map.id), "mouseout", function() {
 					self.hideMessageDialog();
 				});
 				
