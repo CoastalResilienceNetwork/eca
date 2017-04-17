@@ -251,8 +251,7 @@ define([
 						useMenu: false,
 						useSlider: false,
 				    }, "tc1-prog");
-				domClass.add(this.tc.domNode, "claro");
-				domClass.add(this.tc.domNode, "plugin-eca");
+				domClass.add(this.tc.domNode, "cr-dojo-dijits");
 				this.tc.startup();
 				this.tc.resize();
 
