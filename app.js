@@ -392,7 +392,7 @@ define([
 			
 			this.createExposureInputs = function(){
 				this.exposureInputsPane = new ContentPane({
-			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
+			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2; padding-top: 15px;'
 			    });
 				this.cpExposure.domNode.appendChild(this.exposureInputsPane.domNode);
 				
@@ -693,7 +693,7 @@ define([
 
 			this.createDamagesInputs = function(){
 				this.damageInputsPane = new ContentPane({
-			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
+			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2; padding-top: 15px;'
 			    });
 			    this.cpDamages.domNode.appendChild(this.damageInputsPane.domNode);
 				
@@ -1029,7 +1029,7 @@ define([
 			
 			this.createMeasuresInputs = function(){
 				this.measureInputsPane = new ContentPane({
-			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2;'
+			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2; padding-top: 15px;'
 			    });
 				this.cpMeasures.domNode.appendChild(this.measureInputsPane.domNode);
 
