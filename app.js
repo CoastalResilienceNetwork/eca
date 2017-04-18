@@ -1660,9 +1660,6 @@ define([
 					.attr("dy", function(d) { return ".75em" })
 					.attr("fill-opacity", function(d) { return (d.value != today) ? 1 : 0; })
 					.text(function(d) { return d.percent;});
-
-				/* this.damagesChartYaxisTitle = domConstruct.create("div", {innerHTML: "1e9(US$)", style:"width: 20px; font-size:10px; position: absolute; top: 10px; left:20px;"});
-				this.damagesChartPane.containerNode.appendChild(this.damagesChartYaxisTitle); */
 				
 				var returnPeriodSliderDiv = domConstruct.create("div", {
 					style: 'width: 400px; display: inline-block; margin-left:15px; margin-top:15px;'
@@ -1670,7 +1667,7 @@ define([
 				this.damagesChartPane.containerNode.appendChild(returnPeriodSliderDiv);
 				
 				var returnPeriodSliderLabel = domConstruct.create("div", {
-					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-protectionInfo'></i>&nbsp;<b>Storm Return Period (yr) :</b>", 
+					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " damages-protectionInfo'></i>&nbsp;<b>Storm Return Period (yr):</b>", 
 					style:"position:relative; width:175px; top:-7px; display:inline-block;"
 				});
 				returnPeriodSliderDiv.appendChild(returnPeriodSliderLabel);
@@ -1695,10 +1692,6 @@ define([
 			    	style: "margin-top: 5px;"
 			    });
 			    this.returnPeriodSlider.addChild(returnPeriodSliderLabels);
-				//query("#damagesChartPane-"  + this._map.id + " .dijitRuleLabel").style("fontSize", "12px");
-				
-				/* var spacerDiv = domConstruct.create("div", {style: 'height: 1px; position: relative;'});
-				this.damagesChartPane.containerNode.appendChild(spacerDiv); */
 				
 			}
 		
