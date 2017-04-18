@@ -406,7 +406,7 @@ define([
 					innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " exposure-typeInfo'></i>&nbsp;<b>Assets:</b>"});
 				exposureTypeDiv.appendChild(exposureTypeText);
 
-				var exposureDropdown = new DropDownMenu({ style: "display: none;"});
+				var exposureDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;"});
 				_.each(this._interface.exposure.controls.type.percent, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -461,7 +461,7 @@ define([
 				var elevationText = domConstruct.create("div", {style: 'width: 25%; display: none; margin-left:20px;', innerHTML: "<b>Elevation:</b>"});
 				elevationDiv.appendChild(elevationText);
 				
-				var elevationDropdown = new DropDownMenu({ style: "display: none;"});
+				var elevationDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;"});
 				_.each(this._interface.exposure.controls.elevation, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -519,7 +519,7 @@ define([
 				});
 				geographyDiv.appendChild(geographyText);
 				
-				var geographyDropdown = new DropDownMenu({ style: "display: none;"});
+				var geographyDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;"});
 				_.each(this._interface.exposure.controls.geography, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -693,7 +693,7 @@ define([
 
 			this.createDamagesInputs = function(){
 				this.damageInputsPane = new ContentPane({
-			    	style: 'overflow:visible; margin-bottom: 10px; width: 100%; background: #edf2f2; padding-top: 15px;'
+			    	style: 'overflow:visible; margin-bottom: 0px; width: 100%; background: #edf2f2; padding-top: 15px;'
 			    });
 			    this.cpDamages.domNode.appendChild(this.damageInputsPane.domNode);
 				
@@ -709,7 +709,7 @@ define([
 				damageTypeDiv.appendChild(damageTypeContainer);
 
 				//damage type dropdown
-				var typeDropdown = new DropDownMenu({ style: "display: none;"});
+				var typeDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;"});
 				_.each(this._interface.damages.controls.type, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -763,7 +763,7 @@ define([
 				growthDiv.appendChild(growthContainer);
 				
 				//growth scenario dropdown
-				var growthDropdown = new DropDownMenu({ style: "display: none;"});
+				var growthDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;"});
 				_.each(this._interface.damages.controls.growth, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -818,7 +818,7 @@ define([
 				});
 				defenseDiv.appendChild(defenseContainer);
 				
-				var defenseDropdown = new DropDownMenu({ style: "display: none;"});
+				var defenseDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;"});
 				_.each(this._interface.damages.controls.defense, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -879,7 +879,7 @@ define([
 				});
 				geographyDiv.appendChild(geographyContainer);
 
-				var geographyDropdown = new DropDownMenu({ style: "display: none;"});
+				var geographyDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;"});
 				_.each(this._interface.damages.controls.geography, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -1035,7 +1035,7 @@ define([
 
 				//measure type dropdown
 				var typeMeasuresDiv = domConstruct.create("div", {
-					style: 'width: 150px; display: inline-block; margin-left:50px; text-align:center;'
+					style: 'width: 170px; display: inline-block; margin-left:40px; text-align:center;'
 				});
 				this.measureInputsPane.containerNode.appendChild(typeMeasuresDiv);
 				
@@ -1046,7 +1046,7 @@ define([
 				});
 				typeMeasuresDiv.appendChild(measureTypeContainer);
 				
-				var typeMeasuresDropdown = new DropDownMenu({ style: "display: none;" });
+				var typeMeasuresDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;" });
 				_.each(this._interface.measures.controls.type, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -1067,7 +1067,7 @@ define([
 					label: _.first(this._interface.measures.controls.type).name,
 					value: _.first(this._interface.measures.controls.type).value,
 					name: "type",
-					style: "width: 125px;",
+					style: "width: 165px;",
 					dropDown: typeMeasuresDropdown
 				});
 				on(this.comboButtonTypeMeasures.domNode, "click", function(evt) {
@@ -1105,7 +1105,7 @@ define([
 				});
 				growthDiv.appendChild(growthContainer);
 				
-				var growthDropdown = new DropDownMenu({ style: "display: none;" });
+				var growthDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;" });
 				_.each(this._interface.measures.controls.growth, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -1157,7 +1157,7 @@ define([
 				var defenseContainer = domConstruct.create("div", {style: 'text-align:center;', innerHTML: "<i class='fa fa-question-circle eca-" + this._map.id + " measures-defenseInfo'></i>&nbsp;<b>Defense:</b>"});
 				defenseDiv.appendChild(defenseContainer);
 				
-				var defenseDropdown = new DropDownMenu({ style: "display: none;"});
+				var defenseDropdown = new DropDownMenu({ class:"cr-dojo-dijits", style: "display: none;"});
 				_.each(this._interface.measures.controls.defense, function(value, key){
 					var menuItem = new MenuItem({
 						label: value.name,
@@ -1471,11 +1471,14 @@ define([
 			    });
 
 				this.cpDamages.domNode.appendChild(this.damagesChartPane.domNode);
-				domStyle.set(this.damagesChartPane.containerNode, {"position": "relative","padding-bottom": "20px", "padding-top": "20px"});
+				domStyle.set(this.damagesChartPane.containerNode, { "position": "relative","padding-bottom": "20px" });
 				this.damagesChartNode = domConstruct.create("div", { "style": "height:" + (height + 40) + "px;", "class": "damagesChartNode-" + this._map.id });
 				this.damagesChartPane.containerNode.appendChild(this.damagesChartNode);
 				
-				this.damagesChartNote = domConstruct.create("div", { style: "position:absolute; text-align:center; font-size:12px; width:100%; top:5px; left:0px; color: #666666;", innerHTML: "hover over any chart element for more Results" });
+				this.damagesChartNote = domConstruct.create("div", { 
+					style: "position:absolute; text-align:center; font-size:12px; width:100%; top:15px; left:0px; color: #666666;", 
+					innerHTML: "hover over any chart element for more Results"
+				});
 				this.damagesChartNode.appendChild(this.damagesChartNote);
 				
 				var maxY = 0;
