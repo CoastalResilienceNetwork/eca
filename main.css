@@ -1,3 +1,7 @@
+.plugin-eca {
+color:#000000;
+}
+	
 .fi-info {
   font-size: 20px;
   position: relative;
@@ -70,7 +74,6 @@ shape-rendering: crispEdges;
   fill: #412A22;
   stroke: #bbbbbb;
 }
-
 
 .categories rect {
 stroke: #bbbbbb;
@@ -207,10 +210,11 @@ margin-left: -6px;
     width: 300px;
     max-height: 400px;
     background: #fff;
-    border: 5px solid #444;
+    border: 2px solid #CCD5D5;
     border-radius: 5px;
     padding: 10px 10px 0 10px;
     overflow: auto;
+	line-height:14px;
 }
 
 .pluginEca-info-box .close {
@@ -221,7 +225,7 @@ margin-left: -6px;
     padding: 6px;
     background: #FFF;
     border-radius: 4px;
-    color: #CCC;
+    color: #CCD5D5;
     font-weight: 700;
     height: 24px;
     line-height: 10px;
@@ -249,4 +253,25 @@ position: relative !important;
 }
 .plugin-eca .dijitRuleLabel, .plugin-eca  .dijitReset  {
 font-size: 13px !important;
+}
+
+.overviewHeader {
+font-size: 16px;
+}
+.eca-overview {
+line-height: 1 !important;
+}
+.eca-overview ul {
+list-style-type: circle;
+line-height: 1 !important;
+padding-left: 25px;
+margin-top: 20px;
+}
+.eca-overview .a li {
+list-style-type: disc;
+margin-bottom: 10px;
+}
+.eca-overview .b li {
+list-style-type: lower-roman;
+margin-bottom: 10px;
 }

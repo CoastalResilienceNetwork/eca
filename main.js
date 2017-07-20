@@ -42,13 +42,14 @@ define([
            return declare(PluginBase, {
                toolbarName: "Economics of Coastal Adaptation",
                toolbarType: "sidebar",
+               hasHelp: false,
                resizable: false,
                showServiceLayersInLegend: true,
                allowIdentifyWhenActive: true,
                infoGraphic: "",
                pluginDirectory: "plugins/eca",
+			   size:"custom",
                width: 450,
-               height: 630,
 			   _state: {},
 
                activate: function () {
@@ -104,6 +105,7 @@ define([
                         parseOnLoad: true
                    };
                    domClass.add(this.container, "claro");
+				   domClass.add(this.container, "plugin-eca");
 					this.ecaTool = new eca(this, appData, ecaConfig, templates);
 					this.ecaTool.initialize(this.ecaTool);
 					t = this.ecaTool;
